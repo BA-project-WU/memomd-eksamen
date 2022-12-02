@@ -10,6 +10,9 @@ export default defineNuxtConfig({
           },
         },
       },
+      modules: [
+        '@kevinmarrec/nuxt-pwa'
+      ]
 })
 
 // css: [
