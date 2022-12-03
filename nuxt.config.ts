@@ -12,21 +12,25 @@ export default defineNuxtConfig({
       },
       modules: [
         '@kevinmarrec/nuxt-pwa'
-      ]
+      ],
+      pwa: {
+        workbox: {
+          enabled: true
+        },
+        meta: {
+          name: "MemoMD",
+        },
+        manifest: {
+          name: 'MemoMD App especiel lavede til medicinstuderende',
+          short_name: 'MemoMD App',
+          lang: 'da',
+          display: 'standalone',
+          id: '/?source=pwa',
+          start_url: '/?source=pwa',
+          background_color: '#3367D6',
+          scope: '/',
+          theme_color: '#3367D6',
+          description: 'MemoMD App - For at effektivisere medicinstuderendes læring til medicin',
+      }    
+    }
 })
-
-// css: [
-//     '~assets/style/css/main.css'
-//   ]
-
-// // adding modules to use at build time
-// buildModules: [
-//     '@nuxtjs/style-resources'
-// ]
-// //telling Nuxt where are our scss and css files are located and 
-// //all scss variables and mixins are now globally available to our components, no need to import them
-// styleResources: {
-//     scss: [
-//       '~/assets/style/scss/variables.scss',
-//     ]
-//   }
