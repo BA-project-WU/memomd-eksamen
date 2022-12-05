@@ -20,9 +20,9 @@
 </script>
 
 <style lang="scss" scoped>
-h1{
-    background-color: $primary;
-    color: $white;
-    padding: 100px;
-}
+// h1{
+//     background-color: $primary;
+//     color: $white;
+//     padding: 100px;
+// }
 </style>
