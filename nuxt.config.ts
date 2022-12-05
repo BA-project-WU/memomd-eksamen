@@ -4,7 +4,7 @@ import { Base } from './.nuxt/components.d';
 export default ({
     target: 'static',
     router: {
-      baseURL:'/ba-project-wu.github.io/memomd/',
+      baseURL:'https://ba-project-wu.github.io/contact/memomd/',
     },
     vite: {
         css: {
