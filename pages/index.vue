@@ -1,10 +1,12 @@
 <template>
     <div>
-        <h1>This is the default Homepage of the site</h1>
+        <TheHeader></TheHeader>
     </div>
     <div>
         <ButtonTest/>
     </div>
+    <div>
+    <TheFooter></TheFooter></div>
 </template>
 
 <script setup>
