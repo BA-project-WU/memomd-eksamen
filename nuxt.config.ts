@@ -1,6 +1,11 @@
+import { Base } from './.nuxt/components.d';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-export default defineNuxtConfig({
+export default ({
+    target: 'static',
+    router: {
+      base:'/memomd/',
+    },
     vite: {
         css: {
           preprocessorOptions: {
@@ -34,3 +39,4 @@ export default defineNuxtConfig({
       }    
     }
 })
+
