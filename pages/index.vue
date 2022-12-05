@@ -1,6 +1,7 @@
 <template>
     <div>
         <TheHeader></TheHeader>
+        <h2>this is a test</h2>
     </div>
     <div>
         <ButtonTest/>
