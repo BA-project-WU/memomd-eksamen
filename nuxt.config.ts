@@ -1,10 +1,9 @@
-import { Base } from './.nuxt/components.d';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default ({
     target: 'static',
-    router: {
-      baseURL:'https://ba-project-wu.github.io/contact/memomd/',
+    app: {
+      baseURL:'/ba-project-wu.github.io/memomd/contact/',
     },
     vite: {
         css: {
