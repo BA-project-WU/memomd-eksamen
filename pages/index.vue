@@ -4,6 +4,10 @@
         <NuxtLink to="/about">About page</NuxtLink>
         <NuxtLink to="/contact">Contact page</NuxtLink>
     </div>
+    <div>
+        <TheHeader></TheHeader>
+        <TheNavigation></TheNavigation>
+    </div>
 </template>
 
 <script setup>

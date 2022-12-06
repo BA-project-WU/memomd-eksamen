@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>This is Footer</h1>
+        <h1>This is Navigation bar</h1>
         <!-- <NuxtLink to="/">Home page</NuxtLink>
         <NuxtLink to="/about">About page</NuxtLink>
         <NuxtLink to="/contact">Contact page</NuxtLink> -->
