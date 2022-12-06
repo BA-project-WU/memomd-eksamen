@@ -4,7 +4,10 @@
     --bg-color: #D9D9D9;
     --bg2-color: #E8CBCB;
     --cta-bg-color: #8dd9de;
+    --router-active-color: #0e3f41;
     --progressbar: #8dd9de;
     --heading-color: #0e3f41;
     --text-color: #1221227d;
+    --bold-text: 700;
+    --fonts: 'Times New Roman', Times, serif;
   }

@@ -12,12 +12,5 @@
 </script>
 
 <style scoped>
-h1 {
-  background-color: var(--bg-color);
-  color: var(--heading-color);
-  padding: 100px;
-}
-p{
-  color: var(--text-color),
-}
+
 </style>
