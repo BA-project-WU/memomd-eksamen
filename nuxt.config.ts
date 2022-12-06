@@ -2,19 +2,6 @@ import { Base } from './.nuxt/components.d';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default ({
-    target: 'static',
-    router: {
-      base:'/memomd/',
-    },
-    vite: {
-        css: {
-          preprocessorOptions: {
-            scss: {
-              additionalData: '@import "@/assets/style/scss/globalvariables.scss";',
-            },
-          },
-        },
-      },
       modules: [
         '@kevinmarrec/nuxt-pwa'
       ],
