@@ -1,11 +1,10 @@
 <template>
     <div>
-<h1>Hello Kontakt</h1>
-<p>test contact</p>
+        <h1>Custom Layout</h1>
     </div>
 </template>
 
-<script>
+<script setup>
 
 </script>
 

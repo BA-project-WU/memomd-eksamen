@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>This is Overview Page </h1>
+      <h1>Some default layout shared across all pages</h1>       
+      <slot />
     </div>
 </template>
 
