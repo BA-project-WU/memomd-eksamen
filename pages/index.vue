@@ -25,41 +25,42 @@ definePageMeta({
 
 <style scoped>
 .startpage {
-  position: fixed;
-  width: 100%;
-  min-width: 280px;
+  max-width: 480px;
+  margin: 0 auto;
 }
 .startsection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
-  position: relative;
   margin: auto;
-  top: 100px;
-  right: 0;
-  width: 480px;
+  min-width: 280px;
 }
 .section1 {
   text-align: center;
-  width: 480px;
+  min-width: 280px;
 }
 .logo{
-  background-color: var(--primary-color); 
+  background: rgb(143,233,227);
+  background: radial-gradient(circle, rgba(143,233,227,1) 0%, rgba(78,210,202,1) 50%, rgba(84,205,132,1) 100%);
   padding: 100px 100px;
+  margin-top: -18px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .section2 {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-self: center;
 }
 button{
   background-color: var(--primary-color);
   border: none;
-  padding: 10px;
-  margin: 40px 0px 0px 64px; 
-  width: 350px;
+  padding: 20px;
+  margin: 40px 0px 0px 12px; 
+  width: 200px;
+  border-radius: 25px;
 }
 a{
   text-decoration: none;

@@ -26,7 +26,8 @@
 html, body{
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-width: 280px;
+  margin: 0 auto;
 }
 header{
   margin-top: 100px;
