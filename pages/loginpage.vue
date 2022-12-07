@@ -1,9 +1,9 @@
 <template>
-  <div class="loginpage">
+  <div class="login-page">
     <button class="email">Email</button>
     <button class="adgangskode">Adgangskode</button>
     <button>Log ind</button>
-    <div class="rememberme">
+    <div class="remember-me">
       <!-- <button class="btn-rememberme">Husk Mig</button>
       <p>Jeg har glemt min adgangskode</p> -->
       <input type="checkbox" id="checkbox" v-model="checked" value="Husk Mig"/>
@@ -19,7 +19,7 @@ const checked = ref(true)
 </script>
 
 <style scoped>
-.loginpage{
+.login-page{
   flex: 1 0 auto;
   padding: 2rem;
   width: 350px;
@@ -39,7 +39,7 @@ button{
   width: 350px;
   margin: 10px;
 }
-.rememberme{
+.remember-me{
   text-align: left;
 }
 </style>
