@@ -9,8 +9,8 @@
         />
       </section>
       <section class="section2">
-        <button>Login</button>
-        <button>Opret Bruger</button>
+        <button><NuxtLink to="/loginpage">Log ind</NuxtLink></button>
+        <button><NuxtLink to="createuserpage">Opret Bruger</NuxtLink></button>
       </section>
     </section>
   </div>
@@ -60,5 +60,10 @@ button{
   padding: 10px;
   margin: 40px 0px 0px 64px; 
   width: 350px;
+}
+a{
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: var(--bold-text);
 }
 </style>
