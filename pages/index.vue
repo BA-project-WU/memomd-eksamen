@@ -40,9 +40,8 @@ definePageMeta({
   min-width: 280px;
 }
 .logo{
-  background: rgb(143,233,227);
-  background: radial-gradient(circle, rgba(143,233,227,1) 0%, rgba(78,210,202,1) 50%, rgba(84,205,132,1) 100%);
-  padding: 100px 100px;
+  background: rgb(168,228,192);
+  background: radial-gradient(circle, rgba(168,228,192,1) 35%, rgba(78,210,202,1) 100%);padding: 100px 100px;
   margin-top: -18px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -61,6 +60,7 @@ button{
   margin: 40px 0px 0px 12px; 
   width: 200px;
   border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 a{
   text-decoration: none;
