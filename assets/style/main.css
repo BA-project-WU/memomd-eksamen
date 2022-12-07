@@ -4,10 +4,13 @@
     --bg-color: #D9D9D9;
     --bg2-color: #E8CBCB;
     --cta-bg-color: #8dd9de;
-    --router-active-color: #0e3f41;
+    --router-active-color: #EA8C8C;
     --progressbar: #8dd9de;
-    --heading-color: #0e3f41;
-    --text-color: #1221227d;
+    --heading-color: #373737;
+    --text-color: #373737;
     --bold-text: 700;
     --fonts: 'Times New Roman', Times, serif;
+    --success-color: #54CD84;
+    --failed-color: #EA8C8C;
+    --circle-color: #758E8F;
   }
