@@ -37,6 +37,7 @@ h1 {
   font-weight: var(--bold-text);
   font-family: var(--fonts);
   text-align: center;
+  font-size: var(--font-heading-size);
 }
 footer{
   text-align: center;

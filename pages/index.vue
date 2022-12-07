@@ -56,6 +56,7 @@ definePageMeta({
 button{
   background-color: var(--primary-color);
   border: none;
+  font-size: var(--font-text-size);
   padding: 20px;
   margin: 40px 0px 0px 12px; 
   width: 200px;

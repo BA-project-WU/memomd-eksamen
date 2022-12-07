@@ -10,8 +10,11 @@
     </div>
     <div class="remember-me">
       <input type="checkbox" id="checkbox" v-model="checked" value="Husk Mig" />
-      <label for="checkbox" value="Husk Mig">{{ checked }}</label>
+      <label for="checkbox">{{ checked }}</label>
     </div>
+    <div>
+      <p class="forgot-password" @click="alert">Jeg har <span style="color:#8dd9de;">glemt</span> min adgangskode</p>
+  </div>
   </div>
 </template>
 
@@ -22,6 +25,7 @@ definePageMeta({
 });
 
 const checked = ref(true);
+
 </script>
 
 <style scoped>
@@ -65,13 +69,18 @@ const checked = ref(true);
 }
 button {
   background-color: var(--cta-bg-color);
-  border: none;
+  border: none; 
+  margin: 10px;
   padding: 10px;
   width: 280px;
-  margin: 10px;
+  font-size: var(--font-text-size);
 }
 .remember-me {
-  text-align: left;
   margin-left: 28px;
+  text-align: left;
+}
+.forgot-password{
+  text-align: center;
+  font-size: var(--font-text-size);
 }
 </style>
