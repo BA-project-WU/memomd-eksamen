@@ -14,11 +14,4 @@
   --failed-color: #ea8c8c;
   --circle-color: #758e8f;
 }
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-html, body{
-  height: 100%;
-}
+
