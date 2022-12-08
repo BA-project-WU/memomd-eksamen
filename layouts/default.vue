@@ -1,15 +1,25 @@
 <template>
   <div>
     <header>
-      <h1>Heading</h1>
+      <h1>Dynamically Change Heading</h1>
     </header>
     <!--underneath is the page content-->
     <div>
       <slot/>
     </div>
     <footer>
-      <button>Cancel</button>
+      <button>Save</button>
     </footer>
+    <div class="back">
+      <NuxtLink to="/account">
+      <img 
+        class="back-icon" 
+        src="~/assets/images/back-icon.png" 
+        alt="this is back icon" 
+        />
+        <p>Tilbage</p>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -47,9 +57,10 @@ footer{
 button{
   background-color: var(--cta-bg-color);
   border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   width: 300px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: var(--bold-text);
 }
 
 
