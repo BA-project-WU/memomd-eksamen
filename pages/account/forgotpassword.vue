@@ -22,11 +22,5 @@
 </script>
 
 <style scoped>
-.reset-password{
-    margin: 0 auto;
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 </style>
