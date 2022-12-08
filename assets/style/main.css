@@ -18,7 +18,7 @@
   --darker-color: #4ED2CA;
 }
 
-/*Login page style*/
+/*Accounts style*/
 .login-page {
   display: flex;
   flex-direction: column;
@@ -84,4 +84,11 @@ form{
   font-size: var(--font-text-size);
   text-decoration: none;
   color: var(--heading-color);
+}
+.reset-password{
+  margin: 0 auto;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -8,7 +8,7 @@
       <slot/>
     </div>
     <footer>
-      <button>Save</button>
+      <button>dynamically changing btn</button>
     </footer>
     <div class="back">
       <NuxtLink to="/account">

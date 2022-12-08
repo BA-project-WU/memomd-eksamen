@@ -2,7 +2,7 @@
     <div>
       <header>
         <nav>
-          <NuxtLink to="/">Back to Home</NuxtLink>
+          <NuxtLink to="/">Flashcards Layout in Use</NuxtLink>
         </nav>
       </header>
       <!--this is the page content-->
