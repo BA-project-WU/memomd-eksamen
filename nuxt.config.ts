@@ -17,10 +17,10 @@ export default defineNuxtConfig({
   css: [
     '@/assets/style/main.css',
   ],
-  imports: {
-    //nuxt auto-import anything from this directory by default.
-    dirs: ['stores'],
-  },
+  // imports: {
+  //   //nuxt auto-import anything from this directory by default.
+  //   dirs: ['stores'],
+  // },
   modules: [
     // pwa
     '@kevinmarrec/nuxt-pwa', 
