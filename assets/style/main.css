@@ -15,5 +15,73 @@
   --circle-color: #758e8f;
   --font-heading-size: 25px;
   --font-text-size: 18px;
+  --darker-color: #4ED2CA;
 }
 
+/*Login page style*/
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  min-width: 280px;
+}
+.section1 {
+  min-width: 280px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.logo {
+  background: rgb(168, 228, 192);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
+  padding: 100px 100px;
+  margin-top: -18px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+.email, .password {
+  background-color: var(--secondary-color);
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  width: 280px;
+  outline: 0;
+  text-align: center;
+}
+.btn-login{
+  width: 290px;
+}
+.btn-login {
+  background-color: var(--cta-bg-color);
+  border: none; 
+  margin: 10px;
+  padding: 10px;
+  font-size: var(--font-text-size);
+  min-width: 300px;
+}
+.remember-me {
+  margin: 0 auto;
+  min-width: 308px;
+  text-align: left;
+}
+.forgot-password{
+  text-align: center;
+  font-size: var(--font-text-size);
+  text-decoration: none;
+  color: var(--heading-color);
+}

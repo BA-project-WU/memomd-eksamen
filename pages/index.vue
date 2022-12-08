@@ -1,5 +1,5 @@
 <template>
-  <div class="startpage">
+  <main class="startpage">
     <section class="startsection">
       <section class="section1">
         <img 
@@ -9,11 +9,11 @@
         />
       </section>
       <section class="section2">
-        <button><NuxtLink to="/loginpage">Log ind</NuxtLink></button>
+        <button><NuxtLink to="/account">Log ind</NuxtLink></button>
         <button><NuxtLink to="createuserpage">Opret Bruger</NuxtLink></button>
       </section>
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup>
