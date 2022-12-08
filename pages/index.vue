@@ -17,6 +17,8 @@
 </template>
 
 <script setup>
+// const countStore = useCountStore();
+
 //This will work in both `<script setup>` and `<script>`
 definePageMeta({
   layout: "false",

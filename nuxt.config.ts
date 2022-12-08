@@ -17,7 +17,16 @@ export default defineNuxtConfig({
   css: [
     '@/assets/style/main.css',
   ],
-  modules: ['@kevinmarrec/nuxt-pwa'],
+  imports: {
+    //nuxt auto-import anything from this directory by default.
+    dirs: ['stores'],
+  },
+  modules: [
+    // pwa
+    '@kevinmarrec/nuxt-pwa', 
+    // global state management
+    '@pinia/nuxt',
+  ],
   pwa: {
     workbox: {
       enabled: true,
