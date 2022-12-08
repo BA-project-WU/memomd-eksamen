@@ -17,7 +17,6 @@
         src="~/assets/images/back-icon.png" 
         alt="this is back icon" 
         />
-        <p>Tilbage</p>
       </NuxtLink>
     </div>
   </div>
@@ -53,15 +52,21 @@ h1 {
 footer{
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 button{
   background-color: var(--cta-bg-color);
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: var(--bold-text);
   padding: 10px;
   width: 300px;
-  font-weight: var(--bold-text);
+  
 }
+.back{
+  margin: 0 auto;
 
+  width: 300px;
+}
 
 </style>

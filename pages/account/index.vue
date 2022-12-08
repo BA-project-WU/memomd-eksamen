@@ -17,10 +17,11 @@
             v-model="password"
             class="password"
           />
+          <NuxtLink to="/flashcards/">
           <button type="submit" class="btn-login">
             <!-- <span v-if="isSignUp"> Sign up </span>  -->
             Log in
-          </button> 
+          </button> </NuxtLink>
           <!-- <div class="save-btn">
               <button @click="showModal = true">Save</button>
           </div> -->
@@ -45,8 +46,6 @@ import { ref, onMounted } from 'vue'
   definePageMeta({
     layout: 'false',
   });
-  
-  const showModal = ref(false)
   
   const email = ref('')
   const password = ref('')
