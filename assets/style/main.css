@@ -19,7 +19,7 @@
 }
 
 /*Accounts style*/
-.login-page {
+.login-page, .flashcards-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
