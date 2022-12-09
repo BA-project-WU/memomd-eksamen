@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>Dynamically Change Heading</h1>
+      <h1>{{title}} working on it</h1>
     </header>
     <!--underneath is the page content-->
     <div>
@@ -23,7 +23,12 @@
 </template>
 
 <script setup>
-
+const props = defineProps({
+  title: String,
+  subHeading: String,
+  text: String,
+})
+//https://www.google.com/search?q=how+to+use+props+in+nuxt3&sxsrf=ALiCzsbBZ3kfyzJ-o5jE72alpE332xgMGw%3A1670619329702&ei=waCTY-XHKoKNrwSJ8q-4Dw&ved=0ahUKEwilrM79te37AhWCxosKHQn5C_cQ4dUDCA8&uact=5&oq=how+to+use+props+in+nuxt3&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIHCCEQoAEQCjoKCAAQRxDWBBCwAzoECCMQJzoFCAAQgAQ6CggAEIAEEIcCEBQ6CAgAEBYQHhAPOgYIABAWEB46BQgAEIYDOggIABAWEB4QCkoECEEYAEoECEYYAFDlBVj9EmCrFWgBcAF4AIABeogBjwSSAQM1LjGYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#fpstate=ive&vld=cid:3231eea6,vid:Sm9JFI5Z6RU
 </script>
 
 <style scoped>

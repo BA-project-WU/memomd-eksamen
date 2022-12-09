@@ -37,23 +37,10 @@
           Jeg har <span style="color: #4ED2CA">glemt</span> min adgangskode
         </NuxtLink>
       </div>
-      <div>
-      {{ userTest.value }}
-
-      Counter: {{ counter }}
-    <button @click="counter++">
-      +
-    </button>
-    <button @click="counter--">
-      -
-    </button>
-      </div>
     </div>
   </template>
 
 <script setup>
-import { userTest } from "~/stores/user";
-
   definePageMeta({
     layout: 'false',
   });
@@ -61,10 +48,6 @@ import { userTest } from "~/stores/user";
   const email = ref('')
   const password = ref('')
   const checked = ref(false);
-  const usertest = userTest();
-  console.log(userTest);
-
-  const counter = useState('counter', () => Math.round(Math.random() * 1000))
 
   </script>
   
