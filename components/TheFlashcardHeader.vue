@@ -1,7 +1,7 @@
 <template>
-  <nav>
+  <nav class="heading-overview">
     <header>
-    <h1 :data-text="text">{{ flashcardHeading }}</h1>
+      <h1 :data-text="text">{{ flashcardHeading }}</h1>
     </header>
   </nav>
 </template>
@@ -14,4 +14,8 @@ const props = defineProps({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+header {
+  margin-bottom: 10px;
+}
+</style>

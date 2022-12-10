@@ -1,15 +1,15 @@
 <template>
   <div>
-    <header>
-      <TheFlashcardHeader class="heading-overview" flashcard-heading="This is Flashcard Header"></TheFlashcardHeader>
-    </header>
+    <TheFlashcardHeader
+      flashcard-heading="This is Flashcard Header"
+    ></TheFlashcardHeader>
     <!--this is the page content-->
     <div>
       <slot />
     </div>
-  <div>
-    <button>Start</button>
-  </div>
+    <div>
+      <button>Start</button>
+    </div>
     <footer>
       <ul class="footer-list">
         <li><NuxtLink to="/settingspage">Settings</NuxtLink></li>
@@ -22,22 +22,7 @@
 <script setup></script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  min-width: 280px;
-  margin: 0 auto;
-}
-header {
-  margin-bottom: 10px;
-}
-.heading-overview{
+.heading-overview {
   background: rgb(168, 228, 192);
   background: radial-gradient(
     circle,
@@ -48,39 +33,39 @@ header {
   border-bottom-right-radius: 25px;
   margin-top: -18px;
   padding: 50px 50px;
-  text-align: center; 
+  text-align: center;
 }
-footer{
+footer {
   background: rgb(168, 228, 192);
   background: radial-gradient(
     circle,
     rgba(168, 228, 192, 1) 35%,
     rgba(78, 210, 202, 1) 100%
   );
-  bottom:0;   /* Height of the footer */
+  bottom: 0; /* Height of the footer */
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   display: flex;
   flex-direction: column;
-  height:60px;
-  position:absolute;
+  height: 60px;
+  position: absolute;
   margin: 0 auto;
   min-width: 280px;
-  width:100%;
+  width: 100%;
 }
-.footer-list{
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- text-decoration: none;
- list-style-type: none;
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  list-style-type: none;
 }
-li{
+li {
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
-a{
+a {
   color: var(--text-color);
   text-decoration: none;
   line-height: 50px;

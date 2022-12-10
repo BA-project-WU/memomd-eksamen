@@ -18,30 +18,38 @@
   --darker-color: #4ED2CA;
 }
 
+/*General styling*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 /*Accounts style*/
 .login-page, .flashcards-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  min-width: 280px;
+  width: 100%;
 }
 .section1 {
-  min-width: 280px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.logo {
   background: rgb(168, 228, 192);
   background: radial-gradient(
     circle,
     rgba(168, 228, 192, 1) 35%,
     rgba(78, 210, 202, 1) 100%
   );
-  padding: 100px 100px;
-  margin-top: -18px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  max-width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.logo {
+  padding: 100px 100px;
+  margin-top: -18px;
+  min-width: 280px;
 }
 .login-form{
   display: flex;
