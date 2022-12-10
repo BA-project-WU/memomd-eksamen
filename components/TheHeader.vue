@@ -1,16 +1,15 @@
 <template>
-    <div>
+    <nav>
     <header>
-      <h1 :data-text="text">{{ heading1 }}</h1>
+      <h1 :data-text="text">{{ heading }}</h1>
     </header>     
-    </div>
+    </nav>
 </template>
 
-<script>
+<script setup>
 import { defineProps } from 'vue'
 const props = defineProps({
-  heading1: String,
-  subHeading: String,
+  heading: String,
   text: String,
 })
 </script>

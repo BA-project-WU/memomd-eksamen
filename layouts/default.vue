@@ -1,7 +1,7 @@
 <template>
   <div>
-      <TheHeader text="this is text" 
-      heading1="Heading Test" />
+    <TheHeader  class="heading"
+    heading="Heading er nu dynamic"></TheHeader>
     <!--underneath is the page content-->
     <div>
       <slot/>
@@ -27,7 +27,10 @@
 </script>
 
 <style scoped>
-
+.heading{
+  color: var(--text-color);
+  color: black;
+}
 footer{
   text-align: center;
   margin-top: 10px;

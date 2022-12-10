@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1 class="heading-overview">Dynamically Change Heading</h1>
+      <TheFlashcardHeader class="heading-overview" flashcard-heading="This is Flashcard Header"></TheFlashcardHeader>
     </header>
     <!--this is the page content-->
     <div>
