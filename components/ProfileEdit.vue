@@ -20,7 +20,7 @@ h3{
   padding: 10px 0px 0px 20px;
 }
 button{
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border: none;
   margin-top: 15px;
   margin-bottom: 15px;

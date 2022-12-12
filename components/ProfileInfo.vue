@@ -16,15 +16,23 @@
 
 <style scoped>
 .profile-info{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  align-items: center;
 }
-
+.profile-image{
+  margin-top: -95px;
+}
 img{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+h3{
+  text-align: center;
+  margin-bottom: 10px;
 }
 </style>
