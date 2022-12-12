@@ -61,15 +61,13 @@ form{
   justify-content: center;
   align-self: center;
 }
-.btn-login{
-  width: 290px;
-}
 .btn-login {
   background-color: var(--cta-bg-color);
   border: none; 
-  margin: 10px;
-  padding: 10px;
-  font-size: var(--font-text-size);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  font-weight: var(--bold-text);
   min-width: 300px;
 }
 .remember-me {
