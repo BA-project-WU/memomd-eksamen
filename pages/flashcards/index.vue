@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1>Overview of the Flashcards game</h1>
-    <NuxtLink to="/flashcards/questionpage">Question</NuxtLink>
+    <NuxtLayout>
+        <h1>Overview of the Flashcards game</h1>
+        <NuxtLink to="/flashcards/questionpage">Question</NuxtLink>
+    </NuxtLayout>
   </div>
 </template>
 
@@ -24,6 +26,4 @@ useHead({
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
