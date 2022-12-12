@@ -55,4 +55,15 @@ body, html{
   max-width: 100%;
   margin-top: 10px;
 }
+.email, .password {
+  background-color: var(--secondary-color);
+  border: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  outline: 0;
+  text-align: center;
+}
+
+
 </style>

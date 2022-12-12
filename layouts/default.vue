@@ -43,7 +43,6 @@ button{
   font-weight: var(--bold-text);
   padding: 10px;
   width: 300px;
-  
 }
 .back{
   margin: 0 auto;
