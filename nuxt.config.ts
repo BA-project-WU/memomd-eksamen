@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     // pwa
     '@kevinmarrec/nuxt-pwa', 
     // global state management
-    '@pinia/nuxt',
+    '@pinia/nuxt'
   ],
   pwa: {
     workbox: {
@@ -47,5 +47,9 @@ export default defineNuxtConfig({
       description:
         'MemoMD App - For at effektivisere medicinstuderendes læring til medicin',
     },
+  },
+   runtimeConfig: {
+     umbracoApiKey: process.env.UMBRACO__APIKEY,
+     umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS
   },
 });

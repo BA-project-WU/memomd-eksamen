@@ -23,6 +23,8 @@
 definePageMeta({
   layout: "false",
 });
+
+const runtimeConfig = useRuntimeConfig()
 </script>
 
 <style scoped>
