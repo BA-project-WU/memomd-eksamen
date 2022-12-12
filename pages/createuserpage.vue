@@ -9,6 +9,14 @@
             <input type="text" name="email-input" placeholder="E-mail" v-model="email" />
             <input type="password" name="password-input" placeholder="Adgangskode" v-model="password" />
             <input type="password" name="passwordrepeat-input" placeholder="Gentag adgangskode" />
+            <!-- <input type="file" name="file-input"/> -->
+            <select name="education-institutions" id="education-institutions" v-model="memberEducationInstitution">
+                <option value="Aalborg Universitet">Aalborg Universitet</option>
+                <option value="Aarhus Universitet">Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus</option>
+                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
+                <option value="Syddansk Universitet, Odense" selected>Syddansk Universitet, Odense</option>
+            </select>
             <input type="submit" value="Opret" v-on:click="createMember()" />
         </form>
         <button onclick="history.back()">Annuler</button>
@@ -20,45 +28,46 @@ import axios from "axios";
 export default {
     data() {
         return {
+            name: "",
+            username: "",
             email: "",
             password: "",
+            // image: "",
+            memberEducationInstitution: "",
         };
     },
     methods: {
         async createMember() {
-            axios
-                .post(
-                    'https://api.umbraco.io/member',
-                    {
-                        "email": this.email,
-                        "isApproved": true,
-                        "isLockedOut": false,
-                        "memberTypeAlias": "Member",
-                        "username": this.username,
-                        "name": this.name,
-                        // "comments": "",
-                        // "email": this.email,
-                        // "isApproved": true,
-                        // "isLockedOut": false,
-                        // "memberTypeAlias": "Member",
-                        // "username": this.email,
-                        // "name": this.email
+            axios.post('https://api.umbraco.io/member', {
+                "email": this.email,
+                "isApproved": true,
+                "isLockedOut": false,
+                "memberTypeAlias": "Member",
+                "username": this.username,
+                "name": this.name,
+                // "memberPicture": this.image,
+                "memberEducationInstitution": [this.memberEducationInstitution]
+            },
+                {
+                    headers: {
+                        "umb-project-alias": "nicole-ba-test",
+                        "api-key": "3wvrfahXVBS0vPH3YqBv",
                     },
-                    {
-                        headers: {
-                            "umb-project-alias": "nicole-ba-test",
-                            "api-key": "3wvrfahXVBS0vPH3YqBv"
-                            // "umb-project-alias": "nicole-ba-test",
-                            // "api-key": "3wvrfahXVBS0vPH3YqBv"
-                        },
-                    }
-                )
-                .then((response) => {
-                    console.log(response)
+                }
+            ),
+                axios.get('https://api.umbraco.io/member/{{this.username}}', {
+                    "email": this.email,
+                    "isApproved": true,
+                    "isLockedOut": false,
+                    "memberTypeAlias": "Member",
+                    "username": this.username,
+                    "name": this.name,
+                    // "memberPicture": this.image,
+                    "memberEducationInstitution": [this.memberEducationInstitution]
                 })
         },
     },
-};
+}
 </script>
 
 <style scoped>
