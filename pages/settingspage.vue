@@ -22,11 +22,14 @@
       </div>
       <footer>
       <div class="start-the-game">
-        <button>Start</button>
+        <button>
+          <font-awesome-icon icon="fa-solid fa-home" />
+        </button>
+
       </div>
       <ul class="footer-list">
-        <li><NuxtLink to="/settingspage">Settings</NuxtLink></li>
-        <li><NuxtLink to="/profilepage">Profile</NuxtLink></li>
+        <li><NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink></li>
+        <li><NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink></li>
       </ul>
     </footer>
   </div>
@@ -36,6 +39,7 @@
 definePageMeta({
   layout: "false",
 });
+//https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3
 </script>
 
 <style scoped>
@@ -60,14 +64,14 @@ body {
 }
 .settings-box {
   background: var(--secondary-color);
-  height: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
-  width: 89%;
-  top: 140px;
-  left: 20px;
+  top: 150px;
+  min-width: -webkit-fill-available;
+
 }
 .lyd {
   display: flex;
@@ -77,6 +81,18 @@ body {
 .policy-and-report{
   display: flex;
   justify-content: space-evenly;
+}
+.policy{
+  color: var(--darker-color);
+  font-weight: var(--bold-text);
+  font-family: var(-fonts);
+  font-size: var(--text-size);
+}
+.report{
+  color: var(--router-active-color);
+  font-weight: var(--bold-text);
+  font-family: var(-fonts);
+  font-size: var(--text-size);
 }
 
 h4{
@@ -128,7 +144,7 @@ a{
 .logud{
   text-align: center;
   position: relative;
-  top: 35px;
+  top: 46px;
 }
 .logud-btn{
   padding: 10px 50px;
