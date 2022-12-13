@@ -48,8 +48,10 @@ export default defineNuxtConfig({
         'MemoMD App - For at effektivisere medicinstuderendes læring til medicin',
     },
   },
-   runtimeConfig: {
-     umbracoApiKey: process.env.UMBRACO__APIKEY,
-     umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS
+  runtimeConfig: {
+    public: {
+      umbracoApiKey: process.env.UMBRACO__APIKEY,
+      umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS
+    }
   },
 });

@@ -25,6 +25,8 @@
 
 <script>
 import axios from "axios";
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
 export default {
     data() {
         return {
@@ -50,10 +52,10 @@ export default {
             },
                 {
                     headers: {
-                        "umb-project-alias": "nicole-ba-test",
-                        "api-key": "3wvrfahXVBS0vPH3YqBv",
+                        "umb-project-alias": umbracoProjectAlias,
+                        "api-key": umbracoApiKey,
                     },
-                }
+                },
             ),
                 axios.get('https://api.umbraco.io/member/{{this.username}}', {
                     "email": this.email,
@@ -68,6 +70,7 @@ export default {
         },
     },
 }
+console.log(umbracoProjectAlias, umbracoApiKey)
 </script>
 
 <style scoped>
