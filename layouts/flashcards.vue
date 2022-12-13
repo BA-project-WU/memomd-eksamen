@@ -7,10 +7,10 @@
     <div>
       <slot />
     </div>
-    <div>
-      <button>Start</button>
-    </div>
     <footer>
+      <div class="start-the-game">
+        <button>Start</button>
+      </div>
       <ul class="footer-list">
         <li><NuxtLink to="/settingspage">Settings</NuxtLink></li>
         <li><NuxtLink to="/profilepage">Profile</NuxtLink></li>
@@ -22,6 +22,7 @@
 <script setup></script>
 
 <style scoped>
+
 .heading-overview {
   background: rgb(168, 228, 192);
   background: radial-gradient(
@@ -47,7 +48,6 @@ footer {
   border-top-right-radius: 25px;
   display: flex;
   flex-direction: column;
-  height: 60px;
   position: absolute;
   margin: 0 auto;
   min-width: 280px;
@@ -69,5 +69,14 @@ a {
   color: var(--text-color);
   text-decoration: none;
   line-height: 50px;
+}
+.start-the-game{
+  margin-bottom: 5px;
+  text-align: center;
+}
+button{
+  padding: 10px 50px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
 }
 </style>

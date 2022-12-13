@@ -28,27 +28,12 @@ const runtimeConfig = useRuntimeConfig()
 </script>
 
 <style scoped>
-.startpage {
-  max-width: 480px;
-  margin: 0 auto;
-}
 .startsection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
   min-width: 280px;
-}
-.section1 {
-  text-align: center;
-  min-width: 280px;
-}
-.logo{
-  background: rgb(168,228,192);
-  background: radial-gradient(circle, rgba(168,228,192,1) 35%, rgba(78,210,202,1) 100%);padding: 100px 100px;
-  margin-top: -18px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
 }
 .section2 {
   display: flex;
