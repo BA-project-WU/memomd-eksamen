@@ -28,7 +28,7 @@
       <input type="checkbox" id="checkbox" v-model="checked" />
       <label for="checkbox">{{ checked }}</label>
     </div>
-    <div class="forgot-pw">
+    <div class="forgot-password">
       <NuxtLink to="/account/forgotpassword" class="forgot-password">
         Jeg har <span style="color: #4ed2ca">glemt</span> min adgangskode
       </NuxtLink>

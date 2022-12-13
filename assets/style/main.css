@@ -54,7 +54,6 @@
   display: flex;
   flex-direction: column;
   justify-items: center;
-  min-height: 100vh;
 }
 form{
   display: flex;

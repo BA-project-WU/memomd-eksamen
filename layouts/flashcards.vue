@@ -22,9 +22,7 @@
 <script setup></script>
 
 <style scoped>
-html, body{
-  overflow-y: scroll;
-}
+
 .heading-overview {
   background: rgb(168, 228, 192);
   background: radial-gradient(
