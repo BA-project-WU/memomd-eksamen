@@ -49,7 +49,6 @@
 .logo {
   padding: 100px 100px;
   margin-top: -18px;
-  min-width: 280px;
 }
 .login-form{
   display: flex;
@@ -65,21 +64,19 @@ form{
 .email, .password {
   background-color: var(--secondary-color);
   border: none;
-  margin: 10px;
-  padding: 10px;
-  width: 280px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
   outline: 0;
   text-align: center;
-}
-.btn-login{
-  width: 290px;
 }
 .btn-login {
   background-color: var(--cta-bg-color);
   border: none; 
-  margin: 10px;
-  padding: 10px;
-  font-size: var(--font-text-size);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  font-weight: var(--bold-text);
   min-width: 300px;
 }
 .remember-me {
@@ -99,4 +96,15 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/*Fotgot Passsword*/
+.section-forgot-password{
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.forgot-password-form{
+  width: 300px;
+  margin: 0 auto;
 }

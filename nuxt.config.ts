@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    '@/assets/style/main.css',
+    '~/assets/style/main.css',
   ],
   // imports: {
   //   //nuxt auto-import anything from this directory by default.
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     // pwa
     '@kevinmarrec/nuxt-pwa', 
     // global state management
-    '@pinia/nuxt',
+    '@pinia/nuxt'
   ],
   pwa: {
     workbox: {
@@ -47,5 +47,11 @@ export default defineNuxtConfig({
       description:
         'MemoMD App - For at effektivisere medicinstuderendes læring til medicin',
     },
+  },
+  runtimeConfig: {
+    public: {
+      umbracoApiKey: process.env.UMBRACO__APIKEY,
+      umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS
+    }
   },
 });
