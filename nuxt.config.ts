@@ -39,6 +39,7 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
     // global state management
     "@pinia/nuxt",
+   
   ],
   pwa: {
     workbox: {
