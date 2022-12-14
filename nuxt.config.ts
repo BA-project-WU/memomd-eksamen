@@ -16,7 +16,16 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/style/main.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
+  build: {
+    transpile: [
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/free-solid-svg-core',
+      '@fortawesome/vue-fontawesome',
+      '@fortawesome/brands-svg-core',
+    ]
+  },
   // imports: {
   //   //nuxt auto-import anything from this directory by default.
   //   dirs: ['stores'],
