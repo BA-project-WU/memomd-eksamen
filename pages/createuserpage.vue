@@ -9,7 +9,7 @@
             <input type="text" name="email-input" placeholder="E-mail" v-model="email" />
             <input type="password" name="password-input" placeholder="Adgangskode" v-model="password" />
             <input type="password" name="passwordrepeat-input" placeholder="Gentag adgangskode" />
-            <input type="file" name="file-input"/>
+            <input type="file" name="file-input" />
             <select name="education-institutions" id="education-institutions" v-model="memberEducationInstitution">
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
