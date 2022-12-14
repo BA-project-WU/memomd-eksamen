@@ -2,7 +2,17 @@
   <div>
     <TheFlashcardHeader flashcard-heading="Rapporter Et Problem"></TheFlashcardHeader>
     <div class="settings-box">
-      <h1>Form</h1>
+      <form @submit.prevent="sendReport">
+      <label for="option">Valgt Muligheder</label>
+        <select name="reportOptions" v-model="reportOptions">
+          <option value="Spørgsmål/svar: Forkert rigtigt svar">Spørgsmål/svar: Forkert rigtigt svar</option>
+          <option value="Spørgsmål/svar: Formulering af spørgsmål og/eller svar">Spørgsmål/svar: Formulering af spørgsmål og/eller svar</option>
+          <option value="Andet">Andet</option>
+        </select>
+        <label for="option">Uddyb Problemet</label>
+        <textarea name="reportMessage" v-model="reportMessage" rows="8" cols="50"></textarea>
+        <input type="submit" v-on:click="sendReport()" />
+      </form>
     </div>
     <footer>
       <div class="start-the-game">
@@ -57,18 +67,32 @@ body {
 }
 .settings-box {
   background: var(--secondary-color);
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
   top: 150px;
   min-width: -webkit-fill-available;
+  margin: 0 30px auto;
 }
-.logud {
-  text-align: center;
-  position: relative;
-  top: 46px;
+
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background: var(--primary-color);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 footer {
   background: rgb(168, 228, 192);
