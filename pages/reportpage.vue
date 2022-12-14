@@ -11,7 +11,7 @@
         </select>
         <label for="option">Uddyb Problemet</label>
         <textarea name="reportMessage" v-model="reportMessage" rows="8" cols="50"></textarea>
-        <input type="submit" v-on:click="sendReport()" />
+        <input placeholder="Send Report" type="submit" v-on:click="sendReport()" />
       </form>
     </div>
     <footer>
@@ -43,6 +43,10 @@
 definePageMeta({
   layout: "false",
 });
+
+function sendReport() {
+  console.log('hello report')
+}
 </script>
 
 <style scoped>
@@ -67,14 +71,14 @@ body {
 }
 .settings-box {
   background: var(--secondary-color);
-  height: 300px;
+  height: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position: absolute;
   top: 150px;
   min-width: -webkit-fill-available;
-  margin: 0 30px auto;
+  margin: 0px 30px auto;
 }
 
 input[type=text], select {
@@ -89,7 +93,7 @@ input[type=text], select {
 input[type=submit] {
   background: var(--primary-color);
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px 30;
   border: none;
   border-radius: 4px;
   cursor: pointer;
