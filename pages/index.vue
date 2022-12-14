@@ -9,8 +9,8 @@
         />
       </section>
       <section class="section2">
-        <button><NuxtLink to="/account">Log ind</NuxtLink></button>
-        <button><NuxtLink to="createuserpage">Opret Bruger</NuxtLink></button>
+        <button><NuxtLink to="member/loginpage">Log ind</NuxtLink></button>
+        <button><NuxtLink to="member/createuserpage">Opret Bruger</NuxtLink></button>
       </section>
     </section>
   </main>
