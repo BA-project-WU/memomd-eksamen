@@ -8,7 +8,7 @@
           <h4>Lyfeffekter</h4>
           <input type="checkbox" id="switch" /><label for="switch">Lydeefekter</label>
         </div>
-        <div class="lyd">
+        <div class="notification">
           <h4>Notifikationer</h4>
           <input type="checkbox" id="switch" /><label for="switch">Notifikationer</label>
         </div>
@@ -23,7 +23,9 @@
       <footer>
       <div class="start-the-game">
         <button>
-          <font-awesome-icon icon="fa-solid fa-home" />
+          <NuxtLink to="/">
+            <font-awesome-icon style="color:white" icon="fa-solid fa-home" />
+          </NuxtLink>
         </button>
 
       </div>
@@ -64,35 +66,43 @@ body {
 }
 .settings-box {
   background: var(--secondary-color);
-  height: 400px;
+  height: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position: absolute;
   top: 150px;
   min-width: -webkit-fill-available;
-
+  margin: 0px 30px auto;
 }
 .lyd {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
 }
-.policy-and-report{
+.notification {
   display: flex;
   justify-content: space-evenly;
 }
+.policy-and-report{
+  display: flex;
+  flex-direction: column;
+}
 .policy{
-  color: var(--darker-color);
+  color: var(--success-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
+  text-align: left;
+  margin-left: 40px;
 }
 .report{
   color: var(--router-active-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
+  text-align: cenleftter;
+  margin-left: 40px;
+  margin-top: 40px;
 }
 
 h4{
@@ -193,9 +203,13 @@ a {
   top: -18px;
 }
 button{
-  padding: 10px 50px;
+  padding: 10px 10px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.fa-home{
+  background-color: var(--cta-bg-color);
+  color: #fff;
 }
 </style>
