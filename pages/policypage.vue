@@ -294,18 +294,32 @@
           srcset="https://cdn.websitepolicies.io/img/badge_2x.png 2x"
       /></a>
     </p>
+    <label for="">Accept Privacy Policy</label>
+    <input class="pp" type="checkbox" value="Privacy Policy" id="Privacy Policy" v-model="privacypolicy">
   </div>
 </template>
-
-<script setup></script>
+<script>
+export default {
+  data(){
+    return{
+      privacypolicy:[]
+    }
+  }
+}
 //https://app.websitepolicies.com/users/login?r=policies%2Fplatforms%2Fmanage%3Fref%3Dverify
+</script>
+
 <style scoped>
+label{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+margin-bottom: 5px;
+}
 .privacy-policy{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   background: var(--secondary-color);
   padding: 20px;
