@@ -326,7 +326,9 @@ margin-bottom: 5px;
   border: 5px dashed var(--primary-color);
   font-family: 'Courier New', Courier, monospace;
 }
-
+li{
+  list-style-type: square;
+}
 .wpembed-index{
 margin: 20px 0px;
 }
