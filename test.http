@@ -8,3 +8,10 @@ api-key:  {{$dotenv UMBRACO__APIKEY }}
   "reportOptions": "Andet",
   "reportMessage": "test100",
 }
+###
+GET https://api.umbraco.io/forms HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+
+###
+GET https://dr.dk HTTP/1.1
