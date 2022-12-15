@@ -295,14 +295,15 @@
       /></a>
     </p>
     <label for="">Accept Privacy Policy</label>
-    <input class="pp" type="checkbox" value="Privacy Policy" id="Privacy Policy" v-model="privacypolicy">
+    <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="/flashcards/">Accept</NuxtLink></button>
   </div>
 </template>
 <script>
+await navigateTo({ path: '/flashcards/' })
 export default {
   data(){
     return{
-      privacypolicy:[]
+      privacypolicy:[],
     }
   }
 }
