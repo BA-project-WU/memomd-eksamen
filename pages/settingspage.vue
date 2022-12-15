@@ -5,17 +5,21 @@
     ></TheFlashcardHeader>
       <div class="settings-box">
         <div class="lyd">
-          <h4>Lyfeffekter</h4>
-          <input type="checkbox" id="switch" /><label for="switch">Lydeefekter</label>
+          <h4>Lydeffekter</h4>
+          <input type="checkbox" id="switch1" /><label for="switch1"></label>
         </div>
         <div class="notification">
           <h4>Notifikationer</h4>
-          <input type="checkbox" id="switch" /><label for="switch">Notifikationer</label>
+          <input type="checkbox" id="switch2" /><label for="switch2"></label>
         </div>
-        <div class="policy-and-report">
-          <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
-          <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
-        </div>
+          <div class="policy">      
+            <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
+            <p></p>
+          </div>
+          <div class="report">
+            <NuxtLink class="report" to="/reportpage">Rapporter et Problem</NuxtLink>
+            <p></p>
+          </div>
         <div class="logud">
           <NuxtLink class="logud-btn" to="/" @click="logud">Logud</NuxtLink>
         </div>
@@ -75,34 +79,25 @@ body {
   min-width: -webkit-fill-available;
   margin: 0px 30px auto;
 }
-.lyd {
+.lyd, .notification {
   display: flex;
   justify-content: space-evenly;
 }
-.notification {
+.policy, .report {
   display: flex;
-  justify-content: space-evenly;
-}
-.policy-and-report{
-  display: flex;
-  flex-direction: column;
+  justify-content: space-around;
 }
 .policy{
   color: var(--success-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
-  text-align: left;
-  margin-left: 40px;
 }
 .report{
   color: var(--router-active-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
-  text-align: cenleftter;
-  margin-left: 40px;
-  margin-top: 40px;
 }
 
 h4{

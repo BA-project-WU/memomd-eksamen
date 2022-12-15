@@ -9,7 +9,7 @@
   --heading-color: #373737;
   --text-color: #000000;
   --bold-text: 700;
-  --fonts: "Times New Roman", Times, serif;
+  --fonts: 'Rubik', sans-serif;
   --success-color: #54cd84;
   --failed-color: #ea8c8c;
   --circle-color: #758e8f;
@@ -23,8 +23,13 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
+  border-style: none;
 }
-
+a {
+  text-decoration: none;
+  color: #000000;
+}
 /*Accounts style*/
 .login-page, .flashcards-page {
   display: flex;

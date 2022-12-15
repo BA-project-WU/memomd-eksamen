@@ -23,11 +23,14 @@
         </select>
         <textarea
           name="reportMessage"
-          v-model="reportMessage"
           rows="8"
-          cols="50"
+          placeholder="Uddyb Problemet"
+          v-model="reportMessage"
         ></textarea>
-        <input placeholder="Send Report" type="submit" v-on:click="sendReport()" />
+        <ModalPopup v-show="showModal"/>
+        <div class="save-btn">
+          <input placeholder="Send Report" @click="showModal = true" @close-modal="showModal = false" type="submit" v-on:click="sendReport()" />
+        </div>       
       </form>
     </div>
     <footer>
@@ -69,6 +72,7 @@ export default {
       reportTitle: "",
       reportOptions: "",
       reportMessage: "",
+      showModal: false,
     };
   },
   methods: {
@@ -127,14 +131,21 @@ body {
 }
 input[type="text"],
 select {
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 12px 12px;
+  width: 100%;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   background: var(--secondary-color);
   background: var(--secondary-color);
+}
+select{
+  margin-top: 20px;
+}
+form{
+  display: table-cell;
+  width: 100%;
 }
 
 input[type="submit"] {
@@ -144,11 +155,14 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
 }
 textarea {
   margin: 20px 0;
   background: var(--secondary-color);
-  padding: 12px 20px;
+  padding-left: 2px;
+  padding-top: 10px;
+  width: 100%;
 }
 footer {
   background: rgb(168, 228, 192);

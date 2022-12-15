@@ -1,15 +1,17 @@
 <template>
+  <transition name="modal-fade">
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
       <img class="check" src="~/assets/images/check-icon.png" alt="check icon" />
-      <h6>Saved!</h6>
-      <p>Your Details have been saved Successfully</p>
-      <button><NuxtLink to="/">Go Home</NuxtLink> </button>
+      <h6>Gemt!!!</h6>
+      <p>Din rapport er blevet gemt. Tak for din hjælp.</p>
+      <button><NuxtLink to="/">Tilbage til Login</NuxtLink> </button>
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="~/assets/images/close-icon.png" alt="close icon" />
     </div>
   </div>
+</transition>
 </template>
 
 <script setup>
@@ -46,6 +48,16 @@
 .close-img {
   width: 25px;
 }
+.page-enter-active,
+.page-leave-active {
+  transition: transform 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: translateY(100%);
+}
 
 .check {
   width: 150px;
@@ -72,7 +84,12 @@ button {
   margin-top: 50px;
   border: none;
 }
-a{
-  text-decoration: none;
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>

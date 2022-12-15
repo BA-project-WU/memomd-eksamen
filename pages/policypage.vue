@@ -298,14 +298,14 @@
 </template>
 
 <script setup></script>
-
+//https://app.websitepolicies.com/users/login?r=policies%2Fplatforms%2Fmanage%3Fref%3Dverify
 <style scoped>
 .privacy-policy{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   background: var(--secondary-color);
   padding: 20px;
