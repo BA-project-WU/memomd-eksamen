@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 export default {
