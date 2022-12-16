@@ -100,11 +100,11 @@ form{
 
 /*Fotgot Passsword*/
 .section-forgot-password{
-  max-width: 100%;
   margin: 0 auto;
+  max-width: 100%;
   text-align: center;
 }
 .forgot-password-form{
-  width: 300px;
   margin: 0 auto;
+  width: 300px;
 }
