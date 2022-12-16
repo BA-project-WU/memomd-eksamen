@@ -27,10 +27,16 @@
           placeholder="Uddyb Problemet"
           v-model="reportMessage"
         ></textarea>
-        <ModalPopup v-show="showModal"/>
+        <ModalPopup v-show="showModal" />
         <div class="save-btn">
-          <input placeholder="Send Report" @click="showModal = true" @close-modal="showModal = false" type="submit" v-on:click="sendReport()" />
-        </div>       
+          <input
+            placeholder="Send Report"
+            @click="showModal = true"
+            @close-modal="showModal = false"
+            type="submit"
+            v-on:click="sendReport()"
+          />
+        </div>
       </form>
     </div>
     <footer>
@@ -57,45 +63,30 @@
   </div>
 </template>
 
-<script>
-import axios from "axios";
-const { umbracoProjectAlias } = useRuntimeConfig();
-const { umbracoApiKey } = useRuntimeConfig();
-//https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3
-definePageMeta({
-  layout: "false",
-});
+<script setup>
+  const showModal = false;
+  const reportTitle = ref('');
+  const reportOptions = ref(['']);
+  const reportMessage = ref('');
+  const { umbracoProjectAlias } = useRuntimeConfig();
+  const { umbracoApiKey } = useRuntimeConfig();
 
-export default {
-  data() {
-    return {
-      reportTitle: "",
-      reportOptions: "",
-      reportMessage: "",
-      showModal: false,
-    };
+  async function sendReport() {
+  await useFetch('https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries', {
+  method: 'post',
+  headers: {
+    "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey,
+         Accept: "application/json",
+         "Content-Type": "application/json",
   },
-  methods: {
-    async sendReport() {
-      axios.post(
-        "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
-        {
-          reportTitle: this.reportTitle,
-          reportOptions: [this.reportOptions],
-          reportMessage: this.reportMessage,
-        },
-        {
-          headers: {
-            "umb-project-alias": umbracoProjectAlias,
-            "api-key": umbracoApiKey,
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    },
-  },
-};
+  body: {
+    reportTitle: reportTitle,
+    reportOptions: reportOptions,
+    reportMessage: reportMessage,
+    }
+  })
+}
 </script>
 
 <style scoped>
@@ -140,10 +131,10 @@ select {
   background: var(--secondary-color);
   background: var(--secondary-color);
 }
-select{
+select {
   margin-top: 20px;
 }
-form{
+form {
   display: table-cell;
   width: 100%;
 }
