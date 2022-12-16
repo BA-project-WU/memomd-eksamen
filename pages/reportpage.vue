@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-  const showModal = false;
+  let showModal = false;
   const reportTitle = ref('');
   const reportOptions = ref(['']);
   const reportMessage = ref('');

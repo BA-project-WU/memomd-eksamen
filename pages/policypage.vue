@@ -294,19 +294,12 @@
           srcset="https://cdn.websitepolicies.io/img/badge_2x.png 2x"
       /></a>
     </p>
-    <label for="">Accept Privacy Policy</label>
+    <h3>Accept Privacy Policy</h3>
     <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="/flashcards/">Accept</NuxtLink></button>
   </div>
 </template>
 <script>
-await navigateTo({ path: '/flashcards/' })
-export default {
-  data(){
-    return{
-      privacypolicy:[],
-    }
-  }
-}
+
 //https://app.websitepolicies.com/users/login?r=policies%2Fplatforms%2Fmanage%3Fref%3Dverify
 </script>
 
