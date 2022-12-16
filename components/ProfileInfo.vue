@@ -1,14 +1,10 @@
 <template>
   <div class="profile-info">
-    <div class="profile-image">
-      <img src="~/assets/images/soccer-ball.jpg" alt="" />
+      <img src="~/assets/images/soccer-ball.jpg" alt=" just a soccer ball" />
       <h3>Emma</h3>
-    </div>
-    <div class="profile-email">
-      <!--profile info-->
       <p>emma@gmail.com</p>
-      <p>SDU</p>
-    </div>
+      <p>SDU</p> 
+      <div class="edit-icon"><font-awesome-icon icon="fa-solid fa-edit" /></div>
   </div>
 </template>
 
@@ -19,20 +15,21 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  margin-bottom: 30px;
   align-items: center;
-}
-.profile-image{
-  margin-top: -95px;
+  margin-top: -60px;
 }
 img{
   height: 200px;
   width: 200px;
   border-radius: 20px;
 }
-h3{
-  text-align: center;
-  margin-bottom: 10px;
+h3, p{
+  text-align: left;
+  margin-bottom: 10px 10px;
+}
+.edit-icon{
+  position: relative;
+  left: 87px;
+    top: -20px;
 }
 </style>

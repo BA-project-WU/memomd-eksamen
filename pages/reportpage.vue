@@ -27,7 +27,6 @@
           placeholder="Uddyb Problemet"
           v-model="reportMessage"
         ></textarea>
-        <ModalPopup v-show="showModal" />
         <div class="save-btn"  @click="showModal = true"
             @close-modal="showModal = false">
           <input
@@ -36,6 +35,7 @@
             v-on:click="sendReport()"
           />
         </div>
+        <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
     </div>
     <footer>

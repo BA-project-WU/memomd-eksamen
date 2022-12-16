@@ -2,20 +2,25 @@
   <transition name="modal-fade">
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <img class="check-img" src="~/assets/images/check-img.png" alt="check img" />
+      <img class="check" src="~/assets/images/check-img.png" alt="check img" />
       <h6>Gemt!!!</h6>
-      <p>Din rapport er blevet gemt. Tak for din hjælp.</p>
+      <p>Din report er blevet gemt. Tak for din hjælp.</p>
       <button><NuxtLink to="/flashcards">Tilbage til Spillet</NuxtLink> </button>
     </div>
-    <!-- <div class="close" @click="$emit('close-modal')">
+    <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="~/assets/images/close-img.png" alt="close img" />
-    </div> -->
+    </div>
   </div>
 </transition>
 </template>
 
 <script setup>
-
+// function closeMenu(){
+//   this.isMenuOpen = false
+//   this.$router.replace({
+//     name : "/pages/flashcards"
+//   })
+// }
 
 </script>
 
@@ -45,7 +50,7 @@
   cursor: pointer;
 }
 
-.close-img {
+.close {
   width: 25px;
 }
 .page-enter-active,
@@ -59,7 +64,7 @@
   transform: translateY(100%);
 }
 
-.check-img {
+.check {
   width: 150px;
 }
 

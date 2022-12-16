@@ -294,8 +294,8 @@
           srcset="https://cdn.websitepolicies.io/img/badge_2x.png 2x"
       /></a>
     </p>
-    <h3>Accept Privacy Policy</h3>
-    <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button>
+    <!-- <h3>Accept Privacy Policy</h3>
+    <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button> -->
   </div>
 </template>
 <script>

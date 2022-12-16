@@ -1,29 +1,22 @@
 <template>
-  <div class="login-form"> 
+  <div class="profile-page">
     <NuxtLayout>
       <ProfileInfo/>
       <DailyRecord />
       <ProfileEdit />  
-      <div>
-        <NuxtLink to="/flashcards/">
-          <button type="submit" class="btn-login">
-            <!-- <span v-if="isSignUp"> Sign up </span>  -->
-            Overview
-          </button>
-        </NuxtLink>
-      </div>
-      <!-- <div class="save-btn">
-                <button @click="showModal = true">Save</button>
-            </div> -->
-      <!-- <ModalPopup v-show="showModal" @close-modal="showModal = false" /> -->
     </NuxtLayout>
   </div>
 </template>
 
 <script setup>
+//https://medium.com/@shahriarrahi/create-api-with-nuxt3-adcb7b6a17dd
 definePageMeta({
   layout: "flashcards",
 });
 </script>
 
-<style></style>
+<style>
+.profile-page{
+  height: 100vh;
+}
+</style>

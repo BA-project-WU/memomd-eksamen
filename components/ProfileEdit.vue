@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="konto">
   <h3>Adminintrere din konto</h3>
     <form @submit.prevent="submitForm">
-      <button>Ændre Email</button>
-      <button>Ændre Adgangskode</button>
-      <button>Slet Bruger</button>
+      <button>Slet Konto</button>
+      <button>Dine Historik</button>
+      <button>Points</button>
       <!-- <div class="save-btn">
                 <button @click="showModal = true">Save</button>
             </div> -->
@@ -30,6 +30,9 @@ button{
   min-width: 300px;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.konto{
+  height: 400px;
 }
 
 </style>

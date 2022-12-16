@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 h3{
-  padding: 10px 0px 0px 20px;
+  padding-left: 20px;
 }
 .boxes{
   display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheFlashcardHeader
-      flashcard-heading="This is Flashcard Header"
+      flashcard-heading="Header"
     ></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
@@ -9,11 +9,15 @@
     </div>
     <footer>
       <div class="start-the-game">
-        <button>Start</button>
+        <button>
+          <NuxtLink to="/">
+            Start Spil
+          </NuxtLink>
+        </button>
       </div>
       <ul class="footer-list">
-        <li><NuxtLink to="/settingspage">Settings</NuxtLink></li>
-        <li><NuxtLink to="/profilepage">Profile</NuxtLink></li>
+        <li><NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink></li>
+        <li><NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink></li>
       </ul>
     </footer>
   </div>
@@ -22,7 +26,13 @@
 <script setup></script>
 
 <style scoped>
-
+body {
+  overflow-x: hidden;
+}
+.content-container {
+  margin: 5% 3%;
+  height: 100vh;
+}
 .heading-overview {
   background: rgb(168, 228, 192);
   background: radial-gradient(
@@ -48,10 +58,12 @@ footer {
   border-top-right-radius: 25px;
   display: flex;
   flex-direction: column;
-  position: absolute;
   margin: 0 auto;
   min-width: 280px;
   width: 100%;
+  position: fixed;
+    bottom: 0;
+    right: 0;
 }
 .footer-list {
   display: flex;
@@ -59,6 +71,8 @@ footer {
   justify-content: space-between;
   text-decoration: none;
   list-style-type: none;
+  position: relative;
+  top: -20px;
 }
 li {
   margin-top: 10px;
@@ -68,22 +82,20 @@ li {
 a {
   color: var(--text-color);
   text-decoration: none;
-  line-height: 50px;
 }
 .start-the-game{
-  margin-bottom: 5px;
   text-align: center;
+  position: relative;
+  top: -18px;
 }
 button{
-  padding: 10px 50px;
+  padding: 10px 20px;
   border-radius: 20px;
   background-color: var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.content-container {
-  margin: 5% 3%;
-}
-
-body {
-  overflow-x: hidden;
+.fa-home{
+  background-color: var(--cta-bg-color);
+  color: #fff;
 }
 </style>
