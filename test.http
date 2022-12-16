@@ -1,0 +1,17 @@
+POST https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries HTTP/1.1
+content-type: application/json
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+
+{
+  "reportTitle": "Edna Test",
+  "reportOptions": "Andet",
+  "reportMessage": "test100",
+}
+###
+GET https://api.umbraco.io/forms HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+
+###
+GET https://dr.dk HTTP/1.1

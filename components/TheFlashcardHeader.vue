@@ -14,7 +14,5 @@ const props = defineProps({
 </script>
 
 <style scoped>
-header {
-  margin-bottom: 10px;
-}
+
 </style>
