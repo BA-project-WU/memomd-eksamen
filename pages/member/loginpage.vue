@@ -1,22 +1,12 @@
 <template>
-  <div v-for="reviewer in reviewers.results" :key="reviewer.login.uui">
-    <p>{{ reviewer.uui }}</p>
+  <div v-for="post in posts">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.id }}</p>
+    <p>{{ post.description }}</p>
+    <p>{{ post.countries }}</p>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      reviewers: []
-    };
-  },
-  async fetch() {
-    this.reviewers = await fetch('https://randomuser.me/api?results=5').then(res => res.json());
-  },
-}
+<script setup>
+const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts')
 </script>
-
-<style lang="scss" scoped>
-
-</style>

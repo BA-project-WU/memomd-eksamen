@@ -10,8 +10,7 @@
             <input type="email" autocomplete="on" name="email-input" placeholder="E-mail" required v-model="email" />
             <input type="password" minlength="8" name="password-input" placeholder="Adgangskode" required
                 v-model="password" />
-            <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode"
-                required />
+            <!-- <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode" required /> -->
             <input type="file" name="file-input" />
             <select id="education-institutions" name="education-institutions" v-model="memberEducationInstitution">
                 <option disabled hidden selected value="test">test</option>
@@ -28,6 +27,34 @@
 </template>
 
 <script>
+// const { umbracoProjectAlias } = useRuntimeConfig();
+// const { umbracoApiKey } = useRuntimeConfig();
+// const testVar = "does this show down?"
+const value = "this.email"
+async function createMember(data) {
+    await useFetch('https://api.umbraco.io/member', {
+        method: 'POST',
+        headers: {
+            "umb-project-alias": "nicole-ba-test",
+            "api-key": "3wvrfahXVBS0vPH3YqBv",
+            "Content-Type": "multipart/form-data",
+        },
+        body: ({
+            "email": this.email,
+            "username": this.username,
+            "name": this.name,
+            "isApproved": true,
+            "isLockedOut": false,
+            "memberTypeAlias": "Member",
+            "memberPicture": this.image,
+            "memberEducationInstitution": [this.memberEducationInstitution],
+        }),
+    })
+    console.log(data)
+}
+</script>
+
+<!-- <script>
 // import axios from "axios";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
@@ -64,7 +91,7 @@ export default {
         },
     },
 }
-</script>
+</script> -->
 
 <style scoped>
 
