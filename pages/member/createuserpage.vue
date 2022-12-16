@@ -13,7 +13,7 @@
             <!-- <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode" required /> -->
             <input type="file" name="file-input" />
             <select id="education-institutions" name="education-institutions" v-model="memberEducationInstitution">
-                <option disabled hidden selected value="test">test</option>
+                <!-- <option disabled hidden selected value="test">test</option> -->
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
                 <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus</option>
@@ -26,31 +26,34 @@
     </div>
 </template>
 
-<script>
+<script setup>
 // const { umbracoProjectAlias } = useRuntimeConfig();
 // const { umbracoApiKey } = useRuntimeConfig();
-// const testVar = "does this show down?"
-const value = "this.email"
-async function createMember(data) {
+const email = ref(null);
+const name = ref(null);
+const username = ref(null);
+const memberPicture = ref(null);
+const memberEducationInstitution = ref(['']);
+async function createMember() {
     await useFetch('https://api.umbraco.io/member', {
         method: 'POST',
         headers: {
             "umb-project-alias": "nicole-ba-test",
             "api-key": "3wvrfahXVBS0vPH3YqBv",
-            "Content-Type": "multipart/form-data",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
         },
-        body: ({
-            "email": this.email,
-            "username": this.username,
-            "name": this.name,
-            "isApproved": true,
-            "isLockedOut": false,
-            "memberTypeAlias": "Member",
-            "memberPicture": this.image,
-            "memberEducationInstitution": [this.memberEducationInstitution],
-        }),
+        body: {
+            email: email,
+            username: username,
+            name: name,
+            isApproved: true,
+            isLockedOut: false,
+            memberTypeAlias: "Member",
+            memberPicture: memberPicture,
+            memberEducationInstitution: memberEducationInstitution,
+        }
     })
-    console.log(data)
 }
 </script>
 
