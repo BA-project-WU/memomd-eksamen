@@ -4,7 +4,7 @@
       flashcard-heading="This is Flashcard Header"
     ></TheFlashcardHeader>
     <!--this is the page content-->
-    <div>
+    <div class="content-container">
       <slot />
     </div>
     <footer>
@@ -78,5 +78,12 @@ button{
   padding: 10px 50px;
   border-radius: 20px;
   background-color: var(--primary-color);
+}
+.content-container {
+  margin: 5% 3%;
+}
+
+body {
+  overflow-x: hidden;
 }
 </style>
