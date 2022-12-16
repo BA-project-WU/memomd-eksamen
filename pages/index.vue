@@ -11,7 +11,6 @@
       <section class="section2">
         <button><NuxtLink to="member">Log ind</NuxtLink></button>
         <button><NuxtLink to="createuserpage">Opret Bruger</NuxtLink></button>
-        <button><NuxtLink to="amaltest">amaltest</NuxtLink></button>
       </section>
     </section>
   </main>

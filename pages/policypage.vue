@@ -295,7 +295,7 @@
       /></a>
     </p>
     <h3>Accept Privacy Policy</h3>
-    <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="/flashcards/">Accept</NuxtLink></button>
+    <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button>
   </div>
 </template>
 <script>

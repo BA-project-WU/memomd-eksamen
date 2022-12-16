@@ -28,11 +28,10 @@
           v-model="reportMessage"
         ></textarea>
         <ModalPopup v-show="showModal" />
-        <div class="save-btn">
+        <div class="save-btn"  @click="showModal = true"
+            @close-modal="showModal = false">
           <input
             placeholder="Send Report"
-            @click="showModal = true"
-            @close-modal="showModal = false"
             type="submit"
             v-on:click="sendReport()"
           />
@@ -64,12 +63,12 @@
 </template>
 
 <script setup>
-  let showModal = false;
-  const reportTitle = ref('');
-  const reportOptions = ref(['']);
-  const reportMessage = ref('');
-  const { umbracoProjectAlias } = useRuntimeConfig();
-  const { umbracoApiKey } = useRuntimeConfig();
+  var showModal = ref(false)
+  const reportTitle = ref('')
+  const reportOptions = ref('Hvad drejer dit problem sig om?')
+  const reportMessage = ref('')
+  const { umbracoProjectAlias } = useRuntimeConfig()
+  const { umbracoApiKey } = useRuntimeConfig()
 
   async function sendReport() {
   await useFetch('https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries', {
@@ -84,9 +83,10 @@
     reportTitle: reportTitle,
     reportOptions: reportOptions,
     reportMessage: reportMessage,
-    }
+    },
   })
 }
+
 </script>
 
 <style scoped>

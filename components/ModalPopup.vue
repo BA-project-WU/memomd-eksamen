@@ -2,14 +2,14 @@
   <transition name="modal-fade">
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <img class="check" src="~/assets/images/check-icon.png" alt="check icon" />
+      <img class="check-img" src="~/assets/images/check-img.png" alt="check img" />
       <h6>Gemt!!!</h6>
       <p>Din rapport er blevet gemt. Tak for din hjælp.</p>
-      <button><NuxtLink to="/">Tilbage til Login</NuxtLink> </button>
+      <button><NuxtLink to="/flashcards">Tilbage til Spillet</NuxtLink> </button>
     </div>
-    <div class="close" @click="$emit('close-modal')">
-      <img class="close-img" src="~/assets/images/close-icon.png" alt="close icon" />
-    </div>
+    <!-- <div class="close" @click="$emit('close-modal')">
+      <img class="close-img" src="~/assets/images/close-img.png" alt="close img" />
+    </div> -->
   </div>
 </transition>
 </template>
@@ -59,7 +59,7 @@
   transform: translateY(100%);
 }
 
-.check {
+.check-img {
   width: 150px;
 }
 
