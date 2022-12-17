@@ -1,14 +1,31 @@
 <template>
   <div class="profile-info">
       <img src="~/assets/images/soccer-ball.jpg" alt=" just a soccer ball" />
-      <h3>Emma</h3>
-      <p>emma@gmail.com</p>
-      <p>SDU</p> 
+      <h3>{{name}}</h3>
+      <p>{{email}}</p> 
       <div class="edit-icon"><font-awesome-icon icon="fa-solid fa-edit" /></div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+let email = ""
+let name = ""
+const { umbracoProjectAlias } = useRuntimeConfig()
+  const { umbracoApiKey } = useRuntimeConfig()
+ await useFetch('https://api.umbraco.io/member/Emma', {
+    method: 'get',
+  headers: {
+    "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey
+  },
+  
+  onResponse({ request, response, options }) {
+    // Process the response data
+    email = response._data.email
+    name = response._data.name
+  }
+})
+</script>
 
 <style scoped>
 .profile-info{

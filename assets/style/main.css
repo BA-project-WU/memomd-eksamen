@@ -60,7 +60,7 @@ a {
   flex-direction: column;
   justify-items: center;
 }
-form{
+form, .account{
   display: flex;
   flex-direction: column;
   justify-content: center;

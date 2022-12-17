@@ -14,4 +14,40 @@ umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}}
 api-key:  {{$dotenv UMBRACO__APIKEY }}
 
 ###
-GET https://dr.dk HTTP/1.1
+PUT https://api.umbraco.io/member/test HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+content-type: application/json
+
+{
+    "comments": "Student",
+    "email": "test@test.com",
+    "isApproved": true,
+    "isLockedOut": false,
+    "memberTypeAlias": "Member",
+    "username": "test",
+    "name": "test Nørregaard"
+}
+
+###
+GET https://api.umbraco.io/member/test HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+
+
+###
+POST https://api.umbraco.io/member/test/password HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+content-type: application/json
+
+{
+    "currentPassword": "1234567890",
+    "newPassword": "zaq12wsx123456"
+}
+
+###
+DELETE https://api.umbraco.io/member/test HTTP/1.1
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+

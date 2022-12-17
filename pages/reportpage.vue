@@ -29,11 +29,10 @@
         ></textarea>
         <div class="save-btn"  @click="showModal = true"
             @close-modal="showModal = false">
-          <input
-            placeholder="Send Report"
+          <button
+            class="btn-send-report"
             type="submit"
-            v-on:click="sendReport()"
-          />
+            v-on:click="sendReport()">Send Report</button>
         </div>
         <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
@@ -129,7 +128,6 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
   background: var(--secondary-color);
-  background: var(--secondary-color);
 }
 select {
   margin-top: 20px;
@@ -138,8 +136,7 @@ form {
   display: table-cell;
   width: 100%;
 }
-
-input[type="submit"] {
+.btn-send-report {
   background: var(--primary-color);
   padding: 14px 20px;
   margin: 8px 30;
