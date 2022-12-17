@@ -1,7 +1,12 @@
 <template>
     <div>
         <h1>Opret bruger</h1>
-        <!-- https://www.w3schools.com/w3css/w3css_progressbar.asp -->
+        <!-- <div v-for="post in posts">
+            <h2>{{ post.id }}</h2>
+        </div> -->
+        <div v-for="post in posts">
+            <h2>{{ post.id }}</h2>
+        </div>
         <progress value="50" max="100"></progress>
         <form @submit.prevent="createMember">
             <input type="text" autocomplete="on" name="name-input" placeholder="Navn" required v-model="name" />
@@ -36,6 +41,8 @@
 </template>
 
 <script setup>
+const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts')
+// const { data: posts } = await useFetch('https://cdn.umbraco.io/content/6e4dafc5-3689-4126-9f4d-9ebf77e808b9/children?umb-project-alias=nicole-ba-test&&Accept-Language=da')
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 const email = ref();
@@ -67,11 +74,6 @@ async function createMember() {
             comments: "Student",
         }
     })
-    // var options = document.getElementById('options'), option, i;
-    // for (i = 0; i < options.length; i++) {
-    //     option = options[i];
-    //     console.log(memberEducationInstitution)
-    // }
 }
 </script>
 
