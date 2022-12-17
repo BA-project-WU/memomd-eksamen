@@ -8,16 +8,25 @@
             <input type="text" minlength="5" name="username-input" placeholder="Bugernavn" required
                 v-model="username" />
             <input type="email" autocomplete="on" name="email-input" placeholder="E-mail" required v-model="email" />
-            <input type="password" minlength="8" name="password-input" placeholder="Adgangskode" required
-                v-model="password" />
+            <!-- <input type="password" minlength="8" name="password-input" placeholder="Adgangskode" required v-model="password" /> -->
             <!-- <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode" required /> -->
             <input type="file" name="file-input" />
-            <select id="education-institutions" name="education-institutions" v-model="memberEducationInstitution">
-                <!-- <option disabled hidden selected value="test">test</option> -->
-                <option value="Aalborg Universitet">Aalborg Universitet</option>
-                <option value="Aarhus Universitet">Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus</option>
-                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
+            <select id="options" name="memberEducationInstitution" v-model="memberEducationInstitution">
+                <!-- <option value="Uddannelsesinstution" disabled hidden selected>Vælg uddannelsesinstution</option> -->
+                <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
+                <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus" disabled>Københavns Universitet, Nørre Campus
+                </option>
+                <option value="Syddansk Universitet, Esbjerg" disabled>Syddansk Universitet, Esbjerg</option>
+                <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
+            </select>
+
+            <select id="memberTesting" name="memberTesting" v-model="memberTesting">
+                <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
+                <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus" disabled>Københavns Universitet, Nørre Campus
+                </option>
+                <option value="Syddansk Universitet, Esbjerg" disabled>Syddansk Universitet, Esbjerg</option>
                 <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
             </select>
             <input type="submit" value="Opret" v-on:click="createMember()" />
@@ -27,20 +36,22 @@
 </template>
 
 <script setup>
-// const { umbracoProjectAlias } = useRuntimeConfig();
-// const { umbracoApiKey } = useRuntimeConfig();
-const email = ref(null);
-const name = ref(null);
-const username = ref(null);
-const memberPicture = ref(null);
-const memberEducationInstitution = ref(['']);
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
+const email = ref();
+const name = ref();
+const username = ref();
+// const memberEducationInstitution = ref('Syddansk Universitet, Odense');
+const memberEducationInstitution = ref();
+const memberPicture = ref();
+const memberTesting = ref();
 async function createMember() {
     await useFetch('https://api.umbraco.io/member', {
         method: 'POST',
         headers: {
-            "umb-project-alias": "nicole-ba-test",
-            "api-key": "3wvrfahXVBS0vPH3YqBv",
-            "Accept": "application/json",
+            "umb-project-alias": umbracoProjectAlias,
+            "api-key": umbracoApiKey,
+            Accept: "application/json",
             "Content-Type": "application/json",
         },
         body: {
@@ -52,9 +63,17 @@ async function createMember() {
             memberTypeAlias: "Member",
             memberPicture: memberPicture,
             memberEducationInstitution: memberEducationInstitution,
+            memberTesting: memberTesting,
+            comments: "Student",
         }
     })
+    // var options = document.getElementById('options'), option, i;
+    // for (i = 0; i < options.length; i++) {
+    //     option = options[i];
+    //     console.log(memberEducationInstitution)
+    // }
 }
+console.log(memberEducationInstitution)
 </script>
 
 <!-- <script>
