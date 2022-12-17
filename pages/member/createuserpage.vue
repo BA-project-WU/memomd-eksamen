@@ -13,20 +13,20 @@
             <input type="file" name="file-input" />
             <select id="options" name="memberEducationInstitution" v-model="memberEducationInstitution">
                 <!-- <option value="Uddannelsesinstution" disabled hidden selected>Vælg uddannelsesinstution</option> -->
-                <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
-                <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus" disabled>Københavns Universitet, Nørre Campus
+                <option value="Aalborg Universitet">Aalborg Universitet</option>
+                <option value="Aarhus Universitet">Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus
                 </option>
-                <option value="Syddansk Universitet, Esbjerg" disabled>Syddansk Universitet, Esbjerg</option>
+                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
                 <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
             </select>
 
             <select id="memberTesting" name="memberTesting" v-model="memberTesting">
-                <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
-                <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus" disabled>Københavns Universitet, Nørre Campus
+                <option value="Aalborg Universitet">Aalborg Universitet</option>
+                <option value="Aarhus Universitet">Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus
                 </option>
-                <option value="Syddansk Universitet, Esbjerg" disabled>Syddansk Universitet, Esbjerg</option>
+                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
                 <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
             </select>
             <input type="submit" value="Opret" v-on:click="createMember()" />
@@ -44,7 +44,7 @@ const username = ref();
 // const memberEducationInstitution = ref('Syddansk Universitet, Odense');
 const memberEducationInstitution = ref();
 const memberPicture = ref();
-const memberTesting = ref();
+const memberTesting = ref('Hvad drejer dit problem sig om?');
 async function createMember() {
     await useFetch('https://api.umbraco.io/member', {
         method: 'POST',
@@ -73,7 +73,6 @@ async function createMember() {
     //     console.log(memberEducationInstitution)
     // }
 }
-console.log(memberEducationInstitution)
 </script>
 
 <!-- <script>
