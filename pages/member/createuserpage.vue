@@ -4,9 +4,7 @@
         <!-- <div v-for="post in posts">
             <h2>{{ post.id }}</h2>
         </div> -->
-        <div v-for="post in posts">
-            <h2>{{ post.id }}</h2>
-        </div>
+        <h2>{{ memberEducationInstitutionsOptions.alias }}</h2>
         <progress value="50" max="100"></progress>
         <form @submit.prevent="createMember">
             <input type="text" autocomplete="on" name="name-input" placeholder="Navn" required v-model="name" />
@@ -20,19 +18,29 @@
                 <!-- <option value="Uddannelsesinstution" disabled hidden selected>Vælg uddannelsesinstution</option> -->
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus
+                <option value="Københavns Universitet, Nørre Campus">
+                    Københavns Universitet, Nørre Campus
                 </option>
-                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
-                <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
+                <option value="Syddansk Universitet, Esbjerg">
+                    Syddansk Universitet, Esbjerg
+                </option>
+                <option value="Syddansk Universitet, Odense">
+                    Syddansk Universitet, Odense
+                </option>
             </select>
 
             <select id="memberTesting" name="memberTesting" v-model="memberTesting">
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus
+                <option value="Københavns Universitet, Nørre Campus">
+                    Københavns Universitet, Nørre Campus
                 </option>
-                <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
-                <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
+                <option value="Syddansk Universitet, Esbjerg">
+                    Syddansk Universitet, Esbjerg
+                </option>
+                <option value="Syddansk Universitet, Odense">
+                    Syddansk Universitet, Odense
+                </option>
             </select>
             <input type="submit" value="Opret" v-on:click="createMember()" />
         </form>
@@ -41,8 +49,7 @@
 </template>
 
 <script setup>
-const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts')
-// const { data: posts } = await useFetch('https://cdn.umbraco.io/content/6e4dafc5-3689-4126-9f4d-9ebf77e808b9/children?umb-project-alias=nicole-ba-test&&Accept-Language=da')
+// const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts');
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 const email = ref();
@@ -51,10 +58,21 @@ const username = ref();
 // const memberEducationInstitution = ref('Syddansk Universitet, Odense');
 const memberEducationInstitution = ref();
 const memberPicture = ref();
-const memberTesting = ref('Hvad drejer dit problem sig om?');
+const memberTesting = ref();
+
+
+const { data: memberEducationInstitutionsOptions } = await useFetch("https://api.umbraco.io/content/type/registerPage/", {
+    method: "GET",
+    headers: {
+        "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey,
+    },
+});
+console.log(memberEducationInstitutionsOptions._rawValue.groups[2].groups[0].properties[1].alias)
+console.log(memberEducationInstitutionsOptions._rawValue.groups[2].groups[0].properties[1])
 async function createMember() {
-    await useFetch('https://api.umbraco.io/member', {
-        method: 'POST',
+    await useFetch("https://api.umbraco.io/member", {
+        method: "POST",
         headers: {
             "umb-project-alias": umbracoProjectAlias,
             "api-key": umbracoApiKey,
@@ -72,8 +90,8 @@ async function createMember() {
             memberEducationInstitution: memberEducationInstitution,
             memberTesting: memberTesting,
             comments: "Student",
-        }
-    })
+        },
+    });
 }
 </script>
 
