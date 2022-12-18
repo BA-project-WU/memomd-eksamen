@@ -8,5 +8,9 @@
 </template>
 
 <script setup>
-const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts')
+const { status, data, signIn, signOut } = useSession()
+status.value
+data.value
+await signIn()
+await signOut()
 </script>

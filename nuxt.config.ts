@@ -41,6 +41,8 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
     // global state management
     "@pinia/nuxt",
+    // auth
+    "@sidebase/nuxt-auth",
   ],
   pwa: {
     workbox: {
@@ -62,6 +64,14 @@ export default defineNuxtConfig({
       description:
         "MemoMD App - For at effektivisere medicinstuderendes læring til medicin",
     },
+  },
+  auth: {
+    isEnabled: true,
+    origin: "http://localhost:3000",
+    basePath: "/api/auth",
+    enableSessionRefreshPeriodically: false,
+    enableSessionRefreshOnWindowFocus: true,
+    enableGlobalAppMiddleware: false,
   },
   runtimeConfig: {
     public: {
