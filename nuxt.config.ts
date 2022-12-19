@@ -65,6 +65,7 @@ export default defineNuxtConfig({
   },
   auth: {
     isEnabled: true,
+    origin: "https://ba-project-wu-memomd.netlify.app",
     basePath: "/api/auth",
     enableSessionRefreshPeriodically: false,
     enableSessionRefreshOnWindowFocus: true,
