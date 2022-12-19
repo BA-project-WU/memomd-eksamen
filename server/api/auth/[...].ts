@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { NuxtAuthHandler } from "#auth";
 
 export default NuxtAuthHandler({
-  secret: "your-secret-here",
+  secret: process.env.NUXT_SECRET,
   providers: [
     // @ts-ignore Import is exported on .default during SSR, so we need to call it this way. May be fixed via Vite at some point
     CredentialsProvider.default({
@@ -45,6 +45,7 @@ export default NuxtAuthHandler({
           method: "POST",
           body: formCredentials,
           // body: JSON.stringify(credentials)
+          // body: "grant_type=password&username=nicoleisbusy&password=1234567890",
           headers: {
             "umb-project-alias": "nicole-ba-test",
             "api-key": "3wvrfahXVBS0vPH3YqBv",
@@ -58,6 +59,7 @@ export default NuxtAuthHandler({
           // return to home
           return user;
         }
+        console.log("hej");
         return null;
       },
     }),
