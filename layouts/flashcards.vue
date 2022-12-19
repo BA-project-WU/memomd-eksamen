@@ -9,7 +9,7 @@
     </div>
     <footer>
       <div class="start-the-game">
-        <button>
+        <button class="btn-start-spil">
           <NuxtLink to="/">
             Start Spil
           </NuxtLink>
@@ -88,7 +88,7 @@ a {
   position: relative;
   top: -18px;
 }
-button{
+.btn-start-spil{
   padding: 10px 20px;
   border-radius: 20px;
   background-color: var(--primary-color);

@@ -281,7 +281,7 @@
       within the timescales provided by applicable data protection laws.
     </p>
     <p>This document was last updated on December 15, 2022</p>
-    <p class="madewith">
+    <!-- <p class="madewith">
       <a
         href="https://www.websitepolicies.com/?via=madewithbadge"
         target="_blank"
@@ -293,9 +293,10 @@
           src="https://cdn.websitepolicies.io/img/badge.png"
           srcset="https://cdn.websitepolicies.io/img/badge_2x.png 2x"
       /></a>
-    </p>
+    </p> -->
     <!-- <h3>Accept Privacy Policy</h3>
     <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button> -->
+  <button><NuxtLink to="/reportpage">Tilbage</NuxtLink></button>
   </div>
 </template>
 <script>
@@ -323,10 +324,16 @@ margin-bottom: 5px;
 li{
   list-style-type: square;
 }
-.wpembed-index{
+/* .wpembed-index{
 margin: 20px 0px;
-}
+} */
 h1, h2{
   margin: 20px 0px;
+}
+button{
+  margin: 10px 10px;
+  padding: 10px;
+  color: black;
+  font-size: 20px;
 }
 </style>

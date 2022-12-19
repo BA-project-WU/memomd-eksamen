@@ -11,7 +11,7 @@
       <div class="user-info">
         <h3>Adminintrere din konto</h3>
 
-        <button @click="showEmail = true">Ændre email</button>
+        <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
         <div v-if="showEmail">
           <div class="modal-overlay">
             <div class="modal-email">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <button @click="showPassword = true">Ændre adgangskode</button>
+        <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
         <div v-if="showPassword">
           <div class="modal-overlay">
             <div class="modal-password">
@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <button @click="deleteMemeber()">Slet bruger</button>
+        <button class="btn-delete-user" @click="deleteMemeber()">Slet bruger</button>
       </div>
     </NuxtLayout>
   </div>
@@ -94,6 +94,7 @@ await useFetch("https://api.umbraco.io/member/Emma", {
     memberEducationInstitution = response._data.name;
   },
 });
+
 setTimeout(delay, 500);
 async function delay() {
   await useFetch("https://api.umbraco.io/member/Emma", {
@@ -148,7 +149,7 @@ async function updatePassword() {
       if (response._data.error) {
         alert(response._data.error.details.errors[0]);
       } else {
-        alert("password opdateret");
+        alert("Password opdateret");
       }
     },
   });
@@ -249,7 +250,7 @@ p {
 h3 {
   padding: 10px 0px 0px 20px;
 }
-button {
+.btn-change-email, .btn-change-password, .btn-delete-user {
   border: none;
   margin-top: 15px;
   margin-bottom: 15px;
