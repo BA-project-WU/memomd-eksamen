@@ -35,12 +35,8 @@ export default defineNuxtConfig({
   //   dirs: ['stores'],
   // },
   modules: [
-    // axios
-    // "axios",
     // pwa
     "@kevinmarrec/nuxt-pwa",
-    // global state management
-    "@pinia/nuxt",
     // auth
     "@sidebase/nuxt-auth",
   ],
@@ -77,6 +73,7 @@ export default defineNuxtConfig({
     public: {
       umbracoApiKey: process.env.UMBRACO__APIKEY,
       umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS,
+      nuxtSecret: process.env.NUXT_SECRET,
     },
   },
 });
