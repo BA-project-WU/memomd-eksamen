@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   },
   auth: {
     isEnabled: true,
-    origin: "http://10.240.11.157:3000",
+    origin: "http://10.228.110.93:3000",
     basePath: "/api/auth",
     enableSessionRefreshPeriodically: false,
     enableSessionRefreshOnWindowFocus: true,
