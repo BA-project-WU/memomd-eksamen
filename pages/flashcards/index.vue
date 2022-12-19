@@ -1,8 +1,14 @@
 <template>
   <div>
     <NuxtLayout>
-        <h1>Overview of the Flashcards game</h1>
-        <NuxtLink to="/flashcards/questionpage">Question</NuxtLink>
+      <h1>Overview of the Flashcards game</h1>
+      <div>
+        <p>moduler</p>
+        <div v-for="item in courses._embedded.content">
+          <p>{{ item.name }}</p>
+          <OverviewSubject :course="item"/>
+        </div>
+      </div>
     </NuxtLayout>
   </div>
 </template>
@@ -12,7 +18,13 @@ definePageMeta({
   layout: "flashcards",
 });
 
+//const { id } = useRoute().params
+
 //fetch the flascards memo game api from umbraco heartcore
+const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children?`
+const { data: courses } = await useFetch(uri, {
+  headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' }
+})
 
 useHead({
   title: "MemoMD App | Flashcards",
@@ -24,6 +36,11 @@ useHead({
     },
   ],
 });
+
+
 </script>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>

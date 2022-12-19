@@ -5,17 +5,21 @@
     ></TheFlashcardHeader>
       <div class="settings-box">
         <div class="lyd">
-          <h4>Lyfeffekter</h4>
-          <input type="checkbox" id="switch" /><label for="switch">Lydeefekter</label>
+          <h4>Lydeffekter</h4>
+          <input type="checkbox" id="switch1" /><label for="switch1"></label>
         </div>
-        <div class="lyd">
+        <div class="notification">
           <h4>Notifikationer</h4>
-          <input type="checkbox" id="switch" /><label for="switch">Notifikationer</label>
+          <input type="checkbox" id="switch2" /><label for="switch2"></label>
         </div>
-        <div class="policy-and-report">
-          <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
-          <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
-        </div>
+          <div class="policy">      
+            <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
+            <p></p>
+          </div>
+          <div class="report">
+            <NuxtLink class="report" to="/reportpage">Rapporter et Problem</NuxtLink>
+            <p></p>
+          </div>
         <div class="logud">
           <NuxtLink class="logud-btn" to="/" @click="logud">Logud</NuxtLink>
         </div>
@@ -23,7 +27,9 @@
       <footer>
       <div class="start-the-game">
         <button>
-          <font-awesome-icon icon="fa-solid fa-home" />
+          <NuxtLink to="/">
+            <font-awesome-icon style="color:white" icon="fa-solid fa-home" />
+          </NuxtLink>
         </button>
 
       </div>
@@ -64,26 +70,25 @@ body {
 }
 .settings-box {
   background: var(--secondary-color);
-  height: 400px;
+  height: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position: absolute;
   top: 150px;
   min-width: -webkit-fill-available;
-
+  margin: 0px 30px auto;
 }
-.lyd {
+.lyd, .notification {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
 }
-.policy-and-report{
+.policy, .report {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .policy{
-  color: var(--darker-color);
+  color: var(--success-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
@@ -193,9 +198,13 @@ a {
   top: -18px;
 }
 button{
-  padding: 10px 50px;
+  padding: 10px 10px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.fa-home{
+  background-color: var(--cta-bg-color);
+  color: #fff;
 }
 </style>

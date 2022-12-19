@@ -9,7 +9,7 @@
   --heading-color: #373737;
   --text-color: #000000;
   --bold-text: 700;
-  --fonts: "Times New Roman", Times, serif;
+  --fonts: 'Rubik', sans-serif;
   --success-color: #54cd84;
   --failed-color: #ea8c8c;
   --circle-color: #758e8f;
@@ -23,8 +23,13 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
+  border-style: none;
 }
-
+a {
+  text-decoration: none;
+  color: #000000;
+}
 /*Accounts style*/
 .login-page, .flashcards-page {
   display: flex;
@@ -55,7 +60,7 @@
   flex-direction: column;
   justify-items: center;
 }
-form{
+form, .account{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,11 +105,11 @@ form{
 
 /*Fotgot Passsword*/
 .section-forgot-password{
-  max-width: 100%;
   margin: 0 auto;
+  max-width: 100%;
   text-align: center;
 }
 .forgot-password-form{
-  width: 300px;
   margin: 0 auto;
+  width: 300px;
 }
