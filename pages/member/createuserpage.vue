@@ -38,6 +38,7 @@ const { umbracoApiKey } = useRuntimeConfig();
 const email = ref();
 const name = ref();
 const username = ref();
+const password = ref();
 const memberEducationInstitution = ref();
 const memberPicture = ref();
 async function createMember() {
@@ -53,6 +54,7 @@ async function createMember() {
             email: email,
             username: username,
             name: name,
+            password: password,
             isApproved: true,
             isLockedOut: false,
             memberTypeAlias: "Member",

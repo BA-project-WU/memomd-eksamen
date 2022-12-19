@@ -38,10 +38,12 @@ export default NuxtAuthHandler({
       //     return null;
       //   }
       // },
+      
       async authorize(credentials: any) {
+        const formCredentials = await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`
         const res = await fetch("https://cdn.umbraco.io/member/oauth/token", {
           method: "POST",
-          body: "grant_type=password&username=nicoleisbusy&password=1234567890",
+          body: formCredentials,
           // body: JSON.stringify(credentials)
           headers: {
             "umb-project-alias": "nicole-ba-test",

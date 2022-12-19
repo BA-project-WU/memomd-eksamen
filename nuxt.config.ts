@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     // pwa
     "@kevinmarrec/nuxt-pwa",
     // global state management
-    "@pinia/nuxt",
+    // "@pinia/nuxt",
     // auth
     "@sidebase/nuxt-auth",
   ],
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
   },
   auth: {
     isEnabled: true,
-    origin: "http://10.228.110.93:3000",
+    origin: "http://10.240.11.157:3000",
     basePath: "/api/auth",
     enableSessionRefreshPeriodically: false,
     enableSessionRefreshOnWindowFocus: true,
