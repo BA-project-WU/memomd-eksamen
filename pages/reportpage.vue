@@ -36,6 +36,12 @@
         </div>
         <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
+      <div class="arrow-left">
+      <NuxtLink to="/settingspage">
+        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+      </NuxtLink>
+      </div>
+     
     </div>
     <footer>
       <div class="start-the-game">
@@ -180,8 +186,8 @@ footer {
 }
 li {
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 a {
   color: var(--text-color);
@@ -197,5 +203,9 @@ button {
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.arrow-left{
+  text-align: left;
+  margin-top: 20px;
 }
 </style>
