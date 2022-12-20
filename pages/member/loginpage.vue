@@ -2,11 +2,10 @@
 </template>
 
 <script setup>
-const { status, data, signIn, signOut } = useSession()
-status.value
-data.value
-await signIn()
-// await signOut()
+const { signIn } = useSession()
+// await signIn()
+await signIn(undefined, { callbackUrl: '/' })
+
 definePageMeta({
     auth: false
 });

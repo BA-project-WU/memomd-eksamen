@@ -19,10 +19,8 @@
         <p></p>
       </div>
       <div class="logud">
-        <!-- <NuxtLink class="logud-btn" to="/" @click="logud">Logud</NuxtLink> -->
-        <button @click="signOut({ callbackUrl: '/signout' })">
-          sign out
-        </button>
+        <NuxtLink class="logud-btn" @click="signOut({ callbackUrl: '/' })">Log ud</NuxtLink>
+        <!-- <button @click="signOut({ callbackUrl: '/signout' })">Log ud</button> -->
       </div>
     </div>
     <footer>
@@ -47,9 +45,12 @@
 </template>
 
 <script setup>
+const { status, data, signOut } = useSession()
 definePageMeta({
+  // auth: "false",
   layout: "false",
 });
+
 //https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3
 </script>
 

@@ -7,9 +7,8 @@
             <input type="text" minlength="5" name="username-input" placeholder="Bugernavn" required
                 v-model="username" />
             <input type="email" autocomplete="on" name="email-input" placeholder="E-mail" required v-model="email" />
-            <input type="password" minlength="8" name="password-input" placeholder="Adgangskode" required
+            <input type="password" minlength="10" name="password-input" placeholder="Adgangskode" required
                 v-model="password" />
-            <!-- <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode" required /> -->
             <input type="file" name="file-input" />
             <select id="options" name="memberEducationInstitution" v-model="memberEducationInstitution">
                 <option disabled hidden selected>Vælg din uddannelsesinstution</option>
@@ -32,21 +31,21 @@
 </template>
 
 <script setup>
+const { status, data, signIn } = useSession()
 definePageMeta({
     auth: false
 });
 
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
-const comments = ref("hej");
-const email = ref("test@mail.com");
+const comments = ref("");
+const email = ref("");
 // const memberEducationInstitution = [""];
 const memberEducationInstitution = ["Syddansk Universitet, Odense"];
-const memberGroupPicker = ref("1454");
 const memberPicture = ref();
-const name = ref("testing");
-const password = ref("123456789Al--");
-const username = ref("test");
+const name = ref("");
+const password = ref("");
+const username = ref("");
 
 async function createMember() {
     await useFetch("https://api.umbraco.io/member", {
@@ -63,7 +62,6 @@ async function createMember() {
             isApproved: true,
             isLockedOut: false,
             memberEducationInstitution: memberEducationInstitution,
-            memberGroupPicker: memberGroupPicker,
             memberPicture: memberPicture,
             memberTypeAlias: "Member",
             name: name,
@@ -71,6 +69,8 @@ async function createMember() {
             username: username,
         },
     });
+    // await signIn(undefined, { callbackUrl: '/dashboard' })
+    await signIn(undefined, { callbackUrl: '/settingspage' })
 }
 </script>
 <style scoped>
