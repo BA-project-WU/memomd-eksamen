@@ -1,30 +1,31 @@
 <template>
   <div>
-    <TheFlashcardHeader
-      flashcard-heading="Instillinger"
-    ></TheFlashcardHeader>
-      <div class="settings-box">
-        <div class="lyd">
-          <h4>Lydeffekter</h4>
-          <input type="checkbox" id="switch1" /><label for="switch1"></label>
-        </div>
-        <div class="notification">
-          <h4>Notifikationer</h4>
-          <input type="checkbox" id="switch2" /><label for="switch2"></label>
-        </div>
-          <div class="policy">      
-            <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
-            <p></p>
-          </div>
-          <div class="report">
-            <NuxtLink class="report" to="/reportpage">Rapporter et Problem</NuxtLink>
-            <p></p>
-          </div>
-        <div class="logud">
-          <NuxtLink class="logud-btn" to="/" @click="logud">Logud</NuxtLink>
-        </div>
+    <TheFlashcardHeader flashcard-heading="Instillinger"></TheFlashcardHeader>
+    <div class="settings-box">
+      <div class="lyd">
+        <h4>Lydeffekter</h4>
+        <input type="checkbox" id="switch1" /><label for="switch1"></label>
       </div>
-      <footer>
+      <div class="notification">
+        <h4>Notifikationer</h4>
+        <input type="checkbox" id="switch2" /><label for="switch2"></label>
+      </div>
+      <div class="policy">
+        <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
+        <p></p>
+      </div>
+      <div class="report">
+        <NuxtLink class="report" to="/reportpage">Rapporter et Problem</NuxtLink>
+        <p></p>
+      </div>
+      <div class="logud">
+        <!-- <NuxtLink class="logud-btn" to="/" @click="logud">Logud</NuxtLink> -->
+        <button @click="signOut({ callbackUrl: '/signout' })">
+          sign out
+        </button>
+      </div>
+    </div>
+    <footer>
       <div class="start-the-game">
         <button>
           <NuxtLink to="/">
@@ -34,8 +35,12 @@
 
       </div>
       <ul class="footer-list">
-        <li><NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink></li>
-        <li><NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink></li>
+        <li>
+          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+        </li>
       </ul>
     </footer>
   </div>
@@ -55,19 +60,19 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 .heading-overview {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: -18px;
   padding: 50px 50px;
   text-align: center;
 }
+
 .settings-box {
   background: var(--secondary-color);
   height: 330px;
@@ -79,35 +84,43 @@ body {
   min-width: -webkit-fill-available;
   margin: 0px 30px auto;
 }
-.lyd, .notification {
+
+.lyd,
+.notification {
   display: flex;
   justify-content: space-evenly;
 }
-.policy, .report {
+
+.policy,
+.report {
   display: flex;
   justify-content: space-around;
 }
-.policy{
+
+.policy {
   color: var(--success-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
 }
-.report{
+
+.report {
   color: var(--router-active-color);
   font-weight: var(--bold-text);
   font-family: var(-fonts);
   font-size: var(--text-size);
 }
 
-h4{
+h4 {
   margin-right: 10px;
 }
-input{
+
+input {
   height: 0;
   width: 0;
   visibility: hidden;
 }
+
 label {
   cursor: pointer;
   text-indent: -9999px;
@@ -118,6 +131,7 @@ label {
   border-radius: 20px;
   position: relative;
 }
+
 label:after {
   content: '';
   position: absolute;
@@ -130,11 +144,11 @@ label:after {
   transition: 0.3s;
 }
 
-input:checked + label {
+input:checked+label {
   background: var(--primary-color);
 }
 
-input:checked + label:after {
+input:checked+label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
@@ -142,16 +156,19 @@ input:checked + label:after {
 label:active:after {
   width: 10px;
 }
-a{
+
+a {
   text-decoration: none;
   color: var(--text-color);
 }
-.logud{
+
+.logud {
   text-align: center;
   position: relative;
   top: 46px;
 }
-.logud-btn{
+
+.logud-btn {
   padding: 10px 50px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
@@ -159,12 +176,11 @@ a{
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
-  bottom: 0; /* Height of the footer */
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
+  bottom: 0;
+  /* Height of the footer */
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   display: flex;
@@ -174,6 +190,7 @@ footer {
   min-width: 280px;
   width: 100%;
 }
+
 .footer-list {
   display: flex;
   flex-direction: row;
@@ -183,27 +200,32 @@ footer {
   position: relative;
   top: -20px;
 }
+
 li {
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
+
 a {
   color: var(--text-color);
   text-decoration: none;
 }
-.start-the-game{
+
+.start-the-game {
   text-align: center;
   position: relative;
   top: -18px;
 }
-button{
+
+button {
   padding: 10px 10px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.fa-home{
+
+.fa-home {
   background-color: var(--cta-bg-color);
   color: #fff;
 }

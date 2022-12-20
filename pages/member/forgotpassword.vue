@@ -1,7 +1,6 @@
 <template>
   <div class="section-forgot-password">
-    <TheHeader  class="heading"
-    heading="Heading er nu dynamic"></TheHeader>
+    <TheHeader class="heading" heading="Heading er nu dynamic"></TheHeader>
     <form @submit.prevent="submitForm" method="post" class="forgot-password-form">
       <input type="email" placeholder="Email" v-model="email" class="email" />
       <!-- <input
@@ -18,7 +17,7 @@
 <script setup></script>
 
 <style scoped>
-.email{
+.email {
   background-color: var(--secondary-color);
   border: none;
   margin-top: 15px;
@@ -27,7 +26,8 @@
   outline: 0;
   text-align: center;
 }
-.forgot-password{
+
+.forgot-password {
   background: var(--cta-bg-color);
   width: 100%;
   border: none;
@@ -37,8 +37,9 @@
   outline: 0;
   text-align: center;
 }
-button{
-background-color: var(--cta-bg-color);
+
+button {
+  background-color: var(--cta-bg-color);
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-weight: var(--bold-text);
@@ -46,3 +47,9 @@ background-color: var(--cta-bg-color);
   width: 300px;
 }
 </style>
+
+<script>
+definePageMeta({
+  auth: false
+});
+</script>

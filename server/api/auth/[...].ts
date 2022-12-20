@@ -1,6 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NuxtAuthHandler } from "#auth";
-
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
 export default NuxtAuthHandler({
   secret: process.env.NUXT_SECRET,
   providers: [
@@ -19,28 +20,9 @@ export default NuxtAuthHandler({
           placeholder: "Adgangskode",
         },
       },
-      // authorize(credentials: any) {
-      //   const user = {
-      //     id: "1",
-      //     name: "Test Testing",
-      //     username: "testing",
-      //     password: "testing",
-      //   };
-      //   if (
-      //     credentials?.username === user.username &&
-      //     credentials?.password === user.password
-      //   ) {
-      //     return user;
-      //   } else {
-      //     console.error(
-      //       "Warning: Malicious login attempt registered, bad credentials provided"
-      //     );
-      //     return null;
-      //   }
-      // },
-      
       async authorize(credentials: any) {
-        const formCredentials = await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`
+        const formCredentials =
+          await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`;
         const res = await fetch("https://cdn.umbraco.io/member/oauth/token", {
           method: "POST",
           body: formCredentials,
@@ -56,10 +38,8 @@ export default NuxtAuthHandler({
         });
         const user = await res.json();
         if (res.ok && user) {
-          // return to home
           return user;
         }
-        console.log("hej");
         return null;
       },
     }),

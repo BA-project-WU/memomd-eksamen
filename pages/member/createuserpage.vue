@@ -12,7 +12,7 @@
             <!-- <input type="password" minlength="8" name="passwordrepeat-input" placeholder="Gentag adgangskode" required /> -->
             <input type="file" name="file-input" />
             <select id="options" name="memberEducationInstitution" v-model="memberEducationInstitution">
-                <!-- <option value="Uddannelsesinstution" disabled hidden selected>Vælg uddannelsesinstution</option> -->
+                <option disabled hidden selected>Vælg din uddannelsesinstution</option>
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
                 <option value="Københavns Universitet, Nørre Campus">
@@ -32,15 +32,22 @@
 </template>
 
 <script setup>
-// const { data: posts } = await useFetch('https://api.nuxtjs.dev/posts');
+definePageMeta({
+    auth: false
+});
+
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
-const email = ref();
-const name = ref();
-const username = ref();
-const password = ref();
-const memberEducationInstitution = ref();
+const comments = ref("hej");
+const email = ref("test@mail.com");
+// const memberEducationInstitution = [""];
+const memberEducationInstitution = ["Syddansk Universitet, Odense"];
+const memberGroupPicker = ref("1454");
 const memberPicture = ref();
+const name = ref("testing");
+const password = ref("123456789Al--");
+const username = ref("test");
+
 async function createMember() {
     await useFetch("https://api.umbraco.io/member", {
         method: "POST",
@@ -51,16 +58,17 @@ async function createMember() {
             "Content-Type": "application/json",
         },
         body: {
+            comments: comments,
             email: email,
-            username: username,
-            name: name,
-            password: password,
             isApproved: true,
             isLockedOut: false,
-            memberTypeAlias: "Member",
-            memberPicture: memberPicture,
             memberEducationInstitution: memberEducationInstitution,
-            comments: "Student",
+            memberGroupPicker: memberGroupPicker,
+            memberPicture: memberPicture,
+            memberTypeAlias: "Member",
+            name: name,
+            password: password,
+            username: username,
         },
     });
 }
