@@ -10,13 +10,9 @@
       <button>dynamically changing btn</button>
     </footer>
     <div class="back">
-      <NuxtLink to="/account">
-      <img 
-        class="back-icon" 
-        src="~/assets/images/back-icon.png" 
-        alt="this is back icon" 
-        />
-      </NuxtLink>
+    <NuxtLink to="/">
+      <font-awesome-icon icon="fa fa-arrow-left" /> Tilbage
+    </NuxtLink>
     </div>
   </div>
 </template>
