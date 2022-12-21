@@ -260,7 +260,7 @@
     </p>
     <p>
       <a
-        href="https://ba-project-wu-memomd.netlify.app/reportpage">https://ba-project-wu-memomd.netlify.app/reportpage</a>
+        href="https://ba-project-wu-memomd.netlify.app/contactpage">https://ba-project-wu-memomd.netlify.app/contactpage</a>
     </p>
     <p>
       We will attempt to resolve complaints and disputes and make every reasonable effort
@@ -283,9 +283,14 @@
     </p> -->
     <!-- <h3>Accept Privacy Policy</h3>
     <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button> -->
-    <button>
+    <<<<<<< HEAD <button>
       <NuxtLink to="/reportpage">Tilbage</NuxtLink>
-    </button>
+      </button>
+      =======
+      <NuxtLink to="/settingspage">
+        <font-awesome-icon icon="fa fa-arrow-left" /> Tilbage
+      </NuxtLink>
+      >>>>>>> main
   </div>
 </template>
 <script>
@@ -324,10 +329,16 @@ h2 {
   margin: 20px 0px;
 }
 
-button {
+HEAD button {
   margin: 10px 10px;
   padding: 10px;
   color: black;
   font-size: 20px;
-}
+
+  a {
+    text-align: left;
+    margin-top: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+  }
 </style>

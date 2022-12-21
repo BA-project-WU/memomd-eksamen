@@ -2,21 +2,28 @@
   <div class="profile-page">
     <NuxtLayout>
       <div class="profile-info">
-        <img src="~/assets/images/soccer-ball.jpg" alt=" just a soccer ball" />
+      <div class="circle-img">
+        <img src="~/assets/images/emma.jpg" alt="emma" />
+        <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
+      </div>       
         <h3>{{ name }}</h3>
         <p>{{ email }}</p>
-        <div class="edit-icon"><font-awesome-icon icon="fa-solid fa-edit" /></div>
+        <!-- https://mediajams.dev/post/Nuxtjs-Profile-Picture-Generator -->
       </div>
       <DailyRecord />
       <div class="user-info">
         <h3>Adminintrere din konto</h3>
 
         <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
-        <div v-if="showEmail">
-          <div class="modal-overlay">
+        <div v-if="showEmail" class="modal">
+          <div class="modal-overlay">          
             <div class="modal-email">
+              <div class="x-icon">
+                <font-awesome-icon  style="color:black" icon="fa-solid fa-times"  @click="showEmail = false" />
+              </div>
+            
               <input type="text" v-model="email" placeholder="email" />
-              <button
+              <button class="btn-save"
                 @click="
                   showEmail = false;
                   updateEmail();
@@ -31,6 +38,9 @@
         <div v-if="showPassword">
           <div class="modal-overlay">
             <div class="modal-password">
+              <div class="x-icon" >
+                <font-awesome-icon  style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
+              </div>
               <input
                 type="password"
                 v-model="currentPassword"
@@ -42,6 +52,7 @@
                 placeholder="Indtast ny adgangskode"
               />
               <button
+              class="btn-save"
                 type="submit"
                 @click="
                   showPassword = false;
@@ -60,13 +71,15 @@
 </template>
 
 <script setup>
-//https://medium.com/@shahriarrahi/create-api-with-nuxt3-adcb7b6a17dd
+
 definePageMeta({
   layout: "flashcards",
+
+
 });
+
 let showEmail = ref(false);
 let showPassword = ref(false);
-
 
 let email = "";
 let currentPassword = "";
@@ -79,6 +92,7 @@ let memberEducationInstitution = "";
 
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
+
 await useFetch("https://api.umbraco.io/member/Emma", {
   method: "get",
   headers: {
@@ -177,10 +191,6 @@ async function deleteMemeber() {
 </script>
 
 <style>
-.profile-page {
-  height: 100vh;
-}
-
 .profile-info {
   width: 100%;
   display: flex;
@@ -188,10 +198,16 @@ async function deleteMemeber() {
   align-items: center;
   margin-top: -60px;
 }
-img {
-  height: 200px;
+.circle-img{
   width: 200px;
-  border-radius: 20px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+img {
+  height: auto;
+  width: 100%;
 }
 h3,
 p {
@@ -203,7 +219,12 @@ p {
   left: 87px;
   top: -20px;
 }
-
+.x-icon{
+  text-align: right;
+  position: relative;
+  top: -20px;
+  padding: 10px;
+}
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -283,7 +304,7 @@ input[type="password"] {
   background: var(--secondary-color);
   margin-bottom: 10px;
 }
-input[type="submit"] {
+input[type="submit"], .btn-save, .btn-submit {
   background: var(--primary-color);
   padding: 14px 20px;
   margin: 8px 30;
@@ -291,5 +312,8 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+}
+.btn-save{
+margin-top: 20px;
 }
 </style>

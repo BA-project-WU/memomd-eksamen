@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheFlashcardHeader
-      flashcard-heading="Header"
+      flashcard-heading="Brugernavn"
     ></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
@@ -76,8 +76,8 @@ footer {
 }
 li {
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 a {
   color: var(--text-color);

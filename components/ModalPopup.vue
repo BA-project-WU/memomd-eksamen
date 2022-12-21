@@ -7,22 +7,11 @@
       <p>Din report er blevet gemt. Tak for din hjælp.</p>
       <button><NuxtLink to="/flashcards">Tilbage til Spillet</NuxtLink> </button>
     </div>
-    <div class="close" @click="$emit('close-modal')">
-      <img class="close-img" src="~/assets/images/close-img.png" alt="close img" />
-    </div>
   </div>
 </transition>
 </template>
 
-<script setup>
-// function closeMenu(){
-//   this.isMenuOpen = false
-//   this.$router.replace({
-//     name : "/pages/flashcards"
-//   })
-// }
-
-</script>
+<script setup></script>
 
 <style scoped>
 .modal-overlay {
@@ -34,6 +23,7 @@
   display: flex;
   justify-content: center;
   background-color: #000000da;
+  width: 100%;
 }
 
 .modal {
@@ -44,14 +34,6 @@
   margin-top: 10%;
   padding: 60px 0;
   border-radius: 20px;
-}
-.close {
-  margin: 10% 0 0 16px;
-  cursor: pointer;
-}
-
-.close {
-  width: 25px;
 }
 .page-enter-active,
 .page-leave-active {
@@ -64,10 +46,6 @@
   transform: translateY(100%);
 }
 
-.check {
-  width: 150px;
-}
-
 h6 {
   font-weight: 500;
   font-size: 28px;
@@ -75,8 +53,7 @@ h6 {
 }
 
 p {
-  font-size: 16px;
-  margin: 20px 0;
+  text-align: center;
 }
 
 button {

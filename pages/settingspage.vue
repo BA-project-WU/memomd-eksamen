@@ -26,7 +26,7 @@
     <footer>
       <div class="start-the-game">
         <button>
-          <NuxtLink to="/">
+          <NuxtLink to="/flashcards">
             <font-awesome-icon style="color:white" icon="fa-solid fa-home" />
           </NuxtLink>
         </button>
@@ -204,8 +204,8 @@ footer {
 
 li {
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 a {
@@ -229,5 +229,8 @@ button {
 .fa-home {
   background-color: var(--cta-bg-color);
   color: #fff;
+}
+.svg-inline--fa{
+  text-align: left;
 }
 </style>
