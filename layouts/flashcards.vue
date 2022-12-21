@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheFlashcardHeader
-      flashcard-heading="Brugernavn"
+      flashcard-heading="brugernavn"
     ></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
@@ -23,7 +23,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const { status, data, signOut, signIn } = useSession()
+
+</script>
 
 <style scoped>
 body {

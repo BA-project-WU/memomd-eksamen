@@ -1,7 +1,9 @@
+import { userTest } from './../../../stores/user';
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NuxtAuthHandler } from "#auth";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
+
 export default NuxtAuthHandler({
   secret: process.env.NUXT_SECRET,
   providers: [
@@ -23,7 +25,7 @@ export default NuxtAuthHandler({
       async authorize(credentials: any) {
         const formCredentials =
           await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`;
-        const res = await fetch("https://cdn.umbraco.io/member/oauth/token", {
+          const res = await fetch("https://cdn.umbraco.io/member/oauth/token", {
           method: "POST",
           body: formCredentials,
           // body: JSON.stringify(credentials)
@@ -36,7 +38,8 @@ export default NuxtAuthHandler({
             // grant_type: "password&username={username}&password={password}",
           },
         });
-        const user = await res.json();
+        const user = { name: credentials?.username,  }
+        //const user = await res.json();
         if (res.ok && user) {
           return user;
         }

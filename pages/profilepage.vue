@@ -13,7 +13,6 @@
       <DailyRecord />
       <div class="user-info">
         <h3>Adminintrere din konto</h3>
-
         <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
         <div v-if="showEmail" class="modal">
           <div class="modal-overlay">          
@@ -71,12 +70,12 @@
 </template>
 
 <script setup>
+const { status, data, signOut, signIn } = useSession()
 
 definePageMeta({
   layout: "flashcards",
-
-
 });
+
 
 let showEmail = ref(false);
 let showPassword = ref(false);
@@ -93,7 +92,7 @@ let memberEducationInstitution = "";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
-await useFetch("https://api.umbraco.io/member/Emma", {
+await useFetch("https://api.umbraco.io/member/" + data?.value?.user?.name, {
   method: "get",
   headers: {
     "umb-project-alias": umbracoProjectAlias,
@@ -111,7 +110,8 @@ await useFetch("https://api.umbraco.io/member/Emma", {
 
 setTimeout(delay, 500);
 async function delay() {
-  await useFetch("https://api.umbraco.io/member/Emma", {
+
+  await useFetch("https://api.umbraco.io/member/"+ data?.value?.user?.name, {
     method: "get",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -129,7 +129,7 @@ async function delay() {
 }
 
 async function updateEmail() {
-  await useFetch("https://api.umbraco.io/member/Emma", {
+  await useFetch("https://api.umbraco.io/member/" + data?.value?.user?.name, {
     method: "put",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -148,7 +148,7 @@ async function updateEmail() {
 }
 
 async function updatePassword() {
-  await useFetch("https://api.umbraco.io/member/Emma/password", {
+  await useFetch(`https://api.umbraco.io/member/${data?.value?.user?.name}/password`, {
     method: "POST",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -185,6 +185,7 @@ async function deleteMemeber() {
     });
     */
   } else {
+
 
   }
 }
