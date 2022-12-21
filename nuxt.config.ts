@@ -1,4 +1,3 @@
-import { Base } from "./.nuxt/components.d";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
@@ -65,8 +64,8 @@ export default defineNuxtConfig({
   },
   auth: {
     isEnabled: true,
-    origin: "https://ba-project-wu-memomd.netlify.app",
-    // origin: "http://192.168.1.52:3000", amal1698
+    // origin: "https://ba-project-wu-memomd.netlify.app",
+    origin: "http://10.228.123.110:3000",
     // origin: "http://192.168.0.125:3000/", Edna dev
     basePath: "/api/auth",
     enableSessionRefreshPeriodically: false,
