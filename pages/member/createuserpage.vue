@@ -70,7 +70,7 @@ async function createMember() {
         },
     });
     // await signIn(undefined, { callbackUrl: '/dashboard' })
-    await signIn(undefined, { callbackUrl: '/settingspage' })
+    await signIn(undefined, { callbackUrl: '/flashcards/' })
 }
 </script>
 <style scoped>
