@@ -53,3 +53,8 @@ DELETE https://api.umbraco.io/member/Emma HTTP/1.1
 umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
 api-key:  {{$dotenv UMBRACO__APIKEY }}
 
+###
+POST https://ba-project-wu-memomd.netlify.app/api/auth/callback/credentials HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+csrfToken=e8aac9cf8dd000fe6452ee95a206c30993e200efa282463e12084e6e5585b212&username=Emma&password=1234567890

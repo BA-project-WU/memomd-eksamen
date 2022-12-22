@@ -23,6 +23,7 @@ export default NuxtAuthHandler({
         },
       },
       async authorize(credentials: any) {
+        console.log(credentials)
         const formCredentials =
           await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`;
           const res = await fetch("https://cdn.umbraco.io/member/oauth/token", {
@@ -38,6 +39,7 @@ export default NuxtAuthHandler({
             // grant_type: "password&username={username}&password={password}",
           },
         });
+        console.log(res)
         const user = { name: credentials?.username,  }
         //const user = await res.json();
         if (res.ok && user) {
