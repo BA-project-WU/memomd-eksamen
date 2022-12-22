@@ -10,7 +10,7 @@
             <input type="password" minlength="10" name="password-input" placeholder="Adgangskode" required
                 v-model="password" />
             <input type="file" name="memberImageTesting" v-on:change="memberImageTesting" />
-            <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
+            <input type="file" name="memberPicture" v-on:change="memberPicture" />
             <select id="options" name="memberEducationInstitution" required v-model="memberEducationInstitution">
                 <option disabled hidden selected>Vælg din uddannelsesinstution</option>
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
@@ -43,9 +43,8 @@ const comments = ref("");
 const email = ref("");
 // const memberEducationInstitution = [""];
 const memberEducationInstitution = ["Syddansk Universitet, Odense"];
-// const memberImageTesting = ref("");
-const memberImageTesting = [{ "key": "10c2369b-9dca-4cbf-9081-271b7677b212", "mediaKey": "c3529631-ce9b-4a85-8851-2bdf1446f0bb", "crops": [] }]
-// const memberPicture = ref("");
+const memberPicture = ref("");
+const memberImageTesting = ref["84ca7bf4-7e6b-43c2-be23-8d6e74a97895"];
 const name = ref("");
 const password = ref("");
 const username = ref("");
@@ -66,7 +65,7 @@ async function createMember() {
             isLockedOut: false,
             memberEducationInstitution: memberEducationInstitution,
             memberImageTesting: memberImageTesting,
-            // memberPicture: memberPicture,
+            memberPicture: memberPicture,
             memberTypeAlias: "Member",
             name: name,
             password: password,
