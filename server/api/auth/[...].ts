@@ -5,7 +5,7 @@ const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
 export default NuxtAuthHandler({
-  secret: "EvNbAl123",
+  secret: process.env.NUXT_SECRET,
   providers: [
     // @ts-ignore Import is exported on .default during SSR, so we need to call it this way. May be fixed via Vite at some point
     CredentialsProvider.default({
