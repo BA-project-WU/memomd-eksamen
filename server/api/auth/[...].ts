@@ -38,8 +38,8 @@ export default NuxtAuthHandler({
             // grant_type: "password&username={username}&password={password}",
           },
         });
-        const user = { name: credentials?.username,  }
-        //const user = await res.json();
+        // const user = { name: credentials?.username,  }
+        const user = await res.json();
         if (res.ok && user) {
           return user;
         }
