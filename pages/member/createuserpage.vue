@@ -70,7 +70,7 @@ async function createMember() {
         },
     });
     // await signIn(undefined, { callbackUrl: '/dashboard' })
-    await signIn(undefined, { callbackUrl: '/flashcards/' })
+    await signIn(undefined, { callbackUrl: 'https://ba-project-wu-memomd.netlify.app/flashcards' })
 }
 </script>
 <style scoped>
