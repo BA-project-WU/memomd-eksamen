@@ -4,7 +4,7 @@
 <script setup>
 const { signIn } = useSession()
 // await signIn()
-await signIn(undefined, { callbackUrl: '/settingspage' })
+await signIn(undefined, { callbackUrl: 'https://ba-project-wu-memomd.netlify.app/settingspage' })
 
 definePageMeta({
     auth: false
