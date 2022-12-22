@@ -23,6 +23,7 @@ export default NuxtAuthHandler({
         },
       },
       async authorize(credentials: any) {
+        console.log('test')
         console.log(credentials)
         const formCredentials =
           await `grant_type=password&username=${credentials?.username}&password=${credentials?.password}`;

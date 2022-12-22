@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   },
   auth: {
     isEnabled: true,
-     origin: "https://ba-project-wu-memomd.netlify.app/",
+     origin: "https://ba-project-wu-memomd.netlify.app",
     // origin: "http://192.168.1.52:3000", amal1698
     //origin: "http://172.24.144.1:3000/", 
     basePath: "/api/auth",
