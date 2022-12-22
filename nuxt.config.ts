@@ -71,7 +71,7 @@ export default defineNuxtConfig({
     basePath: "/api/auth",
     enableSessionRefreshPeriodically: false,
     enableSessionRefreshOnWindowFocus: true,
-    enableGlobalAppMiddleware: false,
+    enableGlobalAppMiddleware: true,
   },
   runtimeConfig: {
     public: {
