@@ -4,7 +4,8 @@
 <script setup>
 const { signIn } = useSession()
 // await signIn()
-await signIn("Credentials", { callbackUrl: 'https://ba-project-wu-memomd.netlify.app/flashcards' })
+await signIn("Credentials", { callbackUrl: '/flashcards/' })
+
 
 definePageMeta({
     auth: false
