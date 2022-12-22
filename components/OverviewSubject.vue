@@ -4,8 +4,9 @@
             <div v-for="item in subjects._embedded.content" class="card">
                 <p>{{ item.name }}</p>
                 <p>beskrivelse</p>
+                
                 <p></p>
-                <NuxtLink to="/flashcards/questionpage">Spil</NuxtLink>
+                <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink>
             </div>
         </div>
         <div v-else>
