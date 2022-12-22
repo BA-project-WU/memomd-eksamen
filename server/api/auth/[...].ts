@@ -1,4 +1,4 @@
-import { userTest } from './../../../stores/user';
+
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NuxtAuthHandler } from "#auth";
 const { umbracoProjectAlias } = useRuntimeConfig();
