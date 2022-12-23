@@ -32,9 +32,9 @@
 
 <script setup>
 const { status, data, signIn } = useSession()
-definePageMeta({
-    auth: false
-});
+// definePageMeta({
+//     auth: false
+// });
 
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
@@ -69,7 +69,7 @@ async function createMember() {
             username: username,
         },
     });
-    await signIn(undefined, { callbackUrl: '/flashcards/' })
+    await signIn(undefined, { callbackUrl: '/settingspage' })
 }
 </script>
 <style scoped>

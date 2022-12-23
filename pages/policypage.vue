@@ -289,7 +289,7 @@
   </div>
 </template>
 <script>
-const { status, data, signOut, signIn } = useSession()
+// const { status, data, signOut, signIn } = useSession()
 //https://app.websitepolicies.com/users/login?r=policies%2Fplatforms%2Fmanage%3Fref%3Dverify
 </script>
 

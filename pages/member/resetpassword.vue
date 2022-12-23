@@ -50,9 +50,3 @@ button {
   width: 300px;
 }
 </style>
-
-<script>
-definePageMeta({
-  auth: false
-});
-</script>

@@ -37,6 +37,9 @@
           <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
         </li>
         <li>
+          <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-cog" />flashcards</NuxtLink>
+        </li>
+        <li>
           <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
         </li>
       </ul>
