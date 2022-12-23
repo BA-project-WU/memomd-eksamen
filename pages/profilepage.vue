@@ -76,20 +76,18 @@ definePageMeta({
   layout: "flashcards",
 });
 
+
+// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
+
 let username = useCookie("username").value
-if(!token){
-  navigateTo('/member/loginpage')
-}
 
  function logout() {
   useCookie("token").value = ""
   useCookie("username").value = ""
   navigateTo('/member/loginpage')
  }
-
-
-
 
 
 let showEmail = ref(false);
