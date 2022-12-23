@@ -70,11 +70,21 @@
 </template>
 
 <script setup>
-const { status, data, signOut, signIn } = useSession()
 
 definePageMeta({
   layout: "flashcards",
 });
+
+const token = useCookie("token").value
+let username = useCookie("username").value
+if(!token){
+  navigateTo('/member/loginpage')
+}
+
+
+
+
+
 
 
 let showEmail = ref(false);
@@ -85,14 +95,13 @@ let currentPassword = "";
 let newPassword = "";
 
 let memberTypeAlias = "";
-let username = "";
 let name = "";
 let memberEducationInstitution = "";
 
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
-await useFetch("https://api.umbraco.io/member/" + data?.value?.user?.name, {
+await useFetch("https://api.umbraco.io/member/" + username,{
   method: "get",
   headers: {
     "umb-project-alias": umbracoProjectAlias,
@@ -111,7 +120,7 @@ await useFetch("https://api.umbraco.io/member/" + data?.value?.user?.name, {
 setTimeout(delay, 500);
 async function delay() {
 
-  await useFetch("https://api.umbraco.io/member/"+ data?.value?.user?.name, {
+  await useFetch("https://api.umbraco.io/member/" + username, {
     method: "get",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -129,7 +138,7 @@ async function delay() {
 }
 
 async function updateEmail() {
-  await useFetch("https://api.umbraco.io/member/" + data?.value?.user?.name, {
+  await useFetch("https://api.umbraco.io/member/" + username, {
     method: "put",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -141,6 +150,7 @@ async function updateEmail() {
       memberTypeAlias: memberTypeAlias,
       username: username,
       name: name,
+      isApproved: true,
       memberEducationInstitution: memberEducationInstitution,
     },
     onResponse({ request, response, options }) {},
@@ -148,7 +158,7 @@ async function updateEmail() {
 }
 
 async function updatePassword() {
-  await useFetch(`https://api.umbraco.io/member/${data?.value?.user?.name}/password`, {
+  await useFetch(`https://api.umbraco.io/member/${username}/password`, {
     method: "POST",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -176,7 +186,7 @@ async function deleteMemeber() {
     alert("Brugeren er slettet");
     //if the block below is uncomment, then the user will actually be deleted.
     /*
-    await useFetch("https://api.umbraco.io/member/Emma", {
+    await useFetch("https://api.umbraco.io/member/" + username, {
       method: "DELETE",
       headers: {
         "umb-project-alias": umbracoProjectAlias,

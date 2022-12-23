@@ -69,7 +69,7 @@ async function createMember() {
             username: username,
         },
     });
-    await signIn(undefined, { callbackUrl: '/settingspage' })
+    // await signIn(undefined, { callbackUrl: '/settingspage' })
 }
 </script>
 <style scoped>

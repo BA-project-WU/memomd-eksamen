@@ -19,7 +19,7 @@
         <p></p>
       </div>
       <div class="logud">
-        <NuxtLink class="logud-btn" @click="signOut({ callbackUrl: '/' })">Log ud</NuxtLink>
+        <NuxtLink class="logud-btn" to="/">Log ud</NuxtLink>
         <!-- <button @click="signOut({ callbackUrl: '/signout' })">Log ud</button> -->
       </div>
     </div>
@@ -48,9 +48,7 @@
 </template>
 
 <script setup>
-const { status, data, signOut } = useSession()
 definePageMeta({
-  // auth: "false",
   layout: "false",
 });
 

@@ -74,7 +74,6 @@ csrfToken=5f4fb53843ec71736c4d9923eabafae5e52fbd21a2ab48acb63afeec54acd7e3&usern
 ###
 POST https://cdn.umbraco.io/member/oauth/token  HTTP/1.1
 umb-project-alias: nicole-ba-test
-api-key: 3wvrfahXVBS0vPH3YqBv
 content-type: application/x-www-form-urlencoded
 
 grant_type=password&username=test&password=1234567890
