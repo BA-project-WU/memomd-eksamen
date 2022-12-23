@@ -63,6 +63,7 @@
             </div>
           </div>
         </div>
+        <button class="btn-delete-user" @click="logout()">Log af</button>
         <button class="btn-delete-user" @click="deleteMemeber()">Slet bruger</button>
       </div>
     </NuxtLayout>
@@ -81,7 +82,11 @@ if(!token){
   navigateTo('/member/loginpage')
 }
 
-
+ function logout() {
+  useCookie("token").value = ""
+  useCookie("username").value = ""
+  navigateTo('/member/loginpage')
+ }
 
 
 
