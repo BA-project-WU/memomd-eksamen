@@ -63,8 +63,7 @@
             </div>
           </div>
         </div>
-        <button class="btn-delete-user" @click="logout()">Log af</button>
-        <button class="btn-delete-user" @click="deleteMemeber()">Slet bruger</button>
+        <button class="btn-delete-user" @click="deleteMember()">Slet bruger</button>
       </div>
     </NuxtLayout>
   </div>
@@ -82,12 +81,6 @@ const token = useCookie("token").value
 if(!token){ navigateTo('/member/loginpage')}
 
 let username = useCookie("username").value
-
- function logout() {
-  useCookie("token").value = ""
-  useCookie("username").value = ""
-  navigateTo('/member/loginpage')
- }
 
 
 let showEmail = ref(false);
@@ -182,7 +175,7 @@ async function updatePassword() {
   });
 }
 
-async function deleteMemeber() {
+async function deleteMember() {
   let text =
     "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
   if (confirm(text) == true) {

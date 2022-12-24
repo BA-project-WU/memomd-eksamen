@@ -5,7 +5,7 @@
       <img class="check" src="~/assets/images/check-img.png" alt="check img" />
       <h6>Gemt!!!</h6>
       <p>Din report er blevet gemt. Tak for din hjælp.</p>
-      <button><NuxtLink to="/flashcards">Tilbage til Spillet</NuxtLink> </button>
+      <button><NuxtLink to="/settingspage">Tilbage til Indstillinger</NuxtLink> </button>
     </div>
   </div>
 </transition>
@@ -29,10 +29,7 @@
 .modal {
   text-align: center;
   background-color: white;
-  height: 500px;
   width: 500px;
-  margin-top: 10%;
-  padding: 60px 0;
   border-radius: 20px;
 }
 .page-enter-active,
