@@ -112,10 +112,9 @@ await useFetch("https://api.umbraco.io/member/" + username,{
     memberEducationInstitution = response._data.name;
   },
 });
-
+// dette er workaround 
 setTimeout(delay, 500);
 async function delay() {
-
   await useFetch("https://api.umbraco.io/member/" + username, {
     method: "get",
     headers: {
@@ -132,7 +131,7 @@ async function delay() {
     },
   });
 }
-
+// kalder api ved username
 async function updateEmail() {
   await useFetch("https://api.umbraco.io/member/" + username, {
     method: "put",

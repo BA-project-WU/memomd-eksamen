@@ -84,11 +84,7 @@ form, .account{
   font-weight: var(--bold-text);
   min-width: 300px;
 }
-.remember-me {
-  margin: 0 auto;
-  min-width: 308px;
-  text-align: left;
-}
+
 .forgot-password{
   text-align: center;
   font-size: var(--font-text-size);

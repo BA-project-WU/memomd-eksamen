@@ -11,7 +11,7 @@
       <input type="submit" value="Log ind" @click="login()" />
     </form>
     <div class="remember-me">
-      <input type="checkbox" value="1">
+      <input type="checkbox" v-model="remember" value="1">
       <label for="check">Husk Mig</label>
     </div>
     <div class="forgot-password">
@@ -23,6 +23,7 @@
 <script setup>
 let username;
 let password;
+let remember;
 const { umbracoProjectAlias } = useRuntimeConfig();
 
 async function login() {
@@ -38,9 +39,17 @@ async function login() {
       if (response._data.error) {
         alert(response._data.error);
       } else {
-        const token = useCookie("token")
-        token.value = response._data.access_token
-        useCookie("username").value = username;
+        
+        if(remember){ //if checkbox remeber is true
+          const date = new Date(Date.now() + (3600 * 1000 * 24 * 365)) // create date one year from now.
+          const token = useCookie("token" , {expires:date}) // save the cookie for one year
+          token.value = response._data.access_token // save the token in the cookie
+          useCookie("username", {expires:date}).value = username // save the username in a cookie (for one year)
+        }else{
+          const token = useCookie("token") // create a session cookie (only valid for current session)
+          token.value = response._data.access_token // save the token in the cookie
+          useCookie("username").value = username // save the username in a cookie (for current session)
+        }
         navigateTo('/profilepage')
       }
     },
@@ -75,6 +84,7 @@ input[type="checkbox"]{
 form {
   display: table-cell;
   width: 100%;
+  padding: 20px;
 }
 input[type="password"] {
   margin-top: 10px;
@@ -83,7 +93,7 @@ input[type=submit] {
   width: 100%;
   background-color: var(--primary-color);
   padding: 14px 20px;
-  margin: 20px 0;
+  margin: 25px 0 0 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -96,9 +106,12 @@ input[type=submit]:hover {
 input[type="text"]{
   margin-bottom: 10px;
 }
-
+.remember-me{
+  padding-left: 20px;
+}
 .forgot-password{
 text-align: center;
 margin-top: 20px;
+padding: 20px;
 }
 </style>
