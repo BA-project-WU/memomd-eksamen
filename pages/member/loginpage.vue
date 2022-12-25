@@ -10,6 +10,13 @@
       <input type="password" v-model="password" placeholder="Dit adgangskode.." />
       <input type="submit" value="Log ind" @click="login()" />
     </form>
+    <div class="remember-me">
+      <input type="checkbox" value="1">
+      <label for="check">Husk Mig</label>
+    </div>
+    <div class="forgot-password">
+      <p>Jeg har <button @click="forgotPassword()" style="color:#4ED2CA">glemt</button> min adgangskode</p>
+    </div>
   </div>
 </template>
 
@@ -39,6 +46,10 @@ async function login() {
     },
   });
 }
+// fix later
+async function forgotPassword(){
+  alert('later')
+}
 </script>
 
 
@@ -57,6 +68,9 @@ input[type="text"],input[type="password"] {
   box-sizing: border-box;
   background: var(--secondary-color);
   margin-top: 10px;
+}
+input[type="checkbox"]{
+  margin-right: 10px;
 }
 form {
   display: table-cell;
@@ -83,9 +97,8 @@ input[type="text"]{
   margin-bottom: 10px;
 }
 
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+.forgot-password{
+text-align: center;
+margin-top: 20px;
 }
 </style>

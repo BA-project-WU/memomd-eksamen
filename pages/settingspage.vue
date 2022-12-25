@@ -49,6 +49,9 @@ definePageMeta({
   layout: "false",
 });
 
+const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
+
 function logout() {
   useCookie("token").value = ""
   useCookie("username").value = ""

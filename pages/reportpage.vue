@@ -92,6 +92,9 @@
   })
 }
 
+const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
+
 </script>
 
 <style scoped>
