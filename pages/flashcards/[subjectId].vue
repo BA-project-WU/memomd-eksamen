@@ -1,16 +1,19 @@
 <template>
   <NuxtLayout>
     <div>
-      <div>
+      <div class="flashcard-title my-progress">
         <h1>header</h1>
+        <div class="my-bar"></div>
       </div>
-      <div>
-        <p>quit</p>
+      <div class="quit-and-report">
+        <div>
+          <button class="quit">Quit</button>
+        </div>
+        <div>
+          <button class="report">Report et Problem</button>
+        </div>
       </div>
-      <div>
-        <h2>report an issue</h2>
-      </div>
-      <div>
+      <div class="quiz-wrapper">
         <h1>The Quiz</h1>
           <section v-if="!quizCompleted" class="quiz">
             <div class="quiz-info">
@@ -35,7 +38,7 @@
                 <span>{{ option }}</span>
               </label>
                 </div>
-                <button @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
+                <button class="btn-next" @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
                   {{
                     getCurrentQuestion.index == questions.length - 1
                     ? 'Afslut'
@@ -61,12 +64,17 @@
             {{ subjectsQuestions._totalItems}}
           </p>
       </div>
+      <div class="arrow-left">
+      <NuxtLink to="/flashcards/">
+        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+      </NuxtLink>
+    </div>
     </NuxtLayout>
 </template>
 
 <script setup>
 definePageMeta({
-  layout: "flashcards",
+  layout: "false",
 });
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
@@ -163,7 +171,102 @@ const GetNextQuestion = () => {
 </script>
 
 <style scoped>
-.container {
-    padding: 30px;
+.flashcard-title {
+  background-color: var(--secondary-color);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin-top: -18px;
+  padding: 50px 50px;
+  text-align: center;
 }
+.quit-and-report{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+button{
+  padding: 10px;
+  border-radius: 4px;
+}
+.quit{
+  background-color: var(--success-color);
+}
+.report{
+  background: var(--failed-color);
+}
+.arrow-left{
+  text-align: left;
+  margin-top: 20px;
+}
+.my-progress {
+  width: 100%;
+  background-color: var(--secondary-color);
+}
+
+.my-bar {
+  width: 15%;
+  height: 10px;
+  background-color: var(--primary-color);
+}
+h1{
+  text-align: center;
+}
+.quiz-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.quiz{
+  margin: 30px 20px;
+  background: var(--secondary-color);
+  padding: 20px 10px;
+  height: 400px;
+  border-radius: 10px;
+}
+.quiz-info{
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+}
+.question{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.score{
+  margin-bottom: 10px;
+}
+.options{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+label{
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: rgb(244, 239, 239);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.btn-next{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+  margin-top: 35px;
+  color: black;
+}
+.label:hover input ~ .option {
+  background-color: var(--success-color);
+}
+
 </style>

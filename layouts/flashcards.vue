@@ -9,7 +9,7 @@
       <div class="start-the-game">
         <button class="btn-start-spil">
           <NuxtLink to="/flashcards/">
-            Start
+            Overview
           </NuxtLink>
         </button>
       </div>

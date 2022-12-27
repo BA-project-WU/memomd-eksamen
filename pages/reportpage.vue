@@ -37,9 +37,9 @@
         <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
       <div class="arrow-left">
-      <NuxtLink to="/settingspage">
-        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-      </NuxtLink>
+        <NuxtLink to="/settingspage">
+          <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+        </NuxtLink>
       </div>
      
     </div>

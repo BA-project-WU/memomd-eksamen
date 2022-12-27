@@ -191,7 +191,7 @@ async function deleteMember() {
 }
 </script>
 
-<style>
+<style scoped>
 .profile-info {
   width: 100%;
   display: flex;

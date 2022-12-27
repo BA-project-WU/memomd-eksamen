@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtLayout>
-      <h1>Oversigt over Flashcards-spillet</h1>
+      <!-- <h1>Oversigt over Flashcards-spillet</h1> -->
       <div>
         <h2>Moduler:</h2>
         <div v-for="item in courses">
@@ -27,11 +27,12 @@ let courses = {}
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children`
 await useFetch(uri, {
-  headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' }
-  ,method: "get"
-,  onResponse({ request, response, options }) {
+  headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' },
+  method: "get",
+  onResponse({ request, response, options }) {
   courses = response._data._embedded.content
-  }})
+  }
+})
 
 useHead({
   title: "MemoMD App | Flashcards",

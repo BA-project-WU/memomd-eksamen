@@ -4,7 +4,7 @@
       <li v-for="item in subjects._embedded.content" class="card">
         <div>
           <h4 class="card-title">{{ item.name }}</h4>
-          <p class="card-text">beskrivelse</p>
+          <p class="card-text">{{item.description}}</p>
 
           <p>text text text</p>
         </div>
@@ -137,7 +137,7 @@ h2 {
 .start-the-game{
   text-align: center;
   position: relative;
-  top: 35px;
+  top: 47px;
 }
 .btn-start-spil{
   padding: 10px 20px;
@@ -145,4 +145,5 @@ h2 {
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 </style>
