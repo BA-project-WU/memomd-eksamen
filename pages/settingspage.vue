@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="Instillinger"></TheFlashcardHeader>
+    <TheFlashcardHeader flashcard-heading="Indstillinger"></TheFlashcardHeader>
     <div class="settings-box">
       <div class="lyd">
         <h4>Lydeffekter</h4>
@@ -11,11 +11,11 @@
         <input type="checkbox" id="switch2" /><label for="switch2"></label>
       </div>
       <div class="policy">
-        <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
+        <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
         <p></p>
       </div>
       <div class="report">
-        <NuxtLink class="report" to="/reportpage">Rapporter et Problem</NuxtLink>
+        <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
         <p></p>
       </div>
       <div class="logud">
@@ -26,7 +26,7 @@
     <footer>
       <div class="start-the-game">
         <button>
-          <NuxtLink to="/flashcards">
+          <NuxtLink to="/flashcards/">
             <font-awesome-icon style="color:white" icon="fa-solid fa-home" />
           </NuxtLink>
         </button>
@@ -50,13 +50,13 @@ definePageMeta({
 });
 
 const token = useCookie("token").value
-if(!token){ navigateTo('/member/loginpage')}
+if (!token) { navigateTo('/member/loginpage') }
 
 function logout() {
   useCookie("token").value = ""
   useCookie("username").value = ""
   navigateTo('/member/loginpage')
- }
+}
 
 //https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3
 </script>
@@ -237,7 +237,8 @@ button {
   background-color: var(--cta-bg-color);
   color: #fff;
 }
-.svg-inline--fa{
+
+.svg-inline--fa {
   text-align: left;
 }
 </style>

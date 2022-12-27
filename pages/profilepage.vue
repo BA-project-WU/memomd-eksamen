@@ -3,10 +3,10 @@
     <TheFlashcardHeader flashcardHeading="Min Profil"
     ></TheFlashcardHeader>
       <div class="profile-info">
-      <div class="circle-img">
-        <img src="~/assets/images/emma.jpg" alt="emma" />
-        <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
-      </div>       
+        <div class="circle-img">
+          <img src="~/assets/images/member.webp" alt="member" />
+          <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
+        </div>
         <h3>{{ name }}</h3>
         <p>{{ email }}</p>
         <!-- https://mediajams.dev/post/Nuxtjs-Profile-Picture-Generator -->
@@ -16,19 +16,17 @@
         <h3>Adminintrere din konto</h3>
         <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
         <div v-if="showEmail" class="modal">
-          <div class="modal-overlay">          
+          <div class="modal-overlay">
             <div class="modal-email">
               <div class="x-icon">
-                <font-awesome-icon  style="color:black" icon="fa-solid fa-times"  @click="showEmail = false" />
+                <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showEmail = false" />
               </div>
-            
+
               <input type="text" v-model="email" placeholder="email" />
-              <button class="btn-save"
-                @click="
-                  showEmail = false;
-                  updateEmail();
-                "
-              >
+              <button class="btn-save" @click="
+  showEmail = false;
+updateEmail();
+                ">
                 Gem
               </button>
             </div>
@@ -38,27 +36,15 @@
         <div v-if="showPassword">
           <div class="modal-overlay">
             <div class="modal-password">
-              <div class="x-icon" >
-                <font-awesome-icon  style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
+              <div class="x-icon">
+                <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
               </div>
-              <input
-                type="password"
-                v-model="currentPassword"
-                placeholder="Indtast nuværende adgangskode"
-              />
-              <input
-                type="newpassword"
-                v-model="newPassword"
-                placeholder="Indtast ny adgangskode"
-              />
-              <button
-              class="btn-save"
-                type="submit"
-                @click="
-                  showPassword = false;
-                  updatePassword();
-                "
-              >
+              <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
+              <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
+              <button class="btn-save" type="submit" @click="
+  showPassword = false;
+updatePassword();
+                ">
                 Gem
               </button>
             </div>
@@ -93,7 +79,7 @@ const { flashcardHeading } = defineProps(["flashcardHeading"]);
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
-if(!token){ navigateTo('/member/loginpage')}
+if (!token) { navigateTo('/member/loginpage') }
 
 let username = useCookie("username").value
 
@@ -112,7 +98,7 @@ let memberEducationInstitution = "";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
-await useFetch("https://api.umbraco.io/member/" + username,{
+await useFetch("https://api.umbraco.io/member/" + username, {
   method: "get",
   headers: {
     "umb-project-alias": umbracoProjectAlias,
@@ -163,7 +149,7 @@ async function updateEmail() {
       isApproved: true,
       memberEducationInstitution: memberEducationInstitution,
     },
-    onResponse({ request, response, options }) {},
+    onResponse({ request, response, options }) { },
   });
 }
 
@@ -219,33 +205,39 @@ async function deleteMember() {
   align-items: center;
   margin-top: -25px;
 }
-.circle-img{
+
+.circle-img {
   width: 200px;
   height: 200px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
 }
+
 img {
   height: auto;
   width: 100%;
 }
+
 h3,
 p {
   text-align: left;
   margin-bottom: 10px 10px;
 }
+
 .edit-icon {
   position: relative;
   left: 87px;
   top: -20px;
 }
-.x-icon{
+
+.x-icon {
   text-align: right;
   position: relative;
   top: -20px;
   padding: 10px;
 }
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -254,10 +246,12 @@ p {
   right: 0;
   background-color: #000000da;
 }
+
 .user-info {
   width: 100%;
   height: 400px;
 }
+
 .modal-email {
   position: fixed;
   z-index: 999;
@@ -273,6 +267,7 @@ p {
   flex-direction: column;
   justify-content: center;
 }
+
 .modal-password {
   position: fixed;
   z-index: 999;
@@ -289,10 +284,14 @@ p {
   justify-content: center;
   margin-bottom: 10px;
 }
+
 h3 {
   padding: 10px 0px 0px 20px;
 }
-.btn-change-email, .btn-change-password, .btn-delete-user {
+
+.btn-change-email,
+.btn-change-password,
+.btn-delete-user {
   border: none;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -304,6 +303,7 @@ h3 {
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 input[type="text"],
 input[type="newpassword"] {
   padding: 12px 12px;
@@ -325,7 +325,10 @@ input[type="password"] {
   background: var(--secondary-color);
   margin-bottom: 10px;
 }
-input[type="submit"], .btn-save, .btn-submit {
+
+input[type="submit"],
+.btn-save,
+.btn-submit {
   background: var(--primary-color);
   padding: 14px 20px;
   margin: 8px 30;
@@ -334,8 +337,9 @@ input[type="submit"], .btn-save, .btn-submit {
   cursor: pointer;
   width: 100%;
 }
-.btn-save{
-margin-top: 20px;
+
+.btn-save {
+  margin-top: 20px;
 }
 
 body {

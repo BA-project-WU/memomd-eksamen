@@ -1,10 +1,9 @@
 <template>
   <div class="login-page">
-    <TheHeader  class="heading"
-    heading="Log ind"></TheHeader>
+    <TheHeader class="heading" heading="Log ind"></TheHeader>
     <form @submit.prevent="memberLogin">
       <label for="username">Brugernavn</label>
-      <input type="text"  v-model="username"  placeholder="Dit brugernavn.." />
+      <input type="text" v-model="username" placeholder="Dit brugernavn.." />
 
       <label id="password" for="password">Adgangskode</label>
       <input type="password" v-model="password" placeholder="Dit adgangskode.." />
@@ -12,7 +11,7 @@
     </form>
     <div class="remember-me">
       <input type="checkbox" v-model="remember" value="1">
-      <label for="check">Husk Mig</label>
+      <label for="check">Husk mig</label>
     </div>
     <div class="forgot-password">
       <p>Jeg har <button @click="forgotPassword()" style="color:#4ED2CA">glemt</button> min adgangskode</p>
@@ -33,19 +32,19 @@ async function login() {
       "umb-project-alias": umbracoProjectAlias,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body:"grant_type=password&username=" + username + "&password=" + password
+    body: "grant_type=password&username=" + username + "&password=" + password
     ,
     onResponse({ request, response, options }) {
       if (response._data.error) {
         alert(response._data.error);
       } else {
-        
-        if(remember){ //if checkbox remeber is true
+
+        if (remember) { //if checkbox remeber is true
           const date = new Date(Date.now() + (3600 * 1000 * 24 * 365)) // create date one year from now.
-          const token = useCookie("token" , {expires:date}) // save the cookie for one year
+          const token = useCookie("token", { expires: date }) // save the cookie for one year
           token.value = response._data.access_token // save the token in the cookie
-          useCookie("username", {expires:date}).value = username // save the username in a cookie (for one year)
-        }else{
+          useCookie("username", { expires: date }).value = username // save the username in a cookie (for one year)
+        } else {
           const token = useCookie("token") // create a session cookie (only valid for current session)
           token.value = response._data.access_token // save the token in the cookie
           useCookie("username").value = username // save the username in a cookie (for current session)
@@ -56,7 +55,7 @@ async function login() {
   });
 }
 // fix later
-async function forgotPassword(){
+async function forgotPassword() {
   alert('later')
 }
 </script>
@@ -68,7 +67,8 @@ async function forgotPassword(){
   height: 100%;
 }
 
-input[type="text"],input[type="password"] {
+input[type="text"],
+input[type="password"] {
   padding: 12px 12px;
   width: 100%;
   display: inline-block;
@@ -78,17 +78,21 @@ input[type="text"],input[type="password"] {
   background: var(--secondary-color);
   margin-top: 10px;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
   margin-right: 10px;
 }
+
 form {
   display: table-cell;
   width: 100%;
   padding: 20px;
 }
+
 input[type="password"] {
   margin-top: 10px;
 }
+
 input[type=submit] {
   width: 100%;
   background-color: var(--primary-color);
@@ -103,15 +107,17 @@ input[type=submit]:hover {
   background-color: var(--darker-color);
 }
 
-input[type="text"]{
+input[type="text"] {
   margin-bottom: 10px;
 }
-.remember-me{
+
+.remember-me {
   padding-left: 20px;
 }
-.forgot-password{
-text-align: center;
-margin-top: 20px;
-padding: 20px;
+
+.forgot-password {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Opret bruger</h1>
-        <progress value="50" max="100"></progress>
+        <!-- <progress value="50" max="100"></progress> -->
         <form @submit.prevent="createMember">
             <input type="text" autocomplete="on" name="name-input" placeholder="Navn" required v-model="name" />
             <input type="text" minlength="5" name="username-input" placeholder="Bugernavn" required
@@ -9,15 +9,15 @@
             <input type="email" autocomplete="on" name="email-input" placeholder="E-mail" required v-model="email" />
             <input type="password" minlength="10" name="password-input" placeholder="Adgangskode" required
                 v-model="password" />
-            <input type="file" name="file-input" />
-            <select id="options" name="memberEducationInstitution" v-model="memberEducationInstitution">
+            <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
+            <select id="options" name="memberEducationInstitution" required v-model="memberEducationInstitution">
                 <option disabled hidden selected>Vælg din uddannelsesinstution</option>
-                <option value="Aalborg Universitet">Aalborg Universitet</option>
-                <option value="Aarhus Universitet">Aarhus Universitet</option>
-                <option value="Københavns Universitet, Nørre Campus">
+                <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
+                <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
+                <option value="Københavns Universitet, Nørre Campus" disabled>
                     Københavns Universitet, Nørre Campus
                 </option>
-                <option value="Syddansk Universitet, Esbjerg">
+                <option value="Syddansk Universitet, Esbjerg" disabled>
                     Syddansk Universitet, Esbjerg
                 </option>
                 <option value="Syddansk Universitet, Odense">
@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-const { status, data, signIn } = useSession()
+// const { status, data, signIn } = useSession()
 // definePageMeta({
 //     auth: false
 // });
@@ -42,7 +42,7 @@ const comments = ref("");
 const email = ref("");
 // const memberEducationInstitution = [""];
 const memberEducationInstitution = ["Syddansk Universitet, Odense"];
-const memberPicture = ref();
+// const memberPicture = ref("");
 const name = ref("");
 const password = ref("");
 const username = ref("");
@@ -62,13 +62,14 @@ async function createMember() {
             isApproved: true,
             isLockedOut: false,
             memberEducationInstitution: memberEducationInstitution,
-            memberPicture: memberPicture,
+            // memberPicture: memberPicture,
             memberTypeAlias: "Member",
             name: name,
             password: password,
             username: username,
         },
     });
+    navigateTo('loginpage')
     // await signIn(undefined, { callbackUrl: '/settingspage' })
 }
 </script>
