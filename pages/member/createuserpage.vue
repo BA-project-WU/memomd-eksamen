@@ -12,7 +12,7 @@
             <input type="file" name="memberImageTesting" v-on:change="memberImageTesting" />
             <input type="file" name="memberPicture" v-on:change="memberPicture" />
             <select id="options" name="memberEducationInstitution" required v-model="memberEducationInstitution">
-                <option disabled hidden selected>Vælg din uddannelsesinstution</option>
+                <option value="hej" selected>Vælg din uddannelsesinstution</option>
                 <option value="Aalborg Universitet">Aalborg Universitet</option>
                 <option value="Aarhus Universitet">Aarhus Universitet</option>
                 <option value="Københavns Universitet, Nørre Campus">
