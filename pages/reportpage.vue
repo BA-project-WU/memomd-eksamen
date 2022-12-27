@@ -80,9 +80,9 @@
   method: 'post',
   headers: {
     "umb-project-alias": umbracoProjectAlias,
-        "api-key": umbracoApiKey,
-         Accept: "application/json",
-         "Content-Type": "application/json",
+    "api-key": umbracoApiKey,
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
   body: {
     reportTitle: reportTitle,

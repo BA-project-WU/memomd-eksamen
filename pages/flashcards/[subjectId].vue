@@ -65,15 +65,15 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "flashcards",
+});
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
 if(!token){ navigateTo('/member/loginpage')}
 
 const { subjectId } = useRoute().params
-definePageMeta({
-    layout: false,
-});
 const totalQuestions = ref()
 const uriQuestions = `https://cdn.umbraco.io/content/${subjectId}/children?`
 const { data: subjectsQuestions } = await useFetch(uriQuestions, {

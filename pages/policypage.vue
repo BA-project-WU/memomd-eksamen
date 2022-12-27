@@ -322,6 +322,10 @@ margin: 20px 0px;
 h1,
 h2 {
   margin: 20px 0px;
+  line-height: 1.3;
+}
+p{
+  line-height: 1.3;
 }
 
 button {

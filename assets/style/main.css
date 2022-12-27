@@ -25,6 +25,7 @@
   border: 0;
   box-sizing: border-box;
   border-style: none;
+  font-family: var(--fonts);
 }
 a {
   text-decoration: none;

@@ -2,7 +2,7 @@
   <transition name="modal-fade">
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <img class="check" src="~/assets/images/check-img.png" alt="check img" />
+      <img class="check" src="~/assets/images/check-img.png" alt="check img" width="200px" height="auto"/>
       <h6>Gemt!!!</h6>
       <p>Din report er blevet gemt. Tak for din hjælp.</p>
       <button><NuxtLink to="/settingspage">Tilbage til Indstillinger</NuxtLink> </button>
@@ -54,14 +54,15 @@ p {
 }
 
 button {
-  background-color: #29cbd4;
-  width: 150px;
+  width: 180px;
   height: 40px;
   color: #000000;
   font-size: 14px;
   border-radius: 16px;
   margin-top: 50px;
   border: none;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .modal-fade-enter,
 .modal-fade-leave-to {
@@ -71,4 +72,9 @@ button {
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
 }
+.check{
+  width: 200;
+  height: auto;
+}
+
 </style>

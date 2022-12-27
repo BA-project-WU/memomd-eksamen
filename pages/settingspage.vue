@@ -11,15 +11,15 @@
         <input type="checkbox" id="switch2" /><label for="switch2"></label>
       </div>
       <div class="policy">
-        <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
+        <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
         <p></p>
       </div>
       <div class="report">
         <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
         <p></p>
       </div>
-      <div class="logud">
-        <button class="logout" @click="logout()">Log af</button>
+      <div class="logout">
+        <button class="btn-logout" @click="logout()">Log af</button>
         <!-- <button @click="signOut({ callbackUrl: '/signout' })">Log ud</button> -->
       </div>
     </div>
@@ -48,10 +48,11 @@
 definePageMeta({
   layout: "false",
 });
-
+// dette er tilgængelige til brugeren der er logge på
 const token = useCookie("token").value
 if (!token) { navigateTo('/member/loginpage') }
 
+// function til log ud og tilbage til login side
 function logout() {
   useCookie("token").value = ""
   useCookie("username").value = ""
@@ -108,14 +109,14 @@ body {
 .policy {
   color: var(--success-color);
   font-weight: var(--bold-text);
-  font-family: var(-fonts);
+  font-family: var(--fonts);
   font-size: var(--text-size);
 }
 
 .report {
   color: var(--router-active-color);
   font-weight: var(--bold-text);
-  font-family: var(-fonts);
+  font-family: var(--fonts);
   font-size: var(--text-size);
 }
 
@@ -170,13 +171,13 @@ a {
   color: var(--text-color);
 }
 
-.logud {
+.logout {
   text-align: center;
   position: relative;
-  top: 46px;
+  top: 53px;
 }
 
-.logout {
+.btn-logout {
   padding: 10px 50px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);

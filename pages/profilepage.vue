@@ -4,7 +4,7 @@
     ></TheFlashcardHeader>
       <div class="profile-info">
         <div class="circle-img">
-          <img src="~/assets/images/member.webp" alt="member" />
+          <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
           <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
         </div>
         <h3>{{ name }}</h3>
@@ -21,12 +21,8 @@
               <div class="x-icon">
                 <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showEmail = false" />
               </div>
-
               <input type="text" v-model="email" placeholder="email" />
-              <button class="btn-save" @click="
-  showEmail = false;
-updateEmail();
-                ">
+              <button class="btn-save" @click="showEmail = false; updateEmail();">
                 Gem
               </button>
             </div>
@@ -41,10 +37,7 @@ updateEmail();
               </div>
               <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
               <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-              <button class="btn-save" type="submit" @click="
-  showPassword = false;
-updatePassword();
-                ">
+              <button class="btn-save" type="submit" @click="showPassword = false; updatePassword(); ">
                 Gem
               </button>
             </div>
@@ -132,8 +125,9 @@ async function delay() {
     },
   });
 }
-// kalder api ved username
+// function til at opdatere email
 async function updateEmail() {
+  // kalder api ved username
   await useFetch("https://api.umbraco.io/member/" + username, {
     method: "put",
     headers: {
@@ -152,7 +146,7 @@ async function updateEmail() {
     onResponse({ request, response, options }) { },
   });
 }
-
+// function til at opdatere adgangskode
 async function updatePassword() {
   await useFetch(`https://api.umbraco.io/member/${username}/password`, {
     method: "POST",
@@ -174,7 +168,7 @@ async function updatePassword() {
     },
   });
 }
-
+// function til at slet member
 async function deleteMember() {
   let text =
     "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
@@ -214,11 +208,15 @@ async function deleteMember() {
   border-radius: 50%;
 }
 
-img {
+.profile-img {
   height: auto;
   width: 100%;
 }
-
+.check{
+  width: 200px;
+  height: auto;
+  margin-top: 100px;
+}
 h3,
 p {
   text-align: left;

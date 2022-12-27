@@ -14,7 +14,7 @@
       <label for="check">Husk mig</label>
     </div>
     <div class="forgot-password">
-      <p>Jeg har <button @click="forgotPassword()" style="color:#4ED2CA">glemt</button> min adgangskode</p>
+      <p @click="forgotPassword()">Jeg har <span style="color:#4ED2CA">glemt</span> min adgangskode</p>
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@ async function login() {
         alert(response._data.error);
       } else {
 
-        if (remember) { //if checkbox remeber is true
+        if (remember) { //if checkbox remember is true
           const date = new Date(Date.now() + (3600 * 1000 * 24 * 365)) // create date one year from now.
           const token = useCookie("token", { expires: date }) // save the cookie for one year
           token.value = response._data.access_token // save the token in the cookie
@@ -56,7 +56,7 @@ async function login() {
 }
 // fix later
 async function forgotPassword() {
-  alert('later')
+  alert('Sorry this is not working yet!')
 }
 </script>
 
@@ -105,6 +105,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: var(--darker-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input[type="text"] {
