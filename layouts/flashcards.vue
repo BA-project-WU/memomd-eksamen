@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="brugernavn"></TheFlashcardHeader>
+    <TheFlashcardHeader flashcard-heading="MemoMD"></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
       <slot />
@@ -9,7 +9,7 @@
       <div class="start-the-game">
         <button class="btn-start-spil">
           <NuxtLink to="/">
-            Start Spil
+            Start spil
           </NuxtLink>
         </button>
       </div>

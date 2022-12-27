@@ -9,7 +9,7 @@
           <NuxtLink to="member/loginpage">Log ind</NuxtLink>
         </button>
         <button>
-          <NuxtLink to="member/createuserpage">Opret Bruger</NuxtLink>
+          <NuxtLink to="member/createuserpage">Opret bruger</NuxtLink>
         </button>
       </section>
     </section>

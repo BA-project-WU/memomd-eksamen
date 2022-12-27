@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-const { status, data, signIn } = useSession()
+// const { status, data, signIn } = useSession()
 // definePageMeta({
 //     auth: false
 // });
@@ -72,6 +72,7 @@ async function createMember() {
             username: username,
         },
     });
+    navigateTo('loginpage')
     // await signIn(undefined, { callbackUrl: '/settingspage' })
 }
 </script>

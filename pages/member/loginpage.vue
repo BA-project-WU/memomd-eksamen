@@ -11,7 +11,7 @@
     </form>
     <div class="remember-me">
       <input type="checkbox" v-model="remember" value="1">
-      <label for="check">Husk Mig</label>
+      <label for="check">Husk mig</label>
     </div>
     <div class="forgot-password">
       <p>Jeg har <button @click="forgotPassword()" style="color:#4ED2CA">glemt</button> min adgangskode</p>
