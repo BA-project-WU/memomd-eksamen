@@ -1,11 +1,11 @@
 <template>
   <div>
     <NuxtLayout>
-      <h1>Overview of the Flashcards game</h1>
+      <h1>Oversigt over Flashcards-spillet</h1>
       <div>
-        <p>moduler</p>
+        <h2>Moduler:</h2>
         <div v-for="item in courses._embedded.content">
-          <p>{{ item.name }}</p>
+          <h3>{{ item.name }}</h3>
           <OverviewSubject :course="item"/>
         </div>
       </div>
@@ -17,6 +17,10 @@
 definePageMeta({
   layout: "flashcards",
 });
+
+// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
+const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
 
 //const { id } = useRoute().params
 

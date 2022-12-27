@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <TheHeader class="heading" heading="Login"></TheHeader>
+    <TheHeader class="heading" heading="Log ind"></TheHeader>
     <form @submit.prevent="memberLogin">
       <label for="username">Brugernavn</label>
       <input type="text" v-model="username" placeholder="Dit brugernavn.." />

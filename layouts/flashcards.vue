@@ -8,8 +8,8 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/">
-            Start spil
+          <NuxtLink to="/flashcards/">
+            Start
           </NuxtLink>
         </button>
       </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-
+const { flashcardHeading } = defineProps(["flashcardHeading"]);
 
 </script>
 

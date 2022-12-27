@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Dette er Contact Page</h2>
+    <h2>Kontakt Os</h2>
   </div>
   <div>
     <form @submit.prevent="sendForm">

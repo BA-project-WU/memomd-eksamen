@@ -1,42 +1,148 @@
 <template>
-    <div>
-        <div v-if="subjects._totalItems > 0" class="container">
-            <div v-for="item in subjects._embedded.content" class="card">
-                <p>{{ item.name }}</p>
-                <p>beskrivelse</p>
-                <p></p>
-                <NuxtLink to="/flashcards/questionpage">Spil</NuxtLink>
-            </div>
+  <div class="wrapper">
+    <ul v-if="subjects._totalItems > 0" class="cards">
+      <li v-for="item in subjects._embedded.content" class="card">
+        <div>
+          <h4 class="card-title">{{ item.name }}</h4>
+          <p class="card-text">beskrivelse</p>
+
+          <p>text text text</p>
         </div>
-        <div v-else>
-            <p>Coming soon!</p>
+        <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
+        <div class="start-the-game">
+          <button class="btn-start-spil">
+            <NuxtLink :to="`/flashcards/${item._id}`">Start Spil</NuxtLink>
+          </button>
         </div>
+      </li>
+    </ul>
+    <div v-else>
+      <p>Coming soon!</p>
     </div>
+  </div>
 </template>
 
 <script setup>
-const { course } = defineProps(['course'])
+const { course } = defineProps(["course"]);
 
-const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`
+const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { data: subjects } = await useFetch(uriSubject, {
-    headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' }
-})
-console.log(uriSubject)
+  headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
+});
+console.log(uriSubject);
 </script>
 
 <style scoped>
-.container {
-    column-gap: 20px;
-    display: inline-flex;
-    overflow-x: scroll;
-    padding: 10px;
-    width: 100%;
+.wrapper {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
-.card {
-    border-radius: 25px;
-    min-width: 100px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+h2 {
+  font-size: 32px;
+  margin-bottom: 1em;
+}
+
+.cards {
+  display: flex;
+  padding: 25px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  height: 200px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--red);
+}
+
+.card .card-title {
+  font-size: 20px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--darkred);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+.start-the-game{
+  text-align: center;
+  position: relative;
+  top: 35px;
+}
+.btn-start-spil{
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
