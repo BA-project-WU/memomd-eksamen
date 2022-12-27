@@ -2,16 +2,16 @@
     <NuxtLayout>
         <div>
             <div>
-                <p>header</p>
+                <h1>header</h1>
             </div>
             <div>
                 <p>quit</p>
             </div>
             <div>
-                <p>report an issue</p>
+                <h2>report an issue</h2>
             </div>
             <div>
-                <h1>the quiz</h1>
+                <h1>The Quiz</h1>
                 <section v-if="!quizCompleted" class="quiz">
 
                     <div class="quiz-info">
@@ -68,6 +68,10 @@
 </template>
 
 <script setup>
+
+// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
+const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
 
 const { subjectId } = useRoute().params
 definePageMeta({

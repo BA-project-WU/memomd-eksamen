@@ -1,7 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader
-      flashcard-heading="brugernavn"
+    <TheFlashcardHeader flashcardHeading="Flashcards"
     ></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
@@ -10,8 +9,8 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/">
-            Start Spil
+          <NuxtLink to="/flashcards/">
+            Start
           </NuxtLink>
         </button>
       </div>
@@ -24,7 +23,7 @@
 </template>
 
 <script setup>
-
+const { flashcardHeading } = defineProps(["flashcardHeading"]);
 
 </script>
 
