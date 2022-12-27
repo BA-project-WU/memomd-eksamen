@@ -283,13 +283,18 @@
     </p> -->
     <!-- <h3>Accept Privacy Policy</h3>
     <button style="padding:2px 5px; color:green" class="pp"><NuxtLink to="flashcards">Accept</NuxtLink></button> -->
-    <NuxtLink to="/settingspage">
+    <<<<<<< HEAD <NuxtLink to="/settingspage">
       <font-awesome-icon icon="fa fa-arrow-left" /> Tilbage
-    </NuxtLink>
+      </NuxtLink>
+      =======
+      <NuxtLink to="/settingspage">
+        <font-awesome-icon icon="fa fa-arrow-left" /> Tilbage
+      </NuxtLink>
+      >>>>>>> main
   </div>
 </template>
 <script>
-
+// const { status, data, signOut, signIn } = useSession()
 //https://app.websitepolicies.com/users/login?r=policies%2Fplatforms%2Fmanage%3Fref%3Dverify
 </script>
 

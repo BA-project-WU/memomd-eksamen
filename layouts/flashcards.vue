@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="Brugernavn"></TheFlashcardHeader>
+    <TheFlashcardHeader flashcard-heading="brugernavn"></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
       <slot />
@@ -25,7 +25,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+
+</script>
 
 <style scoped>
 body {

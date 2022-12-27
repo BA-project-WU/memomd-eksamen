@@ -38,8 +38,6 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
     // global state management
     // "@pinia/nuxt",
-    // auth
-    "@sidebase/nuxt-auth",
   ],
   pwa: {
     workbox: {
@@ -62,20 +60,10 @@ export default defineNuxtConfig({
         "MemoMD App - For at effektivisere medicinstuderendes læring til medicin",
     },
   },
-  auth: {
-    isEnabled: true,
-    // origin: "https://ba-project-wu-memomd.netlify.app",
-    origin: "http://192.168.1.52:3000",
-    basePath: "/api/auth",
-    enableSessionRefreshPeriodically: false,
-    enableSessionRefreshOnWindowFocus: true,
-    enableGlobalAppMiddleware: true,
-  },
   runtimeConfig: {
     public: {
       umbracoApiKey: process.env.UMBRACO__APIKEY,
       umbracoProjectAlias: process.env.UMBRACO__PROJECTALIAS,
-      nuxtSecret: process.env.NUXT_SECRET,
     },
   },
 });

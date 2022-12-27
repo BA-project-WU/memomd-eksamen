@@ -1,6 +1,6 @@
 <template>
   <div class="reset-password">
-    <TheHeader class="heading" heading="Heading er nu dynamic"></TheHeader>
+    <TheHeader class="heading" heading="Reset Adgangskode"></TheHeader>
     <form @submit.prevent="submitForm" class="reset-password-form">
       <input type="password" placeholder="Ny Adgangskode" v-model="password" class="password" />
       <input type="reset-password" placeholder="Gentag Adgangskode" v-model="password" class="password" />
@@ -50,9 +50,3 @@ button {
   width: 300px;
 }
 </style>
-
-<script>
-definePageMeta({
-  auth: false
-});
-</script>

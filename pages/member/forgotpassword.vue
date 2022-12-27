@@ -14,7 +14,12 @@
   </div>
 </template>
 
-<script setup></script>
+
+<script setup>
+// definePageMeta({
+//   auth: false
+// });
+</script>
 
 <style scoped>
 .email {
@@ -47,9 +52,3 @@ button {
   width: 300px;
 }
 </style>
-
-<script>
-definePageMeta({
-  auth: false
-});
-</script>

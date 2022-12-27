@@ -34,7 +34,7 @@ content-type: application/json
 ###
 GET https://api.umbraco.io/member/test HTTP/1.1
 umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
-api-key:  {{$dotenv UMBRACO__APIKEY }}
+Authorization: Bearer CfDJ8Jvylx4k3kBAuxuSjBt4vFip681CBsNJ9DCxVE2m7yWZuAM59uo-0A53pdpmp7kTftko_sXIB5XTv8TlFELK-yFwxwX0dtqMPmwnmemiQJhZ0T4nbWo7xA3IWAfEM7FNNzXmvGMuHUjhuGUi4ynPl7KupYhaibqJ2uZOpInShvbrggJzgyqCwduBXXocj3T-ciQ8sx5dPsuAJ-F9jrq8RPjkx--y-bTC43dOJAlNiKEHzrInYbXArmOHLUgS7MmaTXKlfxVhTd002FybRWjAnacO_4hcsueJB6XQJQmO45yX1SkQC1SMLqd4xlFdPPCZfeWjl6dvHUxlHjTVQrokjz5okEIgd5PjFGlnmgfdVeFh9glt2AB4kL8ElPeK3hKH3jnj4PvRsQXL5LGMf8l1KH4avDAqpUUjHxFHRPBjpOn7
 
 
 ###
@@ -52,4 +52,34 @@ content-type: application/json
 DELETE https://api.umbraco.io/member/Emma HTTP/1.1
 umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
 api-key:  {{$dotenv UMBRACO__APIKEY }}
+
+###
+GET http://172.24.144.1:3000/api/auth/csrf
+
+###
+POST http://172.24.144.1:3000/api/auth/callback/credentials HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+csrfToken=d4c06744844d145de010721c32a55b6d1c7f84e8de253687e85deebdde2a06a8&username=Emma&password=1234567890
+
+###
+GET https://ba-project-wu-memomd.netlify.app/api/auth/csrf
+
+###
+POST https://ba-project-wu-memomd.netlify.app/api/auth/callback/credentials HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+csrfToken=5f4fb53843ec71736c4d9923eabafae5e52fbd21a2ab48acb63afeec54acd7e3&username=Emma&password=1234567890
+
+###
+POST https://api.umbraco.io/member/oauth/token  HTTP/1.1
+umb-project-alias: nicole-ba-test
+content-type: application/x-www-form-urlencoded
+
+grant_type=password&username=test&password=1234567890
+
+###
+GET https://cdn.umbraco.io/media/12b813af-0670-45d0-ad4a-02e1eb24294e
+umb-project-alias: nicole-ba-test
+Authorization: Bearer CfDJ8Jvylx4k3kBAuxuSjBt4vFip681CBsNJ9DCxVE2m7yWZuAM59uo-0A53pdpmp7kTftko_sXIB5XTv8TlFELK-yFwxwX0dtqMPmwnmemiQJhZ0T4nbWo7xA3IWAfEM7FNNzXmvGMuHUjhuGUi4ynPl7KupYhaibqJ2uZOpInShvbrggJzgyqCwduBXXocj3T-ciQ8sx5dPsuAJ-F9jrq8RPjkx--y-bTC43dOJAlNiKEHzrInYbXArmOHLUgS7MmaTXKlfxVhTd002FybRWjAnacO_4hcsueJB6XQJQmO45yX1SkQC1SMLqd4xlFdPPCZfeWjl6dvHUxlHjTVQrokjz5okEIgd5PjFGlnmgfdVeFh9glt2AB4kL8ElPeK3hKH3jnj4PvRsQXL5LGMf8l1KH4avDAqpUUjHxFHRPBjpOn7
 

@@ -9,7 +9,6 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.13.0",
-    "@sidebase/nuxt-auth": "^0.3.0",
     "nuxt": "3.0.0"
   },
   "dependencies": {

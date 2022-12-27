@@ -13,7 +13,6 @@
       <DailyRecord />
       <div class="user-info">
         <h3>Adminintrere din konto</h3>
-
         <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
         <div v-if="showEmail" class="modal">
           <div class="modal-overlay">          
@@ -64,7 +63,7 @@
             </div>
           </div>
         </div>
-        <button class="btn-delete-user" @click="deleteMemeber()">Slet bruger</button>
+        <button class="btn-delete-user" @click="deleteMember()">Slet bruger</button>
       </div>
     </NuxtLayout>
   </div>
@@ -74,9 +73,15 @@
 
 definePageMeta({
   layout: "flashcards",
-
-
 });
+
+
+// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
+const token = useCookie("token").value
+if(!token){ navigateTo('/member/loginpage')}
+
+let username = useCookie("username").value
+
 
 let showEmail = ref(false);
 let showPassword = ref(false);
@@ -86,14 +91,13 @@ let currentPassword = "";
 let newPassword = "";
 
 let memberTypeAlias = "";
-let username = "";
 let name = "";
 let memberEducationInstitution = "";
 
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
-await useFetch("https://api.umbraco.io/member/Emma", {
+await useFetch("https://api.umbraco.io/member/" + username,{
   method: "get",
   headers: {
     "umb-project-alias": umbracoProjectAlias,
@@ -108,10 +112,10 @@ await useFetch("https://api.umbraco.io/member/Emma", {
     memberEducationInstitution = response._data.name;
   },
 });
-
+// dette er workaround 
 setTimeout(delay, 500);
 async function delay() {
-  await useFetch("https://api.umbraco.io/member/Emma", {
+  await useFetch("https://api.umbraco.io/member/" + username, {
     method: "get",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -127,9 +131,9 @@ async function delay() {
     },
   });
 }
-
+// kalder api ved username
 async function updateEmail() {
-  await useFetch("https://api.umbraco.io/member/Emma", {
+  await useFetch("https://api.umbraco.io/member/" + username, {
     method: "put",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -141,6 +145,7 @@ async function updateEmail() {
       memberTypeAlias: memberTypeAlias,
       username: username,
       name: name,
+      isApproved: true,
       memberEducationInstitution: memberEducationInstitution,
     },
     onResponse({ request, response, options }) {},
@@ -148,7 +153,7 @@ async function updateEmail() {
 }
 
 async function updatePassword() {
-  await useFetch("https://api.umbraco.io/member/Emma/password", {
+  await useFetch(`https://api.umbraco.io/member/${username}/password`, {
     method: "POST",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -169,14 +174,14 @@ async function updatePassword() {
   });
 }
 
-async function deleteMemeber() {
+async function deleteMember() {
   let text =
     "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
   if (confirm(text) == true) {
     alert("Brugeren er slettet");
     //if the block below is uncomment, then the user will actually be deleted.
     /*
-    await useFetch("https://api.umbraco.io/member/Emma", {
+    await useFetch("https://api.umbraco.io/member/" + username, {
       method: "DELETE",
       headers: {
         "umb-project-alias": umbracoProjectAlias,
@@ -185,6 +190,7 @@ async function deleteMemeber() {
     });
     */
   } else {
+
 
   }
 }
