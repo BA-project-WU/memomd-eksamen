@@ -1,70 +1,67 @@
 <template>
-    <NuxtLayout>
-        <div>
-            <div>
-                <h1>header</h1>
+  <NuxtLayout>
+    <div>
+      <div>
+        <h1>header</h1>
+      </div>
+      <div>
+        <p>quit</p>
+      </div>
+      <div>
+        <h2>report an issue</h2>
+      </div>
+      <div>
+        <h1>The Quiz</h1>
+          <section v-if="!quizCompleted" class="quiz">
+            <div class="quiz-info">
+              <span class="question">{{ getCurrentQuestion.question }}</span>
+              <span class="score"> Score {{ score }} / {{ questions.length }}</span>
             </div>
-            <div>
-                <p>quit</p>
-            </div>
-            <div>
-                <h2>report an issue</h2>
-            </div>
-            <div>
-                <h1>The Quiz</h1>
-                <section v-if="!quizCompleted" class="quiz">
-
-                    <div class="quiz-info">
-                        <span class="question">{{ getCurrentQuestion.question }}</span>
-                        <span class="score"> Score {{ score }} / {{ questions.length }}</span>
-                    </div>
-
-                    <div class="options">
-                        <label v-for="(option, index) in getCurrentQuestion.options" :key="index"
-                            :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
-                            ? index == getCurrentQuestion.answer
-                                ? 'correct'
-                                : 'wrong'
-                            : ''
-                            } ${getCurrentQuestion.selected != null &&
-                                index != getCurrentQuestion.selected
-                                ? 'disabled'
-                                : ''
-                            }`">
-                            <input type="radio" :id="'option' + index" :name="getCurrentQuestion.index" :value="index"
-                                v-model="getCurrentQuestion.selected" :disabled="getCurrentQuestion.selected"
-                                @change="SetAnswer">
-                            <span>{{ option }}</span>
-                        </label>
-                    </div>
-                    <button @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
-                        {{
-                                getCurrentQuestion.index == questions.length - 1
-                                    ? 'Afslut'
-                                    : getCurrentQuestion.selected == null
-                                        ? 'Vælg et svar'
-                                        : 'Næste spørgsmål'
-                        }}
-                    </button>
+            <div class="options">
+              <label v-for="(option, index) in getCurrentQuestion.options" :key="index"
+              :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
+              ? index == getCurrentQuestion.answer
+              ? 'correct'
+              : 'wrong'
+              : ''
+              } ${getCurrentQuestion.selected != null &&
+              index != getCurrentQuestion.selected
+              ? 'disabled'
+              : ''
+              }`">
+              <input type="radio" :id="'option' + index" :name="getCurrentQuestion.index" :value="index"
+                v-model="getCurrentQuestion.selected" :disabled="getCurrentQuestion.selected"
+                @change="SetAnswer">
+                <span>{{ option }}</span>
+              </label>
+                </div>
+                <button @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
+                  {{
+                    getCurrentQuestion.index == questions.length - 1
+                    ? 'Afslut'
+                    : getCurrentQuestion.selected == null
+                    ? 'Vælg et svar'
+                    : 'Næste spørgsmål'
+                  }}
+                </button>
                 </section>
                 <section v-else>
                     <h2>Du har aflsutted spillet</h2>
                     <p>Du fik {{ score }} / {{ questions.length }} rigtige</p>
                 </section>
-            </div>
-            <div>
-                <p>
-                <nav></nav>
-                </p>
-            </div>
-            <p>
-                {{ subjectId }}
-                {{ subjectsQuestions._embedded.content[0].question }}
-                {{ subjectsQuestions._totalItems}}
-            </p>
         </div>
+        <div>
+          <p>
+          <nav></nav>
+          </p>
+        </div>
+          <p>
+            {{ subjectId }}
+            {{ subjectsQuestions._embedded.content[0].question }}
+            {{ subjectsQuestions._totalItems}}
+          </p>
+      </div>
     </NuxtLayout>
-
 </template>
 
 <script setup>
