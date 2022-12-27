@@ -2,7 +2,7 @@
   <NuxtLayout>
     <div>
       <div class="flashcard-title my-progress">
-        <h1>header</h1>
+        <h1>Title of the subject</h1>
         <div class="my-bar"></div>
       </div>
       <div class="quit-and-report">

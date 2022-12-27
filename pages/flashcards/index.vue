@@ -3,7 +3,6 @@
     <NuxtLayout>
       <!-- <h1>Oversigt over Flashcards-spillet</h1> -->
       <div>
-        <h2>Moduler:</h2>
         <div v-for="item in courses">
           <h3>{{ item.name }}</h3>
           <OverviewSubject :course="item"/>

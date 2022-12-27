@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="MemoMD"></TheFlashcardHeader>
+    <TheFlashcardHeader flashcard-heading="Moduler"></TheFlashcardHeader>
     <!--this is the page content-->
     <div class="content-container">
       <slot />
