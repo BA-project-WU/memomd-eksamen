@@ -83,3 +83,9 @@ GET https://cdn.umbraco.io/media/12b813af-0670-45d0-ad4a-02e1eb24294e
 umb-project-alias: nicole-ba-test
 Authorization: Bearer CfDJ8Jvylx4k3kBAuxuSjBt4vFip681CBsNJ9DCxVE2m7yWZuAM59uo-0A53pdpmp7kTftko_sXIB5XTv8TlFELK-yFwxwX0dtqMPmwnmemiQJhZ0T4nbWo7xA3IWAfEM7FNNzXmvGMuHUjhuGUi4ynPl7KupYhaibqJ2uZOpInShvbrggJzgyqCwduBXXocj3T-ciQ8sx5dPsuAJ-F9jrq8RPjkx--y-bTC43dOJAlNiKEHzrInYbXArmOHLUgS7MmaTXKlfxVhTd002FybRWjAnacO_4hcsueJB6XQJQmO45yX1SkQC1SMLqd4xlFdPPCZfeWjl6dvHUxlHjTVQrokjz5okEIgd5PjFGlnmgfdVeFh9glt2AB4kL8ElPeK3hKH3jnj4PvRsQXL5LGMf8l1KH4avDAqpUUjHxFHRPBjpOn7
 
+###
+GET https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children
+umb-project-alias: {{$dotenv UMBRACO__PROJECTALIAS}} 
+api-key:  {{$dotenv UMBRACO__APIKEY }}
+accept-language: da-DK,da;q=0.9,en-DK;q=0.8,en;q=0.7,en-US;q=0.6
+
