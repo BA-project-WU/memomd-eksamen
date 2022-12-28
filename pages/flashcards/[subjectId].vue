@@ -178,6 +178,10 @@ const GetNextQuestion = () => {
   margin-top: -18px;
   padding: 50px 50px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
 }
 .quit-and-report{
   display: flex;
@@ -202,16 +206,17 @@ button{
 }
 .my-progress {
   width: 100%;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .my-bar {
   width: 15%;
   height: 10px;
-  background-color: var(--primary-color);
+  background-color: rgb(252, 250, 250);
 }
 h1{
   text-align: center;
+  padding-bottom: 10px;
 }
 .quiz-wrapper{
   display: flex;
