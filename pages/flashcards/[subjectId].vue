@@ -2,7 +2,7 @@
   <NuxtLayout>
     <div>
       <div class="flashcard-title my-progress">
-        <h1>Title of the subject</h1>
+        <h1>Titlen hver emner</h1>
         <div class="my-bar"></div>
       </div>
       <div class="quit-and-report">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="quiz-wrapper">
-        <h1>The Quiz</h1>
+        <h1>Start Quizzen</h1>
           <section v-if="!quizCompleted" class="quiz">
             <div class="quiz-info">
               <span class="question">{{ getCurrentQuestion.question }}</span>

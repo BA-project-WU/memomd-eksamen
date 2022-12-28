@@ -4,9 +4,7 @@
       <li v-for="item in subjects._embedded.content" class="card">
         <div>
           <h4 class="card-title">{{ item.name }}</h4>
-          <p class="card-text">{{item.description}}</p>
-
-          <p>text text text</p>
+          <p>Emne's beskrivelse</p>
         </div>
         <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
         <div class="start-the-game">
@@ -24,6 +22,7 @@
 
 <script setup>
 const { course } = defineProps(["course"]);
+const coursedescription = ref('')
 
 const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { data: subjects } = await useFetch(uriSubject, {

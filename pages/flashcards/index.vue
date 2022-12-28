@@ -4,8 +4,11 @@
       <!-- <h1>Oversigt over Flashcards-spillet</h1> -->
       <div>
         <div v-for="item in courses">
-          <h3>{{ item.name }}</h3>
-          <OverviewSubject :course="item"/>
+          <h2>{{ item.name }}</h2>
+          <h3>Semester {{ item.semester[0] }}</h3>
+          <p class="card-text">{{ item.description }}</p>
+          <h4 class="slide">Slide Right - Vælg et emne</h4>
+          <OverviewSubject :course="item"/>        
         </div>
       </div>
     </NuxtLayout>
@@ -48,6 +51,8 @@ useHead({
 </script>
 
 <style scoped>
-
+.slide{
+  margin-top: 10px;
+}
 
 </style>
