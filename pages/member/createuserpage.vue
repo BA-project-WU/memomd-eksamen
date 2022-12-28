@@ -11,7 +11,7 @@
                 v-model="password" />
             <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
             <select id="options" name="memberEducationInstitution" required v-model="memberEducationInstitution">
-                <option disabled hidden selected>Vælg din uddannelsesinstution</option>
+                <option value="" disabled hidden>Vælg din uddannelsesinstution</option>
                 <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
                 <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
                 <option value="Københavns Universitet, Nørre Campus" disabled>
