@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="overall-wrapper-game">
     <NuxtLayout>
       <!-- <h1>Oversigt over Flashcards-spillet</h1> -->
-      <div>
+      <div class="courses">
         <div v-for="item in courses">
           <h2>{{ item.name }}</h2>
           <details class="show-detail">
@@ -55,6 +55,7 @@ useHead({
 </script>
 
 <style scoped>
+
 .text1,
 .show-detail {
   margin: 10px 0;
