@@ -52,6 +52,7 @@
                     <h2>Du har aflsutted spillet</h2>
                     <p>Du fik {{ score }} / {{ questions.length }} rigtige</p>
                 </section>
+                <TheFireworks></TheFireworks>
         </div>
         <!-- <div>
           <p>
@@ -73,6 +74,8 @@
 </template>
 
 <script setup>
+import TheFireworks from '~~/components/TheFireworks.vue';
+
 definePageMeta({
   layout: "false",
 });
