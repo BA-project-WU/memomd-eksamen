@@ -1,10 +1,10 @@
 <template>
   <NuxtLayout>
     <div>
-      <div class="flashcard-title my-progress">
-        <h1>Titlen hver emner</h1>
+      <!-- <div class="flashcard-title my-progress">
+        <h1></h1>
         <div class="my-bar"></div>
-      </div>
+      </div> -->
       <div class="quit-and-report">
         <div>
           <button class="quit">Quit</button>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="quiz-wrapper">
-        <h1>Start Quizzen</h1>
+        <!-- <h1>Start Quizzen</h1> -->
           <section v-if="!quizCompleted" class="quiz">
             <div class="quiz-info">
               <span class="question">{{ getCurrentQuestion.question }}</span>
@@ -54,16 +54,6 @@
                 </section>
                 <TheFireworks></TheFireworks>
         </div>
-        <!-- <div>
-          <p>
-          <nav></nav>
-          </p>
-        </div>
-          <p>
-            {{ subjectId }}
-            {{ subjectsQuestions._embedded.content[0].question }}
-            {{ subjectsQuestions._totalItems}}
-          </p> -->
       </div>
       <div class="arrow-left">
       <NuxtLink to="/flashcards/">
@@ -76,9 +66,9 @@
 <script setup>
 //import { allowedNodeEnvironmentFlags } from 'process';
 import TheFireworks from '~~/components/TheFireworks.vue';
-
+const { flashcardHeading } = defineProps(["flashcardHeading"]);
 definePageMeta({
-  layout: "false",
+  layout: "flashcards",
 });
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
@@ -87,9 +77,9 @@ if(!token){ navigateTo('/member/loginpage')}
 
 const { subjectId } = useRoute().params
 const totalQuestions = ref()
+let title = ref('')
 
 let questions = ref([])
-//let subjectsQuestions = {};
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
 await useFetch(uri, {
@@ -105,84 +95,21 @@ await useFetch(uri, {
       else if(test==2)
         questions.value.push({answer:2, question: element.question, options:[element.option3, element.option2, element.option1, element.option4], selected: null })
       else if(test==3)
-        questions.value.push({answer:3, question: element.question, options:[element.option4, element.option2, element.option3, element.option1], selected: null })
-        
-      
+        questions.value.push({answer:3, question: element.question, options:[element.option4, element.option2, element.option3, element.option1], selected: null })     
       });
-    //subjectsQuestions = response._data._embedded.content;
-    //console.log(subjectsQuestions)
   },
 })
 
-
-/*
-const uriQuestions = `https://cdn.umbraco.io/content/${subjectId}/children?`
-const { data: subjectsQuestions } = await useFetch(uriQuestions, {
-    headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' }
-})
-*/
-
 const umbracoQuestions = ref([])
-/*console.log(totalQuestions)
 
-for (let i = 0; i < totalQuestions; i++) {
-    // umbracoQuestions.push({
-    //     question:`${i} item`
-    // })
-    console.log('yes')
-
-}
-console.log(totalQuestions)
-console.log('hello world')
-*/
-// console.log(umbracoQuestions)
-/*
-const questions = ref([
-    {
-        question: 'hvad er enzymet der spalter glykogen',
-        answer: 0,
-        options: [
-            'glykogen phosphorylase',
-            'forkert 1',
-            'forkert 2',
-            'forkert 3'
-        ],
-        selected: null
-    },
-    {
-        question: 'hvad er navnet på produktet for glykogen phosphorylase',
-        answer: 0,
-        options: [
-            'glykose-1-fosfat',
-            'forkert 1',
-            'forkert 2',
-            'forkert 3'
-        ],
-        selected: null
-    },
-    {
-        question: 'Hvor findes type II Kollagene Fibre primært',
-        answer: 0,
-        options: [
-            'Brusk',
-            'forkert 1',
-            'forkert 2',
-            'forkert 3'
-        ],
-        selected: null
-    }
-
-])
-*/
 const quizCompleted = ref(false)
 const currentQuestion = ref(0)
 const score = computed(() => {
-    let value = 0
+  let value = 0
     questions.value.map(q => {
-        if (q.selected == q.answer) {
-            value++
-           
-        }
+      if (q.selected == q.answer) {
+        value++         
+      }
     })
     return value
 })

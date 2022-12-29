@@ -15,15 +15,13 @@
       </li>
     </ul>
     <div v-else>
-      <p>Coming soon!</p>
+      <p class="soon">Færdighedstræning Coming soon!</p>
     </div>
   </div>
 </template>
 
 <script setup>
 const { course } = defineProps(["course"]);
-const coursedescription = ref('')
-
 const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { data: subjects } = await useFetch(uriSubject, {
   headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
@@ -150,5 +148,10 @@ li.card{
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+.soon{
+  text-align: center;
+  font-weight: bold;
+  color: var(--failed-color);
+  margin-top: 20px;
+}
 </style>
