@@ -74,6 +74,7 @@
 </template>
 
 <script setup>
+//import { allowedNodeEnvironmentFlags } from 'process';
 import TheFireworks from '~~/components/TheFireworks.vue';
 
 definePageMeta({
@@ -86,14 +87,43 @@ if(!token){ navigateTo('/member/loginpage')}
 
 const { subjectId } = useRoute().params
 const totalQuestions = ref()
+
+let questions = ref([])
+//let subjectsQuestions = {};
+//fetch the flascards memo game api from umbraco heartcore
+const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
+await useFetch(uri, {
+  headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
+  method: "get",
+  onResponse({ request, response, options }) {
+    response._data._embedded.content.forEach(element => {
+      const test = Math.floor(Math.random() * 4)
+      if(test==0)
+        questions.value.push({answer:0, question: element.question, options:[element.option1, element.option2, element.option3, element.option4], selected: null })
+      else if(test==1)
+        questions.value.push({answer:1, question: element.question, options:[element.option2, element.option1, element.option3, element.option4], selected: null })
+      else if(test==2)
+        questions.value.push({answer:2, question: element.question, options:[element.option3, element.option2, element.option1, element.option4], selected: null })
+      else if(test==3)
+        questions.value.push({answer:3, question: element.question, options:[element.option4, element.option2, element.option3, element.option1], selected: null })
+        
+      
+      });
+    //subjectsQuestions = response._data._embedded.content;
+    //console.log(subjectsQuestions)
+  },
+})
+
+
+/*
 const uriQuestions = `https://cdn.umbraco.io/content/${subjectId}/children?`
 const { data: subjectsQuestions } = await useFetch(uriQuestions, {
     headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' }
 })
-
+*/
 
 const umbracoQuestions = ref([])
-console.log(totalQuestions)
+/*console.log(totalQuestions)
 
 for (let i = 0; i < totalQuestions; i++) {
     // umbracoQuestions.push({
@@ -104,7 +134,9 @@ for (let i = 0; i < totalQuestions; i++) {
 }
 console.log(totalQuestions)
 console.log('hello world')
+*/
 // console.log(umbracoQuestions)
+/*
 const questions = ref([
     {
         question: 'hvad er enzymet der spalter glykogen',
@@ -141,7 +173,7 @@ const questions = ref([
     }
 
 ])
-
+*/
 const quizCompleted = ref(false)
 const currentQuestion = ref(0)
 const score = computed(() => {
@@ -149,6 +181,7 @@ const score = computed(() => {
     questions.value.map(q => {
         if (q.selected == q.answer) {
             value++
+           
         }
     })
     return value
@@ -275,6 +308,13 @@ label{
 }
 .label:hover input ~ .option {
   background-color: var(--success-color);
+}
+
+.wrong {
+  background-color: red;
+}
+.correct {
+  background-color: green;
 }
 
 </style>

@@ -17,7 +17,7 @@
         <option value="ku">KU</option>
       </select>
 
-      <button type="submit" value="Submit" v-on:click="sendForm()">Send Form </button>/>
+      <button class="btn-send-form" type="submit" value="Submit" v-on:click="sendForm()">Send Form </button>
     </form>
     <div class="arrow-left">
         <NuxtLink to="/settingspage">
@@ -49,7 +49,7 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+.btn-send-form {
   width: 100%;
   background-color: var(--primary-color);
   color: white;
@@ -60,8 +60,8 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+.btn-send-form:hover {
+  background-color: #4ED2CA;
 }
 
 div {
