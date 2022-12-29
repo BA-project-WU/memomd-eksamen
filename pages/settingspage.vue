@@ -107,14 +107,12 @@ body {
 }
 
 .policy {
-  color: var(--success-color);
   font-weight: var(--bold-text);
   font-family: var(--fonts);
   font-size: var(--text-size);
 }
 
 .report {
-  color: var(--router-active-color);
   font-weight: var(--bold-text);
   font-family: var(--fonts);
   font-size: var(--text-size);

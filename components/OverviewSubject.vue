@@ -2,7 +2,7 @@
   <div class="wrapper">
     <ul v-if="subjects._totalItems > 0" class="cards">
       <li v-for="item in subjects._embedded.content" class="card">
-        <div>
+        <div class="card-content">
           <h4 class="card-title">{{ item.name }}</h4>
           <p>Emne's beskrivelse</p>
         </div>
@@ -49,7 +49,7 @@ h2 {
   list-style: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  height: 200px;
+  height: 280px;
 }
 
 .card {
@@ -63,7 +63,13 @@ h2 {
   scroll-snap-align: start;
   transition: all 0.2s;
 }
-
+li.card{
+  background-image: url(~/assets/images/aminosyrer.jpg);
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .card:not(:last-child) {
   margin-right: 10px;
 }
@@ -136,7 +142,7 @@ h2 {
 .start-the-game{
   text-align: center;
   position: relative;
-  top: 47px;
+  top: 100px;
 }
 .btn-start-spil{
   padding: 10px 20px;

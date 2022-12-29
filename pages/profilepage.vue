@@ -127,7 +127,7 @@ async function delay() {
 }
 // function til at opdatere email
 async function updateEmail() {
-  // kalder api ved username
+  // kalder api ved members username
   await useFetch("https://api.umbraco.io/member/" + username, {
     method: "put",
     headers: {
@@ -175,7 +175,6 @@ async function deleteMember() {
   if (confirm(text) == true) {
     alert("Brugeren er slettet");
     //if the block below is uncomment, then the user will actually be deleted.
-    /*
     await useFetch("https://api.umbraco.io/member/" + username, {
       method: "DELETE",
       headers: {
@@ -183,7 +182,7 @@ async function deleteMember() {
         "api-key": umbracoApiKey,
       }
     });
-    */
+    
   } else {
 
 

@@ -17,14 +17,28 @@
         <option value="ku">KU</option>
       </select>
 
-      <input type="submit" value="Submit" />
+      <button type="submit" value="Submit" v-on:click="sendForm()">Send Form </button>/>
     </form>
+    <div class="arrow-left">
+        <NuxtLink to="/settingspage">
+          <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+        </NuxtLink>
+      </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+function sendForm(){
+  alert('This is not yet working, Sorry!')
+}
+
+</script>
 
 <style scoped>
+.arrow-left{
+  text-align: left;
+  margin-top: 20px;
+}
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;

@@ -32,7 +32,8 @@
           <button
             class="btn-send-report"
             type="submit"
-            v-on:click="sendReport()">Send Report</button>
+            v-on:click="sendReport()">Send Report
+          </button>
         </div>
         <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>

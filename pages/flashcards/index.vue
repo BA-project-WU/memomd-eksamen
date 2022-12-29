@@ -5,10 +5,13 @@
       <div>
         <div v-for="item in courses">
           <h2>{{ item.name }}</h2>
-          <h3>Semester {{ item.semester[0] }}</h3>
-          <p class="card-text">{{ item.description }}</p>
+          <details class="show-detail">
+          <summary class="text1">Semester {{ item.semester[0] }}</summary>         
+            <h4>Om Uddannelse:</h4>
+            {{ item.description }}
+          </details>
           <h4 class="slide">Slide Right - Vælg et emne</h4>
-          <OverviewSubject :course="item"/>        
+          <OverviewSubject :course="item" />
         </div>
       </div>
     </NuxtLayout>
@@ -21,20 +24,22 @@ definePageMeta({
 });
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
-const token = useCookie("token").value
-if(!token){ navigateTo('/member/loginpage')}
+const token = useCookie("token").value;
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 
 //const { id } = useRoute().params
-let courses = {}
+let courses = {};
 //fetch the flascards memo game api from umbraco heartcore
-const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children`
+const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children`;
 await useFetch(uri, {
-  headers: { 'Umb-Project-Alias': 'nicole-ba-test', 'Api-Key': 'BC2nwQgvNxNvZuoL4c6K' },
+  headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
   method: "get",
   onResponse({ request, response, options }) {
-  courses = response._data._embedded.content
-  }
-})
+    courses = response._data._embedded.content;
+  },
+});
 
 useHead({
   title: "MemoMD App | Flashcards",
@@ -47,12 +52,26 @@ useHead({
   ],
 });
 
-
 </script>
 
 <style scoped>
-.slide{
+.text1,
+.show-detail {
+  margin: 10px 0;
+}
+.slide {
   margin-top: 10px;
 }
 
+details {
+  margin: 10px 0;
+}
+
+summary {
+  font-weight: bold;
+}
+
+details[open] summary {
+  margin: 10px 0;
+}
 </style>
