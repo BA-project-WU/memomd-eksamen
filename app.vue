@@ -10,7 +10,7 @@
 #app{
   width: 100%;
 }
-@-webkit-keyframes rotate {
+/* @-webkit-keyframes rotate {
   100% {
     transform: rotate(1turn);
   }
@@ -58,5 +58,5 @@
 } 
 .anim-border img {
     width: 100%;
-}
+} */
 </style>
