@@ -239,6 +239,7 @@ button{
 .arrow-left{
   text-align: left;
   margin-top: 20px;
+  margin-left: 20px;
 }
 .my-progress {
   width: 100%;
@@ -252,7 +253,7 @@ button{
 }
 h1{
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .quiz-wrapper{
   display: flex;
@@ -262,11 +263,11 @@ h1{
   margin-top: 20px;
 }
 .quiz{
-  margin: 30px 20px;
   background: var(--secondary-color);
-  padding: 20px 10px;
-  height: 400px;
+  padding: 40px 20px;
+  height: 450px;
   border-radius: 10px;
+  width: 90%;
 }
 .quiz-info{
   display: flex;
@@ -274,11 +275,13 @@ h1{
   text-align: center;
 }
 .question{
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 .score{
   margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--success-color)
 }
 .options{
   display: flex;
@@ -303,7 +306,7 @@ label{
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
-  margin-top: 35px;
+  margin-top: 20px;
   color: black;
 }
 .label:hover input ~ .option {

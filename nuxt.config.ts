@@ -48,14 +48,14 @@ export default defineNuxtConfig({
     },
     manifest: {
       name: "MemoMD App especiel lavede til medicinstuderende",
-      short_name: "MemoMD App",
+      short_name: "MemoMD",
       lang: "da",
       display: "standalone",
       id: "/?source=pwa",
       start_url: "/?source=pwa",
-      background_color: "#3367D6",
+      background_color: "#8dd9de",
       scope: "/",
-      theme_color: "#3367D6",
+      theme_color: "#8dd9de",
       description:
         "MemoMD App - For at effektivisere medicinstuderendes læring til medicin",
     },
