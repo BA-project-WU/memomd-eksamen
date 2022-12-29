@@ -53,7 +53,7 @@
                     <p>Du fik {{ score }} / {{ questions.length }} rigtige</p>
                 </section>
         </div>
-        <div>
+        <!-- <div>
           <p>
           <nav></nav>
           </p>
@@ -62,7 +62,7 @@
             {{ subjectId }}
             {{ subjectsQuestions._embedded.content[0].question }}
             {{ subjectsQuestions._totalItems}}
-          </p>
+          </p> -->
       </div>
       <div class="arrow-left">
       <NuxtLink to="/flashcards/">
