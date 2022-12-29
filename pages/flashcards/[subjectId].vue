@@ -311,10 +311,10 @@ label{
 }
 
 .wrong {
-  background-color: red;
+  background-color: var(--failed-color);
 }
 .correct {
-  background-color: green;
+  background-color: var(--success-color);
 }
 
 </style>
