@@ -7,7 +7,7 @@
       </div> -->
       <div class="quit-and-report">
         <div>
-        <NuxtLink to="flashcards/">
+        <NuxtLink to="/">
           <button class="quit">Quit</button>
         </NuxtLink>
         </div>
