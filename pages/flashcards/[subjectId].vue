@@ -7,7 +7,9 @@
       </div> -->
       <div class="quit-and-report">
         <div>
+        <NuxtLink to="flashcards/">
           <button class="quit">Quit</button>
+        </NuxtLink>
         </div>
         <div>
           <button class="report">Report et Problem</button>
@@ -47,12 +49,18 @@
                     : 'Næste spørgsmål'
                   }}
                 </button>
-                </section>
-                <section v-else>
-                    <h2>Du har aflsutted spillet</h2>
-                    <p>Du fik {{ score }} / {{ questions.length }} rigtige</p>
-                </section>
                 <TheFireworks></TheFireworks>
+                </section>
+                <section class="finish-game" id="anim-border" v-else>                 
+                    <h2>Du har aflsutted spillet!!</h2>
+                    <h3 class="user-score">Du fik {{ score }} / {{ questions.length }} rigtige</h3>
+                    <div>
+                      <NuxtLink to="/flashcards/">
+                        <button class="back-to-game">Tilbage til Spillet</button>
+                      </NuxtLink>
+                    </div>
+                  <TheBackground/>
+                </section>              
         </div>
       </div>
       <div class="arrow-left">
@@ -157,6 +165,10 @@ button{
   padding: 10px;
   border-radius: 4px;
 }
+.back-to-game{
+  margin-top: 20px;
+  background: var(--primary-color);
+}
 .quit{
   background-color: var(--success-color);
 }
@@ -246,5 +258,65 @@ label{
 .correct {
   background-color: var(--success-color);
 }
-
+.finish-game{
+  background: var(--primary-color);
+  height: 300px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+ @-webkit-keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+#anim-border {
+    position: relative;
+    z-index: 0;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem;
+}
+#anim-border::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#2cb093, #ef5392);
+    -webkit-animation: rotate 4s linear infinite;
+    animation: rotate 4s linear infinite;
+}
+#anim-border::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 6px;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: white;
+  border-radius: 5px;
+} 
+#anim-border img {
+    width: 100%;
+} 
+.user-score{
+  margin-top: 20px;
+  color: var(--success-color);
+}
 </style>
