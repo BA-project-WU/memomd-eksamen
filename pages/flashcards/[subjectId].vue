@@ -173,6 +173,9 @@ button{
 .quit{
   background-color: var(--success-color);
 }
+.quit:hover{
+  background-color: var(--primary-color);
+}
 .report{
   background: var(--failed-color);
 }
@@ -272,7 +275,7 @@ label{
   padding: 2rem;
   border: 20px solid var(--primary-color);
 }
- @-webkit-keyframes rotate {
+ /* @-webkit-keyframes rotate {
   100% {
     transform: rotate(1turn);
   }
@@ -320,7 +323,7 @@ label{
 } 
 #anim-border img {
     width: 100%;
-} 
+}  */
 .user-score{
   margin-top: 20px;
   color: var(--success-color);
