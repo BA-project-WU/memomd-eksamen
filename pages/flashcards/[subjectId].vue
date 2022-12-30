@@ -12,7 +12,7 @@
         </NuxtLink>
         </div>
         <div>
-          <button class="report">Reporter et Problem</button>
+          <button @click="reportProblem" class="report">Reporter et Problem</button>
         </div>
       </div>
       <div class="quiz-wrapper">
@@ -139,6 +139,9 @@ const GetNextQuestion = () => {
         quizCompleted.value = true
     }
 }
+function reportProblem(){
+  alert('Sorry, This function is not yet ready!')
+}
 </script>
 
 <style scoped>
@@ -206,7 +209,7 @@ h1{
   margin-top: 20px;
 }
 .quiz{
-  background: var(--secondary-color);
+  background: var(--game-bg-color);
   padding: 40px 20px;
   height: 450px;
   border-radius: 10px;
@@ -232,11 +235,11 @@ h1{
   justify-content: center;
 }
 label{
-  border: 1px solid #ccc;
+  border: 1px solid white;
   border-radius: 20px;
   box-sizing: border-box;
-  background: rgb(244, 239, 239);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(77, 232, 225, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   text-align: center;
   margin: 10px 0;
