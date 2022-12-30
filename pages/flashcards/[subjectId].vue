@@ -7,12 +7,12 @@
       </div> -->
       <div class="quit-and-report">
         <div>
-        <NuxtLink to="/">
+        <NuxtLink to="/flashcards/">
           <button class="quit">Quit</button>
         </NuxtLink>
         </div>
         <div>
-          <button class="report">Report et Problem</button>
+          <button class="report">Reporter et Problem</button>
         </div>
       </div>
       <div class="quiz-wrapper">
@@ -51,8 +51,8 @@
                 </button>
                 <TheFireworks></TheFireworks>
                 </section>
-                <section class="finish-game" id="anim-border" v-else>                 
-                    <h2>Du har aflsutted spillet!!</h2>
+                <section class="finish-game" v-else>                 
+                    <h2>Du har afslutted spillet.</h2>
                     <h3 class="user-score">Du fik {{ score }} / {{ questions.length }} rigtige</h3>
                     <div>
                       <NuxtLink to="/flashcards/">
@@ -160,6 +160,7 @@ const GetNextQuestion = () => {
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
+  padding-bottom: 10px;
 }
 button{
   padding: 10px;
@@ -259,13 +260,17 @@ label{
   background-color: var(--success-color);
 }
 .finish-game{
-  background: var(--primary-color);
+  background: white;
   height: 300px;
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2rem;
+  border: 20px solid var(--primary-color);
 }
  @-webkit-keyframes rotate {
   100% {
@@ -280,10 +285,11 @@ label{
 #anim-border {
     position: relative;
     z-index: 0;
-    height: auto;
+    height: 300px;
     border-radius: 10px;
     overflow: hidden;
     padding: 2rem;
+    border: 20px solid var(--primary-color);
 }
 #anim-border::before {
     content: "";
@@ -318,5 +324,8 @@ label{
 .user-score{
   margin-top: 20px;
   color: var(--success-color);
+}
+input[type="radio"] {
+  visibility: hidden;
 }
 </style>

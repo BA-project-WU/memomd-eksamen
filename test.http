@@ -72,11 +72,11 @@ content-type: application/x-www-form-urlencoded
 csrfToken=5f4fb53843ec71736c4d9923eabafae5e52fbd21a2ab48acb63afeec54acd7e3&username=Emma&password=1234567890
 
 ###
-POST https://api.umbraco.io/member/oauth/token  HTTP/1.1
+POST https://cdn.umbraco.io/member/oauth/token  HTTP/1.1
 umb-project-alias: nicole-ba-test
 content-type: application/x-www-form-urlencoded
 
-grant_type=password&username=test&password=1234567890
+grant_type=password&username=edna&password=1q2w3e4r5t6y
 
 ###
 GET https://cdn.umbraco.io/media/12b813af-0670-45d0-ad4a-02e1eb24294e
