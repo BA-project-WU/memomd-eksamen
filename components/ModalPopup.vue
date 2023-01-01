@@ -1,14 +1,16 @@
 <template>
   <transition name="modal-fade">
-  <div class="modal-overlay" @click="$emit('close-modal')">
-    <div class="modal" @click.stop>
-      <img class="check" src="~/assets/images/check-img.png" alt="check img" width="200px" height="auto"/>
-      <h6>Gemt!!!</h6>
-      <p>Din report er blevet gemt. Tak for din hjælp.</p>
-      <button><NuxtLink to="/settingspage">Tilbage til Indstillinger</NuxtLink> </button>
+    <div class="modal-overlay" @click="$emit('close-modal')">
+      <div class="modal" @click.stop>
+        <img class="check" src="~/assets/images/check-img.png" alt="check img" width="200px" height="auto" />
+        <h6>Gemt!!!</h6>
+        <p>Din report er blevet gemt. Tak for din hjælp.</p>
+        <button>
+          <NuxtLink to="/settingspage">Tilbage til indstillinger</NuxtLink>
+        </button>
+      </div>
     </div>
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script setup></script>
@@ -32,6 +34,7 @@
   width: 500px;
   border-radius: 20px;
 }
+
 .page-enter-active,
 .page-leave-active {
   transition: transform 0.5s;
@@ -64,17 +67,19 @@ button {
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .modal-fade-enter,
 .modal-fade-leave-to {
   opacity: 0;
 }
+
 .modal-fade-enter-active,
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
 }
-.check{
+
+.check {
   width: 200;
   height: auto;
 }
-
 </style>

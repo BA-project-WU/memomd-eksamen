@@ -1,51 +1,50 @@
 <template>
   <div class="profile-page">
-    <TheFlashcardHeader flashcardHeading="Min Profil"
-    ></TheFlashcardHeader>
-      <div class="profile-info">
-        <div class="circle-img">
-          <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
-          <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
-        </div>
-        <h3>{{ name }}</h3>
-        <p>{{ email }}</p>
-        <!-- https://mediajams.dev/post/Nuxtjs-Profile-Picture-Generator -->
+    <TheFlashcardHeader flashcardHeading="Min profil"></TheFlashcardHeader>
+    <div class="profile-info">
+      <div class="circle-img">
+        <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
+        <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
       </div>
-      <DailyRecord />
-      <div class="user-info">
-        <h3>Adminintrere din konto</h3>
-        <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
-        <div v-if="showEmail" class="modal">
-          <div class="modal-overlay">
-            <div class="modal-email">
-              <div class="x-icon">
-                <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showEmail = false" />
-              </div>
-              <input type="text" v-model="email" placeholder="email" />
-              <button class="btn-save" @click="showEmail = false; updateEmail();">
-                Gem
-              </button>
+      <h3>{{ name }}</h3>
+      <p>{{ email }}</p>
+      <!-- https://mediajams.dev/post/Nuxtjs-Profile-Picture-Generator -->
+    </div>
+    <DailyRecord />
+    <div class="user-info">
+      <h3>Adminintrere din konto</h3>
+      <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
+      <div v-if="showEmail" class="modal">
+        <div class="modal-overlay">
+          <div class="modal-email">
+            <div class="x-icon">
+              <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showEmail = false" />
             </div>
+            <input type="text" v-model="email" placeholder="email" />
+            <button class="btn-save" @click="showEmail = false; updateEmail();">
+              Gem
+            </button>
           </div>
         </div>
-        <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
-        <div v-if="showPassword">
-          <div class="modal-overlay">
-            <div class="modal-password">
-              <div class="x-icon">
-                <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
-              </div>
-              <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
-              <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-              <button class="btn-save" type="submit" @click="showPassword = false; updatePassword(); ">
-                Gem
-              </button>
+      </div>
+      <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
+      <div v-if="showPassword">
+        <div class="modal-overlay">
+          <div class="modal-password">
+            <div class="x-icon">
+              <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
             </div>
+            <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
+            <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
+            <button class="btn-save" type="submit" @click="showPassword = false; updatePassword(); ">
+              Gem
+            </button>
           </div>
         </div>
-        <button class="btn-delete-user" @click="deleteMember()">Slet bruger</button>
       </div>
-      <footer>
+      <button class="btn-delete-user" @click="deleteMember()">Slet bruger</button>
+    </div>
+    <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
           <NuxtLink to="/flashcards/">
@@ -54,8 +53,12 @@
         </button>
       </div>
       <ul class="footer-list">
-        <li><NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink></li>
-        <li><NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink></li>
+        <li>
+          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+        </li>
       </ul>
     </footer>
   </div>
@@ -103,7 +106,7 @@ await useFetch("https://api.umbraco.io/member/" + username, {
     memberTypeAlias = response._data.memberTypeAlias;
     username = response._data.username;
     name = response._data.name;
-    memberEducationInstitution = response._data.name;
+    memberEducationInstitution = response._data.memberEducationInstitution;
   },
 });
 // dette er workaround 
@@ -182,7 +185,7 @@ async function deleteMember() {
         "api-key": umbracoApiKey,
       }
     });
-    
+
   } else {
 
 
@@ -211,15 +214,17 @@ async function deleteMember() {
   height: auto;
   width: 100%;
 }
-.check{
+
+.check {
   width: 200px;
   height: auto;
   margin-top: 100px;
 }
+
 h3,
 p {
   text-align: left;
-  margin-bottom: 10px 10px;
+  margin-bottom: 10px;
 }
 
 .edit-icon {
@@ -283,7 +288,7 @@ p {
 }
 
 h3 {
-  padding: 10px 0px 0px 20px;
+  padding-top: 10px;
 }
 
 .btn-change-email,
@@ -342,31 +347,31 @@ input[type="submit"],
 body {
   overflow-x: hidden;
 }
+
 .content-container {
   margin: 5% 3%;
   height: 100vh;
 }
+
 .heading-overview {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: -18px;
   padding: 50px 50px;
   text-align: center;
 }
+
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
-  bottom: 0; /* Height of the footer */
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
+  bottom: 0;
+  /* Height of the footer */
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   display: flex;
@@ -375,9 +380,10 @@ footer {
   min-width: 280px;
   width: 100%;
   position: fixed;
-    bottom: 0;
-    right: 0;
+  bottom: 0;
+  right: 0;
 }
+
 .footer-list {
   display: flex;
   flex-direction: row;
@@ -387,27 +393,32 @@ footer {
   position: relative;
   top: -20px;
 }
+
 li {
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
 }
+
 a {
   color: var(--text-color);
   text-decoration: none;
 }
-.start-the-game{
+
+.start-the-game {
   text-align: center;
   position: relative;
   top: -18px;
 }
-.btn-start-spil{
+
+.btn-start-spil {
   padding: 10px 20px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.fa-home{
+
+.fa-home {
   background-color: var(--cta-bg-color);
   color: #fff;
 }

@@ -29,9 +29,15 @@
   font-family: var(--fonts);
 }
 a {
+  cursor: pointer;
   text-decoration: none;
   color: #000000;
 }
+
+button, .buton{
+  cursor: pointer;
+}
+
 /*Accounts style*/
 .login-page, .flashcards-page {
   display: flex;
