@@ -51,12 +51,12 @@
 </template>
 
 <script setup>
-var showModal = ref(false)
-const reportTitle = ref('')
-const reportOptions = ref('Hvad drejer dit problem sig om?')
-const reportMessage = ref('')
-const { umbracoProjectAlias } = useRuntimeConfig()
-const { umbracoApiKey } = useRuntimeConfig()
+var showModal = ref(false);
+const reportTitle = ref("");
+const reportOptions = ref("");
+const reportMessage = ref("");
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
 
 async function sendReport() {
   await useFetch('https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries', {

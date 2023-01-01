@@ -5,13 +5,13 @@
     <form @submit.prevent="createMember">
       <label for="name-input">Navn</label>
       <input type="text" autocomplete="on" name="name-input" placeholder="Dit fulde navn" required v-model="name" />
-      <label for="username-input">Brugernavn</label>
+      <label for="username-input">Brugernavn (minimum 5 tegn)</label>
       <input type="text" minlength="5" name="username-input" placeholder="Vælg et bugernavn" required
         v-model="username" />
       <label for="email-input">Email-addresse</label>
       <input type="email" autocomplete="on" name="email-input" placeholder="Din email-addresse" required
         v-model="email" />
-      <label for="password-input">Adgangskode</label>
+      <label for="password-input">Adgangskode (minimum 10 tegn)</label>
       <input type="password" autocomplete="no" minlength="10" name="password-input" placeholder="Din adgangskode"
         required v-model="password" />
       <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
@@ -44,7 +44,7 @@ const comments = ref("");
 const email = ref("");
 // const memberEducationInstitution = [""];
 // const memberEducationInstitution = ["Syddansk Universitet, Odense"];
-const memberEducationInstitution = ref('Din uddannelsesinstution')
+const memberEducationInstitution = ref("");
 // const memberPicture = ref("");
 const name = ref("");
 const password = ref("");

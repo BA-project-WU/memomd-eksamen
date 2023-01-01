@@ -3,8 +3,9 @@
     <div class="modal-overlay" @click="$emit('close-modal')">
       <div class="modal" @click.stop>
         <img class="check" src="~/assets/images/check-img.png" alt="check img" width="200px" height="auto" />
-        <h6>Gemt!!!</h6>
-        <p>Din report er blevet gemt. Tak for din hjælp.</p>
+        <h6>Sendt</h6>
+        <p>Din rapportering er blevet afsendt.</p>
+        <p>Tak for din hjælp.</p>
         <button>
           <NuxtLink to="/settingspage">Tilbage til indstillinger</NuxtLink>
         </button>
