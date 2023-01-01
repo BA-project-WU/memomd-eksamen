@@ -16,19 +16,13 @@
         required v-model="password" />
       <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
       <label for="memberEducationInstitution">Uddannelsesinstution</label>
-      <select id="options" name="memberEducationInstitution" required v-model="memberEducationInstitution">
-        <option value="" disabled hidden selected>Din uddannelsesinstution</option>
-        <option value="Aalborg Universitet" disabled>Aalborg Universitet</option>
-        <option value="Aarhus Universitet" disabled>Aarhus Universitet</option>
-        <option value="Københavns Universitet, Nørre Campus" disabled>
-          Københavns Universitet, Nørre Campus
-        </option>
-        <option value="Syddansk Universitet, Esbjerg" disabled>
-          Syddansk Universitet, Esbjerg
-        </option>
-        <option value="Syddansk Universitet, Odense">
-          Syddansk Universitet, Odense
-        </option>
+      <select name="memberEducationInstitution" required v-model="memberEducationInstitution">
+        <option disabled hidden value="">Din uddannelsesinstution</option>
+        <option value="Aalborg Universitet (AAU)">Aalborg Universitet (AAU)</option>
+        <option value="Aarhus Universitet (AU)">Aarhus Universitet (AU)</option>
+        <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus</option>
+        <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
+        <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
       </select>
       <input type="submit" value="Opret" v-on:click="createMember()" />
     </form>
@@ -49,7 +43,8 @@ const { umbracoApiKey } = useRuntimeConfig();
 const comments = ref("");
 const email = ref("");
 // const memberEducationInstitution = [""];
-const memberEducationInstitution = ["Syddansk Universitet, Odense"];
+// const memberEducationInstitution = ["Syddansk Universitet, Odense"];
+const memberEducationInstitution = ref('Din uddannelsesinstution')
 // const memberPicture = ref("");
 const name = ref("");
 const password = ref("");
