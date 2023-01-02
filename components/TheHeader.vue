@@ -26,8 +26,18 @@ html, body{
   margin: 0 auto;
 }
 header{
-  margin-top: 100px;
+  height: 100px;
   margin-bottom: 10px;
+  background: rgb(168, 228, 192);
+    background: radial-gradient(circle,
+        rgba(168, 228, 192, 1) 35%,
+        rgba(78, 210, 202, 1) 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 h1 {
   color: var(--text-color);
@@ -36,4 +46,5 @@ h1 {
   text-align: center;
   font-size: var(--font-heading-size);
 }
+
 </style>

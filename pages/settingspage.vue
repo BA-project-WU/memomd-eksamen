@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="Indstillinger"></TheFlashcardHeader>
+    <TheHeader heading="Indstillinger"></TheHeader>
     <div class="settings-box">
       <div class="lyd">
         <h4>Lydeffekter</h4>

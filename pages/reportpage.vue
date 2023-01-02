@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="Rapporter et problem"></TheFlashcardHeader>
+    <TheHeader heading="Reporter Et Problem"></TheHeader>
     <div class="settings-box-report">
       <form @submit.prevent="sendReport">
         <input type="text" name="title" placeholder="Titel" v-model="reportTitle" />
@@ -87,19 +87,6 @@ body {
   align-items: center;
   height: 100vh;
 }
-
-.settings-box-report {
-  /* background: var(--secondary-color); */
-  height: 330px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 150px;
-  min-width: -webkit-fill-available;
-  margin: 0px 30px auto;
-}
-
 input,
 select,
 textarea {

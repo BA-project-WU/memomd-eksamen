@@ -252,6 +252,7 @@ p {
 .user-info {
   width: 100%;
   height: 400px;
+  padding: 20px;
 }
 
 .modal-email {

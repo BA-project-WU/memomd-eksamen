@@ -47,7 +47,6 @@ body {
       rgba(78, 210, 202, 1) 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  margin-top: -18px;
   text-align: center;
 }
 
