@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader heading="Reporter Et Problem"></TheHeader>
+    <TheHeader heading="Reporter et problem"></TheHeader>
     <div class="settings-box-report">
       <form @submit.prevent="sendReport">
         <input type="text" name="title" placeholder="Titel" v-model="reportTitle" />
@@ -87,6 +87,7 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 input,
 select,
 textarea {
