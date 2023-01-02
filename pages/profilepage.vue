@@ -1,6 +1,6 @@
 <template>
   <div class="profile-page">
-    <TheFlashcardHeader flashcardHeading="Min profil"></TheFlashcardHeader>
+    <TheHeader heading="Min profil"></TheHeader>
     <div class="profile-info">
       <div class="circle-img">
         <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
