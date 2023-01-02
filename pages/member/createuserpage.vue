@@ -72,9 +72,9 @@ async function createMember() {
       username: username,
     },
   });
-  // navigateTo("loginpage");
   if (this.name && this.username && this.email && this.password && this.memberEducationInstitution != 0) {
-    navigateTo("loginpage");
+    await navigateTo({ path: 'loginpage' })
+    // navigateTo("loginpage");
   }
   // await signIn(undefined, { callbackUrl: '/settingspage' })
 }
