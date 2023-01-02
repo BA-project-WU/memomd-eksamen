@@ -53,11 +53,6 @@
             </NuxtLink>
           </div>
         </section>
-        <div class="arrow-left">
-          <NuxtLink to="/flashcards/">
-            <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-          </NuxtLink>
-        </div>
       </div>
     </div>
   </NuxtLayout>
