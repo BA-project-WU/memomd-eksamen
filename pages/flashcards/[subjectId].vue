@@ -1,10 +1,7 @@
 <template>
   <NuxtLayout>
     <div>
-      <!-- <div class="flashcard-title my-progress">
-        <h1></h1>
-        <div class="my-bar"></div>
-      </div> -->
+      <TheFireworks></TheFireworks>
       <div class="quit-and-report">
         <div>
           <NuxtLink to="/flashcards/">
@@ -16,7 +13,6 @@
         </div>
       </div>
       <div class="quiz-wrapper">
-        <!-- <h1>Start Quizzen</h1> -->
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
             <span class="question">{{ getCurrentQuestion.question }}</span>
@@ -47,24 +43,23 @@
         : 'Næste spørgsmål'
 }}
           </button>
-          <TheFireworks></TheFireworks>
         </section>
         <section class="finish-game" v-else>
           <h2>Du har afslutted spillet.</h2>
           <h3 class="user-score">Du fik {{ score }} / {{ questions.length }} rigtige</h3>
           <div>
             <NuxtLink to="/flashcards/">
-              <button class="back-to-game">Tilbage</button>
+              <button class="back-to-game">Tilbage til Spillet</button>
             </NuxtLink>
           </div>
           <TheBackground />
         </section>
-      </div>
-    </div>
-    <div class="arrow-left">
+        <div class="arrow-left">
       <NuxtLink to="/flashcards/">
         <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
       </NuxtLink>
+    </div>
+      </div>
     </div>
   </NuxtLayout>
 </template>
