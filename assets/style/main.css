@@ -37,7 +37,7 @@ a {
 button, .buton{
   cursor: pointer;
 }
-
+/*header*/
 .heading-overview {
   background: rgb(168, 228, 192);
   background: radial-gradient(circle,
@@ -46,6 +46,9 @@ button, .buton{
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   text-align: center;
+}
+header{
+  width: 100%;
 }
 
 /*Accounts style*/
@@ -121,9 +124,6 @@ form, .account{
 .forgot-password-form{
   margin: 0 auto;
   width: 300px;
-}
-header{
-  width: 100%;
 }
 
 .settings-box {
