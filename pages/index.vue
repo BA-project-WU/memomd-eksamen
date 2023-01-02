@@ -49,7 +49,7 @@ button {
   border: none;
   font-size: var(--font-text-size);
   padding: 20px;
-  margin: 40px 0px 0px 12px;
+  margin: 30px 0px 0px 12px;
   width: 200px;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
