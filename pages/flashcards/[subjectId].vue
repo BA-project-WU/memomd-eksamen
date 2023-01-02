@@ -52,7 +52,6 @@
               <button class="back-to-game">Tilbage til Spillet</button>
             </NuxtLink>
           </div>
-          <TheBackground />
         </section>
         <div class="arrow-left">
       <NuxtLink to="/flashcards/">
