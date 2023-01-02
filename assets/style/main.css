@@ -155,7 +155,6 @@ header{
         rgba(78, 210, 202, 1) 100%);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    margin-top: -18px;
     text-align: center;
   }
 }
@@ -178,7 +177,6 @@ header{
         rgba(78, 210, 202, 1) 100%);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    margin-top: -18px;
     text-align: center;
   }
   .settings-box, .settings-box-report {
@@ -204,7 +202,6 @@ header{
         rgba(78, 210, 202, 1) 100%);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    margin-top: -18px;
     text-align: center;
   }
   .settings-box {
