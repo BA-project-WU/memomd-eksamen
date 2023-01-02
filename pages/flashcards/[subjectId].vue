@@ -83,7 +83,10 @@ let questions = ref([])
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
 await useFetch(uri, {
-  headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
+  headers: { "Umb-Project-Alias": "nicole-ba-test", 
+  "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+  "Authorization" : "Bearer " + token
+ },
   method: "get",
   onResponse({ request, response, options }) {
     response._data._embedded.content.forEach(element => {
