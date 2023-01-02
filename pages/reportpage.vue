@@ -88,17 +88,6 @@ body {
   height: 100vh;
 }
 
-.heading-overview {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  margin-top: -18px;
-  text-align: center;
-}
-
 .settings-box-report {
   /* background: var(--secondary-color); */
   height: 330px;
