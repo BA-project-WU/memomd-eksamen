@@ -14,6 +14,8 @@
     </div>
     <div class="forgot-password">
       <p @click="forgotPassword()">Jeg har <span style="color:#4ED2CA">glemt</span> min adgangskode</p>
+      <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer; margin-top: 20px;">
+      <font-awesome-icon style="color:black" icon="fa fa-arrow-left" /></p>
     </div>
   </div>
 </template>
@@ -48,7 +50,7 @@ async function login() {
           token.value = response._data.access_token // save the token in the cookie
           useCookie("username").value = username // save the username in a cookie (for current session)
         }
-        navigateTo('/profilepage')
+        navigateTo('/flashcards/')
       }
     },
   });

@@ -78,20 +78,7 @@ body {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: -18px;
-  padding: 50px 50px;
   text-align: center;
-}
-
-.settings-box {
-  background: var(--secondary-color);
-  height: 330px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 150px;
-  min-width: -webkit-fill-available;
-  margin: 0px 30px auto;
 }
 
 .lyd,

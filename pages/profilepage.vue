@@ -361,7 +361,6 @@ body {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: -18px;
-  padding: 50px 50px;
   text-align: center;
 }
 

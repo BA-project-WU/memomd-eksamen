@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader flashcard-heading="MemoMD"></TheFlashcardHeader>
+    <TheFlashcardHeader/>
     <!--this is the page content-->
     <div class="content-container">
       <slot />
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const { flashcardHeading } = defineProps(["flashcardHeading"]);
+// const { flashcardHeading } = defineProps(["flashcardHeading"]);
 
 </script>
 
@@ -48,7 +48,6 @@ body {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: -18px;
-  padding: 50px 50px;
   text-align: center;
 }
 
@@ -109,4 +108,38 @@ a {
   background-color: var(--cta-bg-color);
   color: #fff;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .logo{
+  width: 30vw;
+  height: auto;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .logo{
+  width: 30vw;
+  height: auto;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .logo{
+  width: 30vw;
+  height: auto;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .logo{
+  width: 30vw;
+  height: auto;
+  }
+}
+
 </style>

@@ -112,3 +112,108 @@ form, .account{
   margin: 0 auto;
   width: 300px;
 }
+header{
+  width: 100%;
+}
+
+.settings-box {
+  background: var(--secondary-color);
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 150px;
+  min-width: -webkit-fill-available;
+  margin: 0px 30px auto;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .logo{
+  width: 20vw;
+  height: auto;
+  background: rgb(168, 228, 192);
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .logo{
+  width: 20vw;
+  height: auto;
+  background: rgb(168, 228, 192);
+  }
+  header{
+    width: 100vw;
+    height: auto;
+  }
+  .heading-overview {
+    background: rgb(168, 228, 192);
+    background: radial-gradient(circle,
+        rgba(168, 228, 192, 1) 35%,
+        rgba(78, 210, 202, 1) 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top: -18px;
+    text-align: center;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .logo{
+  width: 10vw;
+  height: auto;
+  background: rgb(168, 228, 192);
+  }
+  header{
+    width: 100vw;
+    height: auto;
+  }
+  .heading-overview {
+    background: rgb(168, 228, 192);
+    background: radial-gradient(circle,
+        rgba(168, 228, 192, 1) 35%,
+        rgba(78, 210, 202, 1) 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top: -18px;
+    text-align: center;
+  }
+  .settings-box, .settings-box-report {
+    margin-top: 30px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1024px) {
+  .logo{
+  width: 10vw;
+  height: auto;
+  background: rgb(168, 228, 192);
+  }
+  header{
+    width: 100vw;
+    height: auto;
+  }
+  .heading-overview {
+    background: rgb(168, 228, 192);
+    background: radial-gradient(circle,
+        rgba(168, 228, 192, 1) 35%,
+        rgba(78, 210, 202, 1) 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top: -18px;
+    text-align: center;
+  }
+  .settings-box {
+    margin-top: 30px;
+  }
+  .settings-box-report {
+    margin-top: 30px;
+  }
+  form {
+    margin-top: 50px;
+  }
+}
