@@ -45,19 +45,19 @@
           </button>
         </section>
         <section class="finish-game" v-else>
-          <h2>Du har afslutted spillet.</h2>
+          <h2>Du har gennemført spillet</h2>
           <h3 class="user-score">Du fik {{ score }} / {{ questions.length }} rigtige</h3>
           <div>
             <NuxtLink to="/flashcards/">
-              <button class="back-to-game">Tilbage til Spillet</button>
+              <button class="back-to-game">Tilbage til spiloversigt</button>
             </NuxtLink>
           </div>
         </section>
         <div class="arrow-left">
-      <NuxtLink to="/flashcards/">
-        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-      </NuxtLink>
-    </div>
+          <NuxtLink to="/flashcards/">
+            <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </NuxtLayout>
