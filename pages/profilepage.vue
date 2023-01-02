@@ -4,11 +4,9 @@
     <div class="profile-info">
       <div class="circle-img">
         <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
-        <!-- <font-awesome-icon icon="fa-solid fa-file-image"/> -->
       </div>
       <h3>{{ name }}</h3>
       <p>{{ email }}</p>
-      <!-- https://mediajams.dev/post/Nuxtjs-Profile-Picture-Generator -->
     </div>
     <DailyRecord />
     <div class="user-info">
@@ -18,46 +16,79 @@
         <div class="modal-overlay">
           <div class="modal-email">
             <div class="x-icon">
-              <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showEmail = false" />
+              <font-awesome-icon
+                style="color: black"
+                icon="fa-solid fa-times"
+                @click="showEmail = false"
+              />
             </div>
             <input type="text" v-model="email" placeholder="email" />
-            <button class="btn-save" @click="showEmail = false; updateEmail();">
+            <button
+              class="btn-save"
+              @click="
+                showEmail = false;
+                updateEmail();
+              "
+            >
               Gem
             </button>
           </div>
         </div>
       </div>
-      <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
+      <button class="btn-change-password" @click="showPassword = true">
+        Ændre adgangskode
+      </button>
       <div v-if="showPassword">
         <div class="modal-overlay">
           <div class="modal-password">
             <div class="x-icon">
-              <font-awesome-icon style="color:black" icon="fa-solid fa-times" @click="showPassword = false" />
+              <font-awesome-icon
+                style="color: black"
+                icon="fa-solid fa-times"
+                @click="showPassword = false"
+              />
             </div>
-            <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
-            <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-            <button class="btn-save" type="submit" @click="showPassword = false; updatePassword(); ">
+            <input
+              type="password"
+              v-model="currentPassword"
+              placeholder="Indtast nuværende adgangskode"
+            />
+            <input
+              type="newpassword"
+              v-model="newPassword"
+              placeholder="Indtast ny adgangskode"
+            />
+            <button
+              class="btn-save"
+              type="submit"
+              @click="
+                showPassword = false;
+                updatePassword();
+              "
+            >
               Gem
             </button>
           </div>
         </div>
       </div>
-      <button class="btn-delete-user" @click="deleteMember()">Slet bruger</button>
+      <button class="btn-delete-user" @click="deleteMember()">Slet profilen</button>
     </div>
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/">
-            Start
-          </NuxtLink>
+          <NuxtLink to="/flashcards/"> Start </NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+          <NuxtLink to="/settingspage"
+            ><font-awesome-icon icon="fa-solid fa-cog"
+          /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+          <NuxtLink to="/profilepage"
+            ><font-awesome-icon icon="fa-solid fa-user"
+          /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -65,17 +96,17 @@
 </template>
 
 <script setup>
-
 definePageMeta({
   layout: "false",
-})
+});
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
-const token = useCookie("token").value
-if (!token) { navigateTo('/member/loginpage') }
+const token = useCookie("token").value;
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 
-let username = useCookie("username").value
-
+let username = useCookie("username").value;
 
 let showEmail = ref(false);
 let showPassword = ref(false);
@@ -106,16 +137,15 @@ await useFetch("https://api.umbraco.io/member/" + username, {
     memberEducationInstitution = response._data.memberEducationInstitution;
   },
 });
-// dette er workaround 
+// dette er workaround for at man kunne se dataen
 setTimeout(delay, 500);
 async function delay() {
   await useFetch("https://api.umbraco.io/member/" + username, {
-    method: "get",
+    method: "GET",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
       "api-key": umbracoApiKey,
     },
-
     onResponse({ request, response, options }) {
       email = response._data.email;
       memberTypeAlias = response._data.memberTypeAlias;
@@ -129,7 +159,7 @@ async function delay() {
 async function updateEmail() {
   // kalder api ved members username
   await useFetch("https://api.umbraco.io/member/" + username, {
-    method: "put",
+    method: "PUT",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
       "api-key": umbracoApiKey,
@@ -143,7 +173,7 @@ async function updateEmail() {
       isApproved: true,
       memberEducationInstitution: memberEducationInstitution,
     },
-    onResponse({ request, response, options }) { },
+    onResponse({ request, response, options }) {},
   });
 }
 // function til at opdatere adgangskode
@@ -180,12 +210,9 @@ async function deleteMember() {
       headers: {
         "umb-project-alias": umbracoProjectAlias,
         "api-key": umbracoApiKey,
-      }
+      },
     });
-
   } else {
-
-
   }
 }
 </script>
@@ -353,9 +380,11 @@ body {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
   bottom: 0;
   /* Height of the footer */
   border-top-left-radius: 25px;

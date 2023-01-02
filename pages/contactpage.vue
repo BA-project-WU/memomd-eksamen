@@ -17,29 +17,31 @@
         <option value="ku">KU</option>
       </select>
 
-      <button class="btn-send-form" type="submit" value="Submit" v-on:click="sendForm()">Send Form </button>
+      <button class="btn-send-form" type="submit" value="Submit" v-on:click="sendForm()">
+        Send Form
+      </button>
     </form>
     <div class="arrow-left">
-        <NuxtLink to="/settingspage">
-          <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-        </NuxtLink>
-      </div>
+      <NuxtLink to="/settingspage">
+        <font-awesome-icon style="color: black" icon="fa fa-arrow-left" />
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script setup>
-function sendForm(){
-  alert('This is not yet working, Sorry!')
+function sendForm() {
+  alert("This is not yet working, Sorry!");
 }
-
 </script>
 
 <style scoped>
-.arrow-left{
+.arrow-left {
   text-align: left;
   margin-top: 20px;
 }
-input[type=text], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -61,7 +63,7 @@ input[type=text], select {
 }
 
 .btn-send-form:hover {
-  background-color: #4ED2CA;
+  background-color: #4ed2ca;
 }
 
 div {
@@ -69,5 +71,4 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
-
 </style>

@@ -6,7 +6,9 @@
       with this privacy policy (&#8220;Policy&#8221;). This Policy describes the types of
       information we may collect from you or that you may provide (&#8220;Personal
       Information&#8221;) on the
-      <a href="https://ba-project-wu-memomd.netlify.app">ba-project-wu-memomd.netlify.app</a>
+      <a href="https://ba-project-wu-memomd.netlify.app"
+        >ba-project-wu-memomd.netlify.app</a
+      >
       website (&#8220;Website&#8221;), &#8220;MemoMD&#8221; mobile application
       (&#8220;Mobile Application&#8221;), and any of their related products and services
       (collectively, &#8220;Services&#8221;), and our practices for collecting, using,
@@ -32,11 +34,15 @@
       <h3>Table of contents</h3>
       <ol class="wpembed-index">
         <li>
-          <a href="#collection-of-personal-information">Collection of personal information</a>
+          <a href="#collection-of-personal-information"
+            >Collection of personal information</a
+          >
         </li>
         <li><a href="#privacy-of-children">Privacy of children</a></li>
         <li>
-          <a href="#use-and-processing-of-collected-information">Use and processing of collected information</a>
+          <a href="#use-and-processing-of-collected-information"
+            >Use and processing of collected information</a
+          >
         </li>
         <li><a href="#managing-information">Managing information</a></li>
         <li><a href="#disclosure-of-information">Disclosure of information</a></li>
@@ -183,8 +189,12 @@
       throughout this Policy, we limit our use and collection of your Personal
       Information. For a description of Do Not Track protocols for browsers and mobile
       devices or to learn more about the choices available to you, visit
-      <a href="https://www.internetcookies.com" target="_blank"
-        ref="nofollow noreferrer noopener external">internetcookies.com</a>
+      <a
+        href="https://www.internetcookies.com"
+        target="_blank"
+        ref="nofollow noreferrer noopener external"
+        >internetcookies.com</a
+      >
     </p>
     <h2 id="links-to-other-resources">Links to other resources</h2>
     <p>
@@ -250,7 +260,9 @@
       agree to be bound by this Policy. If you do not agree to abide by the terms of this
       Policy, you are not authorized to access or use the Services. This privacy policy
       was created with the help of
-      <a href="https://www.websitepolicies.com" target="_blank" rel="nofollow">WebsitePolicies</a>.
+      <a href="https://www.websitepolicies.com" target="_blank" rel="nofollow"
+        >WebsitePolicies</a
+      >.
     </p>
     <h2 id="contacting-us">Contacting us</h2>
     <p>
@@ -259,8 +271,9 @@
       you to contact us using the details below:
     </p>
     <p>
-      <a
-        href="https://ba-project-wu-memomd.netlify.app/contactpage">https://ba-project-wu-memomd.netlify.app/contactpage</a>
+      <a href="https://ba-project-wu-memomd.netlify.app/contactpage"
+        >https://ba-project-wu-memomd.netlify.app/contactpage</a
+      >
     </p>
     <p>
       We will attempt to resolve complaints and disputes and make every reasonable effort
@@ -295,7 +308,7 @@
 
 <style scoped>
 label {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   margin-bottom: 5px;
 }
 
@@ -309,7 +322,7 @@ label {
   background: var(--secondary-color);
   padding: 20px;
   border: 5px dashed var(--primary-color);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 li {
@@ -324,7 +337,7 @@ h2 {
   margin: 20px 0px;
   line-height: 1.3;
 }
-p{
+p {
   line-height: 1.3;
 }
 
@@ -338,7 +351,7 @@ button {
 a {
   text-align: left;
   margin-top: 30px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: blue;
 }
 </style>

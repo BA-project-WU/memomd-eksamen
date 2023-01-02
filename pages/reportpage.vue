@@ -5,9 +5,7 @@
       <form @submit.prevent="sendReport">
         <input type="text" name="title" placeholder="Titel" v-model="reportTitle" />
         <select name="reportOptions" v-model="reportOptions">
-          <option disabled hidden value="">
-            Hvad drejer dit problem sig om?
-          </option>
+          <option disabled hidden value="">Hvad drejer dit problem sig om?</option>
           <option value="Spørgsmål/svar: Forkert rigtigt svar">
             Spørgsmål/svar: Forkert rigtigt svar
           </option>
@@ -16,19 +14,24 @@
           </option>
           <option value="Andet">Andet</option>
         </select>
-        <textarea name="reportMessage" rows="8" placeholder="Uddyb problemet" v-model="reportMessage"></textarea>
+        <textarea
+          name="reportMessage"
+          rows="8"
+          placeholder="Uddyb problemet"
+          v-model="reportMessage"
+        ></textarea>
         <div class="save-btn" @click="showModal = true" @close-modal="showModal = false">
-          <button class="btn-send-report" type="submit" v-on:click="sendReport()">Send rapportering
+          <button class="btn-send-report" type="submit" v-on:click="sendReport()">
+            Send rapportering
           </button>
         </div>
         <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
       <div class="arrow-left">
         <NuxtLink to="/settingspage">
-          <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
+          <font-awesome-icon style="color: black" icon="fa fa-arrow-left" />
         </NuxtLink>
       </div>
-
     </div>
     <footer>
       <div class="start-the-game">
@@ -40,10 +43,14 @@
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+          <NuxtLink to="/settingspage"
+            ><font-awesome-icon icon="fa-solid fa-cog"
+          /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+          <NuxtLink to="/profilepage"
+            ><font-awesome-icon icon="fa-solid fa-user"
+          /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -59,25 +66,29 @@ const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
 async function sendReport() {
-  await useFetch('https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries', {
-    method: 'post',
-    headers: {
-      "umb-project-alias": umbracoProjectAlias,
-      "api-key": umbracoApiKey,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: {
-      reportTitle: reportTitle,
-      reportOptions: reportOptions,
-      reportMessage: reportMessage,
-    },
-  })
+  await useFetch(
+    "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
+    {
+      method: "POST",
+      headers: {
+        "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: {
+        reportTitle: reportTitle,
+        reportOptions: reportOptions,
+        reportMessage: reportMessage,
+      },
+    }
+  );
 }
 
-const token = useCookie("token").value
-if (!token) { navigateTo('/member/loginpage') }
-
+const token = useCookie("token").value;
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 </script>
 
 <style scoped>
@@ -127,9 +138,11 @@ form {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
   bottom: 0;
   /* Height of the footer */
   border-top-left-radius: 25px;

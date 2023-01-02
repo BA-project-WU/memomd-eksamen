@@ -27,17 +27,20 @@
       <div class="start-the-game">
         <button>
           <NuxtLink to="/flashcards/">
-            <font-awesome-icon style="color:white" icon="fa-solid fa-home" />
+            <font-awesome-icon style="color: white" icon="fa-solid fa-home" />
           </NuxtLink>
         </button>
-
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+          <NuxtLink to="/settingspage"
+            ><font-awesome-icon icon="fa-solid fa-cog"
+          /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+          <NuxtLink to="/profilepage"
+            ><font-awesome-icon icon="fa-solid fa-user"
+          /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -49,14 +52,16 @@ definePageMeta({
   layout: "false",
 });
 // dette er tilgængelige til brugeren der er logge på
-const token = useCookie("token").value
-if (!token) { navigateTo('/member/loginpage') }
+const token = useCookie("token").value;
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 
 // function til log ud og tilbage til login side
 function logout() {
-  useCookie("token").value = ""
-  useCookie("username").value = ""
-  navigateTo('/member/loginpage')
+  useCookie("token").value = "";
+  useCookie("username").value = "";
+  navigateTo("/member/loginpage");
 }
 
 //https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3
@@ -116,7 +121,7 @@ label {
 }
 
 label:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 3px;
   left: 3px;
@@ -127,11 +132,11 @@ label:after {
   transition: 0.3s;
 }
 
-input:checked+label {
+input:checked + label {
   background: var(--primary-color);
 }
 
-input:checked+label:after {
+input:checked + label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
@@ -159,9 +164,11 @@ a {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
   bottom: 0;
   /* Height of the footer */
   border-top-left-radius: 25px;

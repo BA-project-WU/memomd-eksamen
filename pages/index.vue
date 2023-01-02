@@ -2,7 +2,11 @@
   <main class="startpage">
     <section class="startsection">
       <section class="section1">
-        <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo" />
+        <img
+          class="logo-start"
+          src="~/assets/images/logo.png"
+          alt="this is the memomd logo"
+        />
       </section>
       <section class="section2">
         <button>
@@ -24,7 +28,7 @@ definePageMeta({
   layout: "false",
 });
 
-const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
 </script>
 
 <style scoped>
@@ -43,7 +47,7 @@ const runtimeConfig = useRuntimeConfig()
   justify-content: center;
   align-self: center;
 }
-.section1{
+.section1 {
   width: 100%;
 }
 button {
@@ -64,9 +68,9 @@ a {
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .logo-start{
-  width: 100vw;
-  height: auto;
+  .logo-start {
+    width: 100vw;
+    height: auto;
   }
 }
 </style>

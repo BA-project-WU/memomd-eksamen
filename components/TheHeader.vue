@@ -1,16 +1,16 @@
 <template>
-    <nav>
+  <nav>
     <header>
       <h1 :data-text="text">{{ heading }}</h1>
-    </header>     
-    </nav>
+    </header>
+  </nav>
 </template>
 
 <script setup>
 const props = defineProps({
   heading: String,
   text: String,
-})
+});
 </script>
 
 <style scoped>
@@ -19,25 +19,28 @@ const props = defineProps({
   padding: 0;
   border: 0;
 }
-html, body{
+html,
+body {
   display: flex;
   flex-direction: column;
   min-width: 280px;
   margin: 0 auto;
 }
-header{
+header {
   height: 100px;
   margin-bottom: 10px;
   background: rgb(168, 228, 192);
-    background: radial-gradient(circle,
-        rgba(168, 228, 192, 1) 35%,
-        rgba(78, 210, 202, 1) 100%);
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 h1 {
   color: var(--text-color);
@@ -46,5 +49,4 @@ h1 {
   text-align: center;
   font-size: var(--font-heading-size);
 }
-
 </style>

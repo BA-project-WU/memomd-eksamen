@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheFlashcardHeader/>
+    <TheFlashcardHeader />
     <!--this is the page content-->
     <div class="content-container">
       <slot />
@@ -8,17 +8,19 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/">
-            Oversigt
-          </NuxtLink>
+          <NuxtLink to="/flashcards/"> Oversigt </NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
+          <NuxtLink to="/settingspage"
+            ><font-awesome-icon icon="fa-solid fa-cog"
+          /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
+          <NuxtLink to="/profilepage"
+            ><font-awesome-icon icon="fa-solid fa-user"
+          /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -27,7 +29,6 @@
 
 <script setup>
 // const { flashcardHeading } = defineProps(["flashcardHeading"]);
-
 </script>
 
 <style scoped>
@@ -42,9 +43,11 @@ body {
 
 .heading-overview {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   text-align: center;
@@ -52,9 +55,11 @@ body {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 228, 192, 1) 35%,
+    rgba(78, 210, 202, 1) 100%
+  );
   bottom: 0;
   /* Height of the footer */
   border-top-left-radius: 25px;
@@ -110,35 +115,33 @@ a {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .logo{
-  width: 30vw;
-  height: auto;
+  .logo {
+    width: 30vw;
+    height: auto;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .logo{
-  width: 30vw;
-  height: auto;
+  .logo {
+    width: 30vw;
+    height: auto;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .logo{
-  width: 30vw;
-  height: auto;
+  .logo {
+    width: 30vw;
+    height: auto;
   }
-
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .logo{
-  width: 30vw;
-  height: auto;
+  .logo {
+    width: 30vw;
+    height: auto;
   }
 }
-
 </style>

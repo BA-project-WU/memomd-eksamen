@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <div>
-      <TheFireworks></TheFireworks>
+      <TheConfettis></TheConfettis>
       <div class="quit-and-report">
         <div>
           <NuxtLink to="/flashcards/">
@@ -19,29 +19,47 @@
             <span class="score"> Score {{ score }} / {{ questions.length }}</span>
           </div>
           <div class="options">
-            <label v-for="(option, index) in getCurrentQuestion.options" :key="index" :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
-  ? index == getCurrentQuestion.answer
-    ? 'correct'
-    : 'wrong'
-  : ''
-  } ${getCurrentQuestion.selected != null &&
-    index != getCurrentQuestion.selected
-    ? 'disabled'
-    : ''
-  }`">
-              <input type="radio" :id="'option' + index" :name="getCurrentQuestion.index" :value="index"
-                v-model="getCurrentQuestion.selected" :disabled="getCurrentQuestion.selected" @change="SetAnswer">
+            <label
+              v-for="(option, index) in getCurrentQuestion.options"
+              :key="index"
+              :for="'option' + index"
+              :class="`option ${
+                getCurrentQuestion.selected == index
+                  ? index == getCurrentQuestion.answer
+                    ? 'correct'
+                    : 'wrong'
+                  : ''
+              } ${
+                getCurrentQuestion.selected != null &&
+                index != getCurrentQuestion.selected
+                  ? 'disabled'
+                  : ''
+              }`"
+            >
+              <input
+                type="radio"
+                :id="'option' + index"
+                :name="getCurrentQuestion.index"
+                :value="index"
+                v-model="getCurrentQuestion.selected"
+                :disabled="getCurrentQuestion.selected"
+                @change="SetAnswer"
+              />
               <span>{{ option }}</span>
             </label>
           </div>
-          <button class="btn-next" @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
+          <button
+            class="btn-next"
+            @click="GetNextQuestion"
+            :disabled="!getCurrentQuestion.selected"
+          >
             {{
-    getCurrentQuestion.index == questions.length - 1
-      ? 'Afslut'
-      : getCurrentQuestion.selected == null
-        ? 'Vælg et svar'
-        : 'Næste spørgsmål'
-}}
+              getCurrentQuestion.index == questions.length - 1
+                ? "Afslut"
+                : getCurrentQuestion.selected == null
+                ? "Vælg et svar"
+                : "Næste spørgsmål"
+            }}
           </button>
         </section>
         <section class="finish-game" v-else>
@@ -60,77 +78,96 @@
 
 <script setup>
 //import { allowedNodeEnvironmentFlags } from 'process';
-import TheFireworks from '~~/components/TheFireworks.vue';
-const { flashcardHeading } = defineProps(["flashcardHeading"]);
+import TheConfettis from "~~/components/TheConfettis.vue";
+
 definePageMeta({
   layout: "flashcards",
 });
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
-const token = useCookie("token").value
-if (!token) { navigateTo('/member/loginpage') }
+const token = useCookie("token").value;
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 
-const { subjectId } = useRoute().params
-const totalQuestions = ref()
-let title = ref('')
+const { subjectId } = useRoute().params;
 
-let questions = ref([])
+let questions = ref([]);
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
 await useFetch(uri, {
-  headers: { "Umb-Project-Alias": "nicole-ba-test", 
-  "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
-  "Authorization" : "Bearer " + token
- },
+  headers: {
+    "Umb-Project-Alias": "nicole-ba-test",
+    "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+    Authorization: "Bearer " + token,
+  },
   method: "get",
   onResponse({ request, response, options }) {
-    response._data._embedded.content.forEach(element => {
-      const test = Math.floor(Math.random() * 4)
+    response._data._embedded.content.forEach((element) => {
+      const test = Math.floor(Math.random() * 4);
       if (test == 0)
-        questions.value.push({ answer: 0, question: element.question, options: [element.option1, element.option2, element.option3, element.option4], selected: null })
+        questions.value.push({
+          answer: 0,
+          question: element.question,
+          options: [element.option1, element.option2, element.option3, element.option4],
+          selected: null,
+        });
       else if (test == 1)
-        questions.value.push({ answer: 1, question: element.question, options: [element.option2, element.option1, element.option3, element.option4], selected: null })
+        questions.value.push({
+          answer: 1,
+          question: element.question,
+          options: [element.option2, element.option1, element.option3, element.option4],
+          selected: null,
+        });
       else if (test == 2)
-        questions.value.push({ answer: 2, question: element.question, options: [element.option3, element.option2, element.option1, element.option4], selected: null })
+        questions.value.push({
+          answer: 2,
+          question: element.question,
+          options: [element.option3, element.option2, element.option1, element.option4],
+          selected: null,
+        });
       else if (test == 3)
-        questions.value.push({ answer: 3, question: element.question, options: [element.option4, element.option2, element.option3, element.option1], selected: null })
+        questions.value.push({
+          answer: 3,
+          question: element.question,
+          options: [element.option4, element.option2, element.option3, element.option1],
+          selected: null,
+        });
     });
   },
-})
+});
 
-const umbracoQuestions = ref([])
-
-const quizCompleted = ref(false)
-const currentQuestion = ref(0)
+const quizCompleted = ref(false);
+const currentQuestion = ref(0);
 const score = computed(() => {
-  let value = 0
-  questions.value.map(q => {
+  let value = 0;
+  questions.value.map((q) => {
     if (q.selected == q.answer) {
-      value++
+      value++;
     }
-  })
-  return value
-})
+  });
+  return value;
+});
 
 const getCurrentQuestion = computed(() => {
-  let question = questions.value[currentQuestion.value]
-  question.index = currentQuestion.value
-  return question
-})
-const SetAnswer = evt => {
-  questions.value[currentQuestion.value].selected = evt.target.value
-  evt.target.value = null
-}
+  let question = questions.value[currentQuestion.value];
+  question.index = currentQuestion.value;
+  return question;
+});
+const SetAnswer = (evt) => {
+  questions.value[currentQuestion.value].selected = evt.target.value;
+  evt.target.value = null;
+};
 
 const GetNextQuestion = () => {
   if (currentQuestion.value < questions.value.length - 1) {
-    currentQuestion.value++
+    currentQuestion.value++;
   } else {
-    quizCompleted.value = true
+    quizCompleted.value = true;
   }
-}
+};
 function reportProblem() {
-  alert('Sorry, This function is not yet ready!')
+  alert("Sorry, This function is not yet ready!");
 }
 </script>
 
@@ -231,7 +268,7 @@ h1 {
 .score {
   margin-bottom: 10px;
   font-weight: 700;
-  color: var(--success-color)
+  color: var(--success-color);
 }
 
 .options {
@@ -262,7 +299,7 @@ label {
   color: black;
 }
 
-.label:hover input~.option {
+.label:hover input ~ .option {
   background-color: var(--success-color);
 }
 
@@ -287,56 +324,6 @@ label {
   padding: 2rem;
   border: 20px solid var(--primary-color);
 }
-
-/* @-webkit-keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-@keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-#anim-border {
-    position: relative;
-    z-index: 0;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 2rem;
-    border: 20px solid var(--primary-color);
-}
-#anim-border::before {
-    content: "";
-    position: absolute;
-    z-index: -2;
-    left: -50%;
-    top: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: var(--primary-color);
-    background-repeat: no-repeat;
-    background-size: 50% 50%, 50% 50%;
-    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#2cb093, #ef5392);
-    -webkit-animation: rotate 4s linear infinite;
-    animation: rotate 4s linear infinite;
-}
-#anim-border::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 6px;
-  top: 6px;
-  width: calc(100% - 12px);
-  height: calc(100% - 12px);
-  background: white;
-  border-radius: 5px;
-} 
-#anim-border img {
-    width: 100%;
-}  */
 .user-score {
   margin-top: 20px;
   color: var(--success-color);

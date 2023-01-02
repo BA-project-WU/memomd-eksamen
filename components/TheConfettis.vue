@@ -10,6 +10,7 @@
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
+    <div class="confetti"></div>
   </div>
 </template>
 
@@ -81,7 +82,7 @@
 .confetti:nth-child(7) {
   left: 70%;
   animation-delay: -1.5s;
-  background-color: #f769ce;
+  background-color: #96eb69;
 }
 .confetti:nth-child(8) {
   left: 80%;
@@ -91,11 +92,11 @@
 .confetti:nth-child(9) {
   left: 90%;
   animation-delay: -3.5s;
-  background-color: #63b4fc;
+  background-color: #2deae3;
 }
 .confetti:nth-child(10) {
   left: 100%;
   animation-delay: -2.5s;
-  background-color: #f9c4ea;
+  background-color: #da32ab;
 }
 </style>

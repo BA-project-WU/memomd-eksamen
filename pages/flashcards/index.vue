@@ -33,10 +33,11 @@ let courses = {};
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children`;
 await useFetch(uri, {
-  headers: { "Umb-Project-Alias": "nicole-ba-test",
-   "Api-Key": "BC2nwQgvNxNvZuoL4c6K", 
-  "Authorization" : "Bearer " + token 
-},
+  headers: {
+    "Umb-Project-Alias": "nicole-ba-test",
+    "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+    Authorization: "Bearer " + token,
+  },
   method: "get",
   onResponse({ request, response, options }) {
     courses = response._data._embedded.content;
@@ -53,7 +54,6 @@ useHead({
     },
   ],
 });
-
 </script>
 
 <style scoped>
