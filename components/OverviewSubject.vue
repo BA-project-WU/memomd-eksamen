@@ -4,18 +4,18 @@
       <li v-for="item in subjects._embedded.content" class="card">
         <div class="card-content">
           <h4 class="card-title">{{ item.name }}</h4>
-          <p>Emne's beskrivelse</p>
+          <p>Emnets beskrivelse</p>
         </div>
         <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
         <div class="start-the-game">
           <button class="btn-start-spil">
-            <NuxtLink :to="`/flashcards/${item._id}`">Start Spil</NuxtLink>
+            <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
           </button>
         </div>
       </li>
     </ul>
     <div v-else>
-      <p class="soon">Færdighedstræning Coming soon!</p>
+      <p class="soon">Færdighedstræning kommer snart!</p>
     </div>
   </div>
 </template>
@@ -61,13 +61,15 @@ h2 {
   scroll-snap-align: start;
   transition: all 0.2s;
 }
-li.card{
+
+li.card {
   background-image: url(~/assets/images/aminosyrer.jpg);
   width: 100%;
   height: auto;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .card:not(:last-child) {
   margin-right: 10px;
 }
@@ -137,18 +139,20 @@ li.card{
   }
 }
 
-.start-the-game{
+.start-the-game {
   text-align: center;
   position: relative;
   top: 100px;
 }
-.btn-start-spil{
+
+.btn-start-spil {
   padding: 10px 20px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.soon{
+
+.soon {
   text-align: center;
   font-weight: bold;
   color: var(--failed-color);

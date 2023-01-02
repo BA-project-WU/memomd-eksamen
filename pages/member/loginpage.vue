@@ -3,9 +3,8 @@
     <TheHeader class="heading" heading="Log ind"></TheHeader>
     <form @submit.prevent="memberLogin">
       <label for="username">Brugernavn</label>
-      <input type="text" v-model="username" placeholder="Dit brugernavn.." />
-
-      <label id="password" for="password">Adgangskode</label>
+      <input autocomplete="on" type="text" v-model="username" placeholder="Dit brugernavn.." />
+      <label autocomplete="on" id="password" for="password">Adgangskode</label>
       <input type="password" v-model="password" placeholder="Dit adgangskode.." />
       <input type="submit" value="Log ind" @click="login()" />
     </form>

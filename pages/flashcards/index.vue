@@ -5,11 +5,11 @@
         <div v-for="item in courses">
           <h2>{{ item.name }}</h2>
           <details class="show-detail">
-          <summary class="text1">Semester {{ item.semester[0] }}</summary>         
+            <summary class="text1">Semester {{ item.semester[0] }}</summary>
             <h4>Om Uddannelse:</h4>
             {{ item.description }}
           </details>
-          <h4 class="slide">Slide Right - Vælg et emne</h4>
+          <h4 class="slide">Slide fra højre - vælg et emne</h4>
           <OverviewSubject :course="item" />
         </div>
       </div>
@@ -54,13 +54,15 @@ useHead({
 </script>
 
 <style scoped>
-.overall-wrapper-game{
+.overall-wrapper-game {
   z-index: 1;
 }
+
 .text1,
 .show-detail {
   margin: 10px 0;
 }
+
 .slide {
   margin-top: 10px;
 }

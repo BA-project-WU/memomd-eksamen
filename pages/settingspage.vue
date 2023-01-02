@@ -11,7 +11,7 @@
         <input type="checkbox" id="switch2" /><label for="switch2"></label>
       </div>
       <div class="policy">
-        <NuxtLink class="policy" to="/policypage">Om Privatlivspolitik</NuxtLink>
+        <NuxtLink class="policy" to="/policypage">Om privatlivspolitik</NuxtLink>
         <p></p>
       </div>
       <div class="report">
