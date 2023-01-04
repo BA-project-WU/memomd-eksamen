@@ -2,11 +2,7 @@
   <main class="startpage">
     <section class="startsection">
       <section class="section1">
-        <img
-          class="logo-start"
-          src="~/assets/images/logo.png"
-          alt="this is the memomd logo"
-        />
+        <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo" />
       </section>
       <section class="section2">
         <button>
@@ -23,16 +19,8 @@
 <script setup>
 // const countStore = useCountStore();
 //This will work in both `<script setup>` and `<script>`
-<<<<<<< Updated upstream
-definePageMeta({
-  layout: "false",
-});
-
-const runtimeConfig = useRuntimeConfig();
-=======
 definePageMeta({ layout: "false", });
 const runtimeConfig = useRuntimeConfig()
->>>>>>> Stashed changes
 </script>
 
 <style scoped>
@@ -44,23 +32,11 @@ const runtimeConfig = useRuntimeConfig()
   min-width: 280px;
 }
 
-.section1 {
-  width: 100%;
-}
-
 .section2 {
   align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-<<<<<<< Updated upstream
-  align-self: center;
-}
-.section1 {
-  width: 100%;
-=======
-  text-align: center;
->>>>>>> Stashed changes
 }
 
 button {
@@ -83,13 +59,8 @@ a {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .logo-start {
-<<<<<<< Updated upstream
-    width: 100vw;
-    height: auto;
-=======
     height: auto;
     width: 100vw;
->>>>>>> Stashed changes
   }
 }
 </style>

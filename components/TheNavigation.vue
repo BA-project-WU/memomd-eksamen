@@ -33,11 +33,6 @@ footer {
   margin: 0 auto;
   min-width: 280px;
   position: fixed;
-<<<<<<< Updated upstream
-  bottom: 0;
-  right: 0;
-=======
-  right: 0;
   width: 100%;
 }
 
@@ -45,7 +40,6 @@ footer {
   position: relative;
   text-align: center;
   top: -18px;
->>>>>>> Stashed changes
 }
 
 .btn-start-spil {
@@ -75,21 +69,20 @@ a {
   color: var(--text-color);
   text-decoration: none;
 }
-<<<<<<< Updated upstream
+
 .start-the-game {
   text-align: center;
   position: relative;
   top: -18px;
 }
+
 .btn-start-spil {
   padding: 10px 20px;
   border-radius: 20px;
   background-color: var(--primary-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-=======
 
->>>>>>> Stashed changes
 .fa-home {
   background-color: var(--cta-bg-color);
   color: #fff;

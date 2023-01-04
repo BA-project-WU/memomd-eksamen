@@ -31,6 +31,7 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  text-align: center;
 }
 
 .box-left,

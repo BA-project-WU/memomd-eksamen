@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
   // this is global, it will be seen in all pages
   app: {
@@ -17,10 +16,6 @@ export default defineNuxtConfig({
       // ],
     },
   },
-  css: [
-    "~/assets/style/main.css",
-    "@fortawesome/fontawesome-svg-core/styles.css",
-  ],
   build: {
     transpile: [
       "@fortawesome/fontawesome-svg-core",
@@ -29,6 +24,10 @@ export default defineNuxtConfig({
       "@fortawesome/brands-svg-core",
     ],
   },
+  css: [
+    "~/assets/style/main.css",
+    "@fortawesome/fontawesome-svg-core/styles.css",
+  ],
   // imports: {
   //   //nuxt auto-import anything from this directory by default.
   //   dirs: ['stores'],
@@ -47,7 +46,7 @@ export default defineNuxtConfig({
       name: "MemoMD",
     },
     manifest: {
-      name: "MemoMD App especiel lavede til medicinstuderende",
+      name: "MemoMD platform til medicinstuderende",
       short_name: "MemoMD",
       lang: "da",
       display: "standalone",
@@ -57,7 +56,7 @@ export default defineNuxtConfig({
       scope: "/",
       theme_color: "#8dd9de",
       description:
-        "MemoMD App - For at effektivisere medicinstuderendes læring til medicin",
+        "MemoMD - Læringsplatform til medicinstuderende for at effektivisere læring",
     },
   },
   runtimeConfig: {

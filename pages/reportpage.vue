@@ -14,12 +14,7 @@
           </option>
           <option value="Andet">Andet</option>
         </select>
-        <textarea
-          name="reportMessage"
-          rows="8"
-          placeholder="Uddyb problemet"
-          v-model="reportMessage"
-        ></textarea>
+        <textarea name="reportMessage" rows="8" placeholder="Uddyb problemet" v-model="reportMessage"></textarea>
         <div class="save-btn" @click="showModal = true" @close-modal="showModal = false">
           <button class="btn-send-report" type="submit" v-on:click="sendReport()">
             Send rapportering
@@ -43,14 +38,10 @@
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"
-            ><font-awesome-icon icon="fa-solid fa-cog"
-          /></NuxtLink>
+          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"
-            ><font-awesome-icon icon="fa-solid fa-user"
-          /></NuxtLink>
+          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -64,7 +55,6 @@ const reportOptions = ref("");
 const reportMessage = ref("");
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
-
 async function sendReport() {
   await useFetch(
     "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
@@ -84,53 +74,62 @@ async function sendReport() {
     }
   );
 }
-
 const token = useCookie("token").value;
-if (!token) {
-  navigateTo("/member/loginpage");
-}
+if (!token) { navigateTo("/member/loginpage"); }
 </script>
 
 <style scoped>
 body {
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  display: flex;
   height: 100vh;
+  justify-content: flex-start;
+}
+
+form {
+  display: table-cell;
+  margin-top: 30px;
+  width: 100%;
 }
 
 input,
 select,
 textarea {
-  padding: 12px 12px;
-  width: 100%;
-  display: inline-block;
+  background: var(--secondary-color);
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  background: var(--secondary-color);
+  display: inline-block;
   margin-bottom: 20px;
+  padding: 12px 12px;
+  width: 100%;
 }
 
-form {
-  display: table-cell;
-  width: 100%;
-  margin-top: 30px;
+button {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 10px;
 }
 
 .btn-send-report {
   background: var(--primary-color);
-  padding: 14px 20px;
-  margin: 8px 30;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin: 8px 30;
+  padding: 14px 20px;
   width: 100%;
 }
 
+.arrow-left {
+  margin-top: 20px;
+  text-align: left;
+}
+
 /* textarea {
-  margin: 20px 0;
   background: var(--secondary-color);
+  margin: 20px 0;
   padding-left: 2px;
   padding-top: 10px;
   width: 100%;
@@ -138,59 +137,42 @@ form {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
-  bottom: 0;
-  /* Height of the footer */
+  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  position: absolute;
   margin: 0 auto;
   min-width: 280px;
+  position: absolute;
   width: 100%;
+}
+
+.start-the-game {
+  position: relative;
+  text-align: center;
+  top: -18px;
 }
 
 .footer-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  text-decoration: none;
   list-style-type: none;
   position: relative;
+  text-decoration: none;
   top: -20px;
 }
 
 li {
-  margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
+  margin-top: 10px;
 }
 
 a {
   color: var(--text-color);
   text-decoration: none;
-}
-
-.start-the-game {
-  text-align: center;
-  position: relative;
-  top: -18px;
-}
-
-button {
-  padding: 10px 10px;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.arrow-left {
-  text-align: left;
-  margin-top: 20px;
 }
 </style>

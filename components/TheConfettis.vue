@@ -72,12 +72,8 @@
 
 .confetti:nth-child(7) {
   animation-delay: -1.5s;
-<<<<<<< Updated upstream:components/TheConfettis.vue
   background-color: #96eb69;
-=======
-  background-color: #f769ce;
   left: 70%;
->>>>>>> Stashed changes:components/TheFireworks.vue
 }
 
 .confetti:nth-child(8) {
@@ -88,20 +84,13 @@
 
 .confetti:nth-child(9) {
   animation-delay: -3.5s;
-<<<<<<< Updated upstream:components/TheConfettis.vue
   background-color: #2deae3;
-=======
-  background-color: #63b4fc;
   left: 90%;
->>>>>>> Stashed changes:components/TheFireworks.vue
 }
 
 .confetti:nth-child(10) {
   animation-delay: -2.5s;
-<<<<<<< Updated upstream:components/TheConfettis.vue
   background-color: #da32ab;
-=======
-  background-color: #f9c4ea;
   left: 100%;
 }
 
@@ -125,6 +114,5 @@
   100% {
     transform: rotateZ(15deg) rotateY(1440deg) translate(10vw, 110vh);
   }
->>>>>>> Stashed changes:components/TheFireworks.vue
 }
 </style>

@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <NuxtPage/>
+    <NuxtPage />
   </div>
 </template>
 <script>
-
 </script>
 <style>
-#app{
+#app {
   width: 100%;
 }
 </style>

@@ -130,12 +130,14 @@ form, .account{
   background: var(--secondary-color);
   display: flex;
   flex-direction: column;
-  height: 330px;
   justify-content: space-evenly;
-  margin: 0px 30px auto;
+  /* margin: 0px 30px auto; */
+  margin: 50px 30px auto 30px;
+  /* height: 330px; */
+  min-height: 50vh;
   min-width: -webkit-fill-available;
   position: absolute;
-  top: 150px;
+  /* top: 150px; */
 }
 /*reporter et problem style*/
 .settings-box-report {
@@ -143,10 +145,12 @@ form, .account{
   flex-direction: column;
   height: 330px;
   justify-content: space-evenly;
-  margin: 0px 30px auto;
+  /* margin: 0px 30px auto; */
+  margin: 50px 30px auto 30px;
+  min-height: 50vh;
   min-width: -webkit-fill-available;
   position: absolute;
-  top: 160px;
+  /* top: 160px; */
 }
 
 /* Extra small devices (phones, 600px and down) */

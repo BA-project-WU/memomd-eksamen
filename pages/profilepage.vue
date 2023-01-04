@@ -16,68 +16,23 @@
         <div class="modal-overlay">
           <div class="modal-email">
             <div class="x-icon">
-              <font-awesome-icon
-                style="color: black"
-                icon="fa-solid fa-times"
-                @click="showEmail = false"
-              />
+              <font-awesome-icon style="color: black" icon="fa-solid fa-times" @click="showEmail = false" />
             </div>
             <input type="text" v-model="email" placeholder="email" />
-<<<<<<< Updated upstream
-            <button
-              class="btn-save"
-              @click="
-                showEmail = false;
-                updateEmail();
-              "
-            >
-              Gem
-            </button>
-=======
             <button class="btn-save" @click="showEmail = false; updateEmail();">Gem</button>
->>>>>>> Stashed changes
           </div>
         </div>
       </div>
-      <button class="btn-change-password" @click="showPassword = true">
-        Ændre adgangskode
-      </button>
+      <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
       <div v-if="showPassword">
         <div class="modal-overlay">
           <div class="modal-password">
             <div class="x-icon">
-              <font-awesome-icon
-                style="color: black"
-                icon="fa-solid fa-times"
-                @click="showPassword = false"
-              />
+              <font-awesome-icon style="color: black" icon="fa-solid fa-times" @click="showPassword = false" />
             </div>
-<<<<<<< Updated upstream
-            <input
-              type="password"
-              v-model="currentPassword"
-              placeholder="Indtast nuværende adgangskode"
-            />
-            <input
-              type="newpassword"
-              v-model="newPassword"
-              placeholder="Indtast ny adgangskode"
-            />
-            <button
-              class="btn-save"
-              type="submit"
-              @click="
-                showPassword = false;
-                updatePassword();
-              "
-            >
-              Gem
-            </button>
-=======
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
             <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-            <button class="btn-save" type="submit" @click="showPassword = false; updatePassword(); ">Gem</button>
->>>>>>> Stashed changes
+            <button class="btn-save" type="submit" @click="showPassword = false; updatePassword();">Gem</button>
           </div>
         </div>
       </div>
@@ -86,19 +41,15 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/"> Start </NuxtLink>
+          <NuxtLink to="/flashcards/">Start</NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
         <li>
-          <NuxtLink to="/settingspage"
-            ><font-awesome-icon icon="fa-solid fa-cog"
-          /></NuxtLink>
+          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/profilepage"
-            ><font-awesome-icon icon="fa-solid fa-user"
-          /></NuxtLink>
+          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
         </li>
       </ul>
     </footer>
@@ -106,27 +57,12 @@
 </template>
 
 <script setup>
-<<<<<<< Updated upstream
-definePageMeta({
-  layout: "false",
-});
-
-// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
-const token = useCookie("token").value;
-if (!token) {
-  navigateTo("/member/loginpage");
-}
-
-let username = useCookie("username").value;
-
-=======
 definePageMeta({ layout: "false" });
 const { flashcardHeading } = defineProps(["flashcardHeading"]);
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
 if (!token) { navigateTo('/member/loginpage') }
 let username = useCookie("username").value
->>>>>>> Stashed changes
 let showEmail = ref(false);
 let showPassword = ref(false);
 let email = "";
@@ -188,7 +124,7 @@ async function updateEmail() {
       isApproved: true,
       memberEducationInstitution: memberEducationInstitution,
     },
-    onResponse({ request, response, options }) {},
+    onResponse({ request, response, options }) { },
   });
 }
 // function til at opdatere adgangskode
@@ -294,19 +230,19 @@ p {
 }
 
 .modal-email {
-  position: fixed;
-  z-index: 999;
-  top: 20%;
   background: var(--circle-color);
-  height: 200px;
-  padding: 20px;
-  width: 94%;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  height: 200px;
   justify-content: center;
+  padding: 20px;
+  position: fixed;
+  top: 20%;
+  width: 94%;
+  width: 100%;
+  z-index: 999;
 }
 
 .x-icon {
@@ -327,21 +263,8 @@ input[type="newpassword"] {
   background: var(--secondary-color);
 }
 
-.modal-password {
-  position: fixed;
-  z-index: 999;
-  top: 20%;
-  background: var(--circle-color);
-  height: 250px;
-  padding: 20px;
-  width: 94%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 10px;
+.btn-save {
+  margin-top: 20px;
 }
 
 h3 {
@@ -359,8 +282,21 @@ input[type="password"] {
   margin-bottom: 10px;
 }
 
-.btn-save {
-  margin-top: 20px;
+.modal-password {
+  background: var(--circle-color);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 20px;
+  position: fixed;
+  top: 20%;
+  width: 94%;
+  width: 100%;
+  z-index: 999;
 }
 
 input[type="submit"],
@@ -382,11 +318,9 @@ input[type="submit"],
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(
-    circle,
-    rgba(168, 228, 192, 1) 35%,
-    rgba(78, 210, 202, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
   bottom: 0;
   /* Height of the footer */
   border-top-left-radius: 25px;
