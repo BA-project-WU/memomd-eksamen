@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-function sendForm() { alert("This is not yet working, Sorry!"); }
+function sendForm() { alert("Denne funktion virker ikke endnu"); }
 </script>
 
 <style scoped>

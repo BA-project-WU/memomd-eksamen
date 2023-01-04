@@ -2,7 +2,7 @@
   <nav class="heading-overview">
     <header>
       <!-- <h1 :data-text="text">{{ flashcardHeading }}</h1> -->
-      <img class="logo" src="~/assets/images/logo.png" alt="this is the memomd logo" />
+      <img class="logo" src="~/assets/images/logo.png" alt="this is the memomd logo" style="height:100px;width:auto;" />
     </header>
   </nav>
 </template>
@@ -14,4 +14,6 @@
 // });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

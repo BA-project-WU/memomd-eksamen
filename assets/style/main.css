@@ -44,8 +44,28 @@ button, .buton{
   background: radial-gradient(circle,rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  height: 100px;
+  padding: 5px auto;
   text-align: center;
   width: 100%;
+}
+
+/* .section1 {
+  background: rgb(168, 228, 192);
+  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  max-width: 100%;
+  text-align: center;
+} */
+.section1 {
+  background: rgb(168, 228, 192);
+  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 150px;
+  max-width: 100%;
+  text-align: center;
 }
 
 /*Member style*/
@@ -55,16 +75,6 @@ button, .buton{
   justify-content: center;
   margin: auto;
   width: 100%;
-}
-
-.section1 {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%
-  );
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  max-width: 100%;
-  text-align: center;
 }
 
 .login-form{
@@ -157,8 +167,8 @@ form, .account{
 @media only screen and (max-width: 600px) {
   .logo{
     background: rgb(168, 228, 192);
-    height: auto;
-    width: 30vw;
+    /* height: auto;
+    width: 30vw; */
   }
 }
 
@@ -166,8 +176,8 @@ form, .account{
 @media only screen and (min-width: 600px) {
   .logo{
     background: rgb(168, 228, 192);
-    height: auto;
-    width: 10%;
+    /* height: auto;
+    width: 10%; */
   }
 
   .heading-overview {
@@ -183,8 +193,8 @@ form, .account{
 @media only screen and (min-width: 768px) {
   .logo{
     background: rgb(168, 228, 192);
-    height: auto;
-    width: 20%;
+    /* height: auto;
+    width: 20%; */
   }
 
   .heading-overview {
@@ -204,8 +214,8 @@ form, .account{
 @media only screen and (min-width: 1024px) {
   .logo{
     background: rgb(168, 228, 192);
-    height: auto;
-    width: 10%;
+    /* height: auto;
+    width: 10%; */
   }
 
   .heading-overview {

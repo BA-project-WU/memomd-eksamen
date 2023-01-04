@@ -141,7 +141,7 @@ const GetNextQuestion = () => {
   }
 };
 function reportProblem() {
-  alert("Sorry, This function is not yet ready!");
+  alert("Denne funktion virker ikke endnu");
 }
 </script>
 

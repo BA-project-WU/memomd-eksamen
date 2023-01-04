@@ -2,7 +2,8 @@
   <main class="startpage">
     <section class="startsection">
       <section class="section1">
-        <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo" />
+        <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo"
+          style="height:inherit;width:auto;" />
       </section>
       <section class="section2">
         <button>
