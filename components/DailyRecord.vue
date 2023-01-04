@@ -14,32 +14,36 @@
   </div>
 </template>
 
-<script setup></script>
+<!-- <script setup></script> -->
 
 <style scoped>
-.record{
-  width: 100%;
+.record {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
-h3{
+
+h3 {
   padding-left: 20px;
 }
-.boxes{
+
+.boxes {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
+
 .box-left,
 .box-right {
   background-color: var(--secondary-color);
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 50%;
   height: 200px;
   margin: 20px;
+  width: 50%;
 }
-h4{
+
+h4 {
   padding: 10px 0px 0px 10px;
 }
 </style>

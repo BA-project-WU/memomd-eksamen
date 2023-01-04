@@ -21,75 +21,30 @@
 </template>
 
 <script setup>
-const { course } = defineProps(["course"]);
 const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
+const { course } = defineProps(["course"]);
 const { data: subjects } = await useFetch(uriSubject, {
-  headers: { "Umb-Project-Alias": "nicole-ba-test", "Api-Key": "BC2nwQgvNxNvZuoL4c6K" },
+  headers: {
+    "Umb-Project-Alias": "nicole-ba-test",
+    "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+  },
 });
-console.log(uriSubject);
 </script>
 
 <style scoped>
 .wrapper {
+  margin: 0 auto;
   max-width: 1400px;
   padding: 0 15px;
-  margin: 0 auto;
-}
-
-h2 {
-  font-size: 32px;
-  margin-bottom: 1em;
 }
 
 .cards {
   display: flex;
-  padding: 25px 0px;
+  height: 280px;
   list-style: none;
   overflow-x: scroll;
+  padding: 25px 0px;
   scroll-snap-type: x mandatory;
-  height: 280px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
-  padding: 20px;
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
-  scroll-snap-align: start;
-  transition: all 0.2s;
-}
-
-li.card {
-  background-image: url(~/assets/images/aminosyrer.jpg);
-  width: 100%;
-  height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card:not(:last-child) {
-  margin-right: 10px;
-}
-
-.card:hover {
-  color: var(--white);
-  background: var(--red);
-}
-
-.card .card-title {
-  font-size: 20px;
-}
-
-.card .card-content {
-  margin: 20px 0;
-  max-width: 85%;
-}
-
-.card .card-link-wrapper {
-  margin-top: auto;
 }
 
 .cards::-webkit-scrollbar {
@@ -107,6 +62,73 @@ li.card {
 
 .cards::-webkit-scrollbar-track {
   background: var(--thumb);
+}
+
+li.card {
+  background-image: url(~/assets/images/aminosyrer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  padding: 20px;
+  scroll-snap-align: start;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+}
+
+.card .card-title {
+  font-size: 20px;
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 1em;
+}
+
+.start-the-game {
+  position: relative;
+  text-align: center;
+  top: 100px;
+}
+
+.btn-start-spil {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 20px;
+}
+
+.soon {
+  color: var(--failed-color);
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
 }
 
 @media (min-width: 500px) {
@@ -137,25 +159,5 @@ li.card {
   .card:not(:last-child) {
     margin-right: 40px;
   }
-}
-
-.start-the-game {
-  text-align: center;
-  position: relative;
-  top: 100px;
-}
-
-.btn-start-spil {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.soon {
-  text-align: center;
-  font-weight: bold;
-  color: var(--failed-color);
-  margin-top: 20px;
 }
 </style>

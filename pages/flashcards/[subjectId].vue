@@ -19,6 +19,7 @@
             <span class="score"> Score {{ score }} / {{ questions.length }}</span>
           </div>
           <div class="options">
+<<<<<<< Updated upstream
             <label
               v-for="(option, index) in getCurrentQuestion.options"
               :key="index"
@@ -60,6 +61,19 @@
                 ? "Vælg et svar"
                 : "Næste spørgsmål"
             }}
+=======
+            <label v-for="(option, index) in getCurrentQuestion.options" :key="index" :for="'option' + index"
+              :class="`option ${getCurrentQuestion.selected == index ? index == getCurrentQuestion.answer ? 'correct' : 'wrong' : ''} ${getCurrentQuestion.selected != null && index != getCurrentQuestion.selected ? 'disabled' : ''}`">
+              <input type="radio" :id="'option' + index" :name="getCurrentQuestion.index" :value="index"
+                v-model="getCurrentQuestion.selected" :disabled="getCurrentQuestion.selected" @change="SetAnswer" />
+              <span>{{ option }}</span>
+            </label>
+          </div>
+          <button class="btn-next" @click="GetNextQuestion" :disabled="!getCurrentQuestion.selected">
+            {{ getCurrentQuestion.index == questions.length - 1 ? 'Afslut' : getCurrentQuestion.selected == null
+    ? 'Vælg et svar' : 'Næste spørgsmål'
+}}
+>>>>>>> Stashed changes
           </button>
         </section>
         <section class="finish-game" v-else>
@@ -78,6 +92,7 @@
 
 <script setup>
 //import { allowedNodeEnvironmentFlags } from 'process';
+<<<<<<< Updated upstream
 import TheConfettis from "~~/components/TheConfettis.vue";
 
 definePageMeta({
@@ -93,8 +108,21 @@ if (!token) {
 const { subjectId } = useRoute().params;
 
 let questions = ref([]);
+=======
+import TheFireworks from '~~/components/TheFireworks.vue';
+definePageMeta({ layout: "flashcards" });
+const { flashcardHeading } = defineProps(["flashcardHeading"]);
+const { subjectId } = useRoute().params
+const totalQuestions = ref()
+>>>>>>> Stashed changes
 //fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
+let title = ref('')
+let questions = ref([])
+// de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
+const token = useCookie("token").value
+if (!token) { navigateTo('/member/loginpage') }
+
 await useFetch(uri, {
   headers: {
     "Umb-Project-Alias": "nicole-ba-test",
@@ -103,6 +131,7 @@ await useFetch(uri, {
   },
   method: "get",
   onResponse({ request, response, options }) {
+<<<<<<< Updated upstream
     response._data._embedded.content.forEach((element) => {
       const test = Math.floor(Math.random() * 4);
       if (test == 0)
@@ -139,6 +168,20 @@ await useFetch(uri, {
 
 const quizCompleted = ref(false);
 const currentQuestion = ref(0);
+=======
+    response._data._embedded.content.forEach(element => {
+      const test = Math.floor(Math.random() * 4)
+      if (test == 0) questions.value.push({ answer: 0, question: element.question, options: [element.option1, element.option2, element.option3, element.option4], selected: null })
+      else if (test == 1) questions.value.push({ answer: 1, question: element.question, options: [element.option2, element.option1, element.option3, element.option4], selected: null })
+      else if (test == 2) questions.value.push({ answer: 2, question: element.question, options: [element.option3, element.option2, element.option1, element.option4], selected: null })
+      else if (test == 3) questions.value.push({ answer: 3, question: element.question, options: [element.option4, element.option2, element.option3, element.option1], selected: null })
+    });
+  },
+})
+const currentQuestion = ref(0)
+const quizCompleted = ref(false)
+const umbracoQuestions = ref([])
+>>>>>>> Stashed changes
 const score = computed(() => {
   let value = 0;
   questions.value.map((q) => {
@@ -150,6 +193,7 @@ const score = computed(() => {
 });
 
 const getCurrentQuestion = computed(() => {
+<<<<<<< Updated upstream
   let question = questions.value[currentQuestion.value];
   question.index = currentQuestion.value;
   return question;
@@ -159,6 +203,16 @@ const SetAnswer = (evt) => {
   evt.target.value = null;
 };
 
+=======
+  let question = questions.value[currentQuestion.value]
+  question.index = currentQuestion.value
+  return question
+})
+const SetAnswer = evt => {
+  questions.value[currentQuestion.value].selected = evt.target.value
+  evt.target.value = null
+}
+>>>>>>> Stashed changes
 const GetNextQuestion = () => {
   if (currentQuestion.value < questions.value.length - 1) {
     currentQuestion.value++;
@@ -172,36 +226,18 @@ function reportProblem() {
 </script>
 
 <style scoped>
-.flashcard-title {
-  background-color: var(--secondary-color);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  margin-top: -18px;
-  padding: 50px 50px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: space-between;
-}
-
 .quit-and-report {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
   margin-top: 20px;
   padding-bottom: 10px;
 }
 
 button {
-  padding: 10px;
   border-radius: 4px;
-}
-
-.back-to-game {
-  margin-top: 20px;
-  background: var(--primary-color);
+  padding: 10px;
 }
 
 .quit {
@@ -216,41 +252,19 @@ button {
   background: var(--failed-color);
 }
 
-.arrow-left {
-  text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.my-progress {
-  width: 100%;
-  background-color: var(--primary-color);
-}
-
-.my-bar {
-  width: 15%;
-  height: 10px;
-  background-color: rgb(252, 250, 250);
-}
-
-h1 {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
 .quiz-wrapper {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
   margin-top: 20px;
 }
 
 .quiz {
   background: var(--game-bg-color);
-  padding: 40px 20px;
-  height: 450px;
   border-radius: 10px;
+  height: 450px;
+  padding: 40px 20px;
   width: 90%;
 }
 
@@ -266,9 +280,13 @@ h1 {
 }
 
 .score {
-  margin-bottom: 10px;
-  font-weight: 700;
   color: var(--success-color);
+  font-weight: 700;
+<<<<<<< Updated upstream
+  color: var(--success-color);
+=======
+  margin-bottom: 10px;
+>>>>>>> Stashed changes
 }
 
 .options {
@@ -278,28 +296,29 @@ h1 {
 }
 
 label {
+  background: white;
   border: 1px solid white;
   border-radius: 20px;
-  box-sizing: border-box;
-  background: white;
   box-shadow: 0 4px 8px 0 rgba(77, 232, 225, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  margin: 10px 0;
   padding: 10px;
   text-align: center;
-  margin: 10px 0;
 }
 
-.btn-next {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 100%;
-  margin-top: 20px;
-  color: black;
+.label:hover input~.option {
+  background-color: var(--success-color);
 }
 
+<<<<<<< Updated upstream
 .label:hover input ~ .option {
+=======
+input[type="radio"] {
+  visibility: hidden;
+}
+
+.correct {
+>>>>>>> Stashed changes
   background-color: var(--success-color);
 }
 
@@ -307,23 +326,76 @@ label {
   background-color: var(--failed-color);
 }
 
-.correct {
-  background-color: var(--success-color);
+.btn-next {
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  color: black;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .finish-game {
   background: white;
-  height: 300px;
-  width: 90%;
+  border: 20px solid var(--primary-color);
+  border-radius: 10px;
   display: flex;
+  height: 300px;
   flex-direction: column;
   justify-content: space-evenly;
-  text-align: center;
-  border-radius: 10px;
   overflow: hidden;
   padding: 2rem;
-  border: 20px solid var(--primary-color);
+  text-align: center;
+  width: 90%;
 }
+
+.user-score {
+  color: var(--success-color);
+  margin-top: 20px;
+}
+
+.back-to-game {
+  background: var(--primary-color);
+  margin-top: 20px;
+}
+
+.arrow-left {
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+h1 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.flashcard-title {
+  align-content: space-between;
+  background-color: var(--secondary-color);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: -18px;
+  padding: 50px 50px;
+  text-align: center;
+}
+
+.my-bar {
+  background-color: rgb(252, 250, 250);
+  height: 10px;
+  width: 15%;
+}
+
+.my-progress {
+  background-color: var(--primary-color);
+  width: 100%;
+}
+<<<<<<< Updated upstream
 .user-score {
   margin-top: 20px;
   color: var(--success-color);
@@ -333,3 +405,56 @@ input[type="radio"] {
   visibility: hidden;
 }
 </style>
+=======
+
+/* @-webkit-keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+#anim-border {
+  border: 20px solid var(--primary-color);
+  border-radius: 10px;
+  height: 300px;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+  z-index: 0;
+}
+#anim-border::before {
+  animation: rotate 4s linear infinite;
+  background-color: var(--primary-color);
+  background-image: linear-gradient(#2cb093, #ef5392);
+  background-repeat: no-repeat;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-size: 50% 50%, 50% 50%;
+  content: "";
+  height: 200%;
+  left: -50%;
+  position: absolute;
+  top: -50%;
+  width: 200%;
+  z-index: -2;
+  -webkit-animation: rotate 4s linear infinite;
+}
+#anim-border::after {
+  background: white;
+  border-radius: 5px;
+  content: "";
+  height: calc(100% - 12px);
+  left: 6px;
+  position: absolute;
+  top: 6px;
+  width: calc(100% - 12px);
+  z-index: -1;
+} 
+#anim-border img {
+    width: 100%;
+}  */
+</style>
+>>>>>>> Stashed changes
