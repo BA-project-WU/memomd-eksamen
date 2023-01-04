@@ -34,10 +34,7 @@
 
 <script setup>
 // const { status, data, signIn } = useSession()
-// definePageMeta({
-//     auth: false
-// });
-
+// definePageMeta({ auth: false });
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 const comments = ref("");
@@ -49,7 +46,6 @@ const memberEducationInstitution = ref("");
 const name = ref("");
 const password = ref("");
 const username = ref("");
-
 async function createMember() {
   await useFetch("https://api.umbraco.io/member", {
     method: "POST",
@@ -87,6 +83,12 @@ async function createMember() {
   height: 100%;
 }
 
+form {
+  display: table-cell;
+  width: 100%;
+  padding: 20px;
+}
+
 input,
 select {
   background: var(--secondary-color);
@@ -98,12 +100,6 @@ select {
   margin-top: 10px;
   padding: 12px;
   width: 100%;
-}
-
-form {
-  display: table-cell;
-  width: 100%;
-  padding: 20px;
 }
 
 input[type=submit] {
