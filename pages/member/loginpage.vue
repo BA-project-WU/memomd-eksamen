@@ -15,8 +15,7 @@
     <div class="forgot-password">
       <p @click="forgotPassword()">Jeg har <span style="color:#4ED2CA">glemt</span> min adgangskode</p>
       <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer; margin-top: 20px;">
-        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-      </p>
+      <font-awesome-icon style="color:black" icon="fa fa-arrow-left" /></p>
     </div>
   </div>
 </template>
@@ -26,6 +25,7 @@ let username;
 let password;
 let remember;
 const { umbracoProjectAlias } = useRuntimeConfig();
+
 async function login() {
   await useFetch(`https://cdn.umbraco.io/member/oauth/token`, {
     method: "POST",
@@ -61,32 +61,33 @@ async function forgotPassword() {
 }
 </script>
 
+
 <style scoped>
 .login-page {
+  width: 100%;
   height: 100%;
-  width: 100%;
-}
-
-form {
-  display: table-cell;
-  padding: 20px;
-  width: 100%;
 }
 
 input[type="text"],
 input[type="password"] {
-  background: var(--secondary-color);
+  padding: 12px 12px;
+  width: 100%;
+  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  display: inline-block;
+  background: var(--secondary-color);
   margin-top: 10px;
-  padding: 12px 12px;
-  width: 100%;
 }
 
-input[type="text"] {
-  margin-bottom: 10px;
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+form {
+  display: table-cell;
+  width: 100%;
+  padding: 20px;
 }
 
 input[type="password"] {
@@ -94,13 +95,13 @@ input[type="password"] {
 }
 
 input[type=submit] {
+  width: 100%;
   background-color: var(--primary-color);
+  padding: 14px 20px;
+  margin: 25px 0 0 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin: 25px 0 0 0;
-  padding: 14px 20px;
-  width: 100%;
 }
 
 input[type=submit]:hover {
@@ -108,17 +109,17 @@ input[type=submit]:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+input[type="text"] {
+  margin-bottom: 10px;
+}
+
 .remember-me {
   padding-left: 20px;
 }
 
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
 .forgot-password {
+  text-align: center;
   margin-top: 20px;
   padding: 20px;
-  text-align: center;
 }
 </style>

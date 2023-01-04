@@ -18,12 +18,16 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: "flashcards" });
+definePageMeta({
+  layout: "flashcards",
+});
+
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value;
 if (!token) {
   navigateTo("/member/loginpage");
 }
+
 //const { id } = useRoute().params
 let courses = {};
 //fetch the flascards memo game api from umbraco heartcore
@@ -45,7 +49,8 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "MemoMD App er especiel opbygget til medicinstuderende for at effektivisere deres læring indenfor det forskellige emner.",
+      content:
+        "MemoMD App er especiel opbygget til medicinstuderende for at effektivisere deres læring indenfor det forskellige emner.",
     },
   ],
 });
@@ -56,16 +61,16 @@ useHead({
   z-index: 1;
 }
 
+.text1,
+.show-detail {
+  margin: 10px 0;
+}
+
+.slide {
+  margin-top: 10px;
+}
+
 details {
-  margin: 10px 0;
-}
-
-details[open] summary {
-  margin: 10px 0;
-}
-
-.show-detail,
-.text1 {
   margin: 10px 0;
 }
 
@@ -73,7 +78,7 @@ summary {
   font-weight: bold;
 }
 
-.slide {
-  margin-top: 10px;
+details[open] summary {
+  margin: 10px 0;
 }
 </style>

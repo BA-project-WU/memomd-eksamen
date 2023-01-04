@@ -307,51 +307,31 @@
 </script>
 
 <style scoped>
-<<<<<<< Updated upstream
 label {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   margin-bottom: 5px;
-=======
-h1,
-h2 {
-  line-height: 1.3;
-  margin: 20px 0px;
->>>>>>> Stashed changes
 }
 
 .privacy-policy {
-  align-items: center;
-  background: var(--secondary-color);
-  border: 5px dashed var(--primary-color);
   display: flex;
   flex-direction: column;
-  font-family: 'Courier New', Courier, monospace;
   justify-content: center;
+  align-items: center;
+  width: 90%;
   margin: 0 auto;
+  background: var(--secondary-color);
   padding: 20px;
-<<<<<<< Updated upstream
   border: 5px dashed var(--primary-color);
   font-family: "Courier New", Courier, monospace;
-=======
-  width: 90%;
->>>>>>> Stashed changes
 }
 
-p {
-  line-height: 1.3;
-}
-
-a {
-  color: blue;
-  font-family: 'Courier New', Courier, monospace;
-  margin-top: 30px;
-  text-align: left;
+li {
+  list-style-type: square;
 }
 
 /* .wpembed-index{
 margin: 20px 0px;
 } */
-<<<<<<< Updated upstream
 h1,
 h2 {
   margin: 20px 0px;
@@ -359,30 +339,19 @@ h2 {
 }
 p {
   line-height: 1.3;
-=======
-
-li {
-  list-style-type: square;
->>>>>>> Stashed changes
 }
 
 button {
-  color: black;
-  font-size: 20px;
   margin: 10px 10px;
   padding: 10px;
+  color: black;
+  font-size: 20px;
 }
 
-<<<<<<< Updated upstream
 a {
   text-align: left;
   margin-top: 30px;
   font-family: "Courier New", Courier, monospace;
   color: blue;
-=======
-label {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-bottom: 5px;
->>>>>>> Stashed changes
 }
 </style>
