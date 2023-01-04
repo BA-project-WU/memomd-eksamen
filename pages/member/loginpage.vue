@@ -57,7 +57,7 @@ async function login() {
 }
 // fix later
 async function forgotPassword() {
-  alert('Denne funktion virker ikke endnu')
+  alert("Denne funktion virker ikke endnu")
 }
 </script>
 
