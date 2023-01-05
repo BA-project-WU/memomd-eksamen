@@ -4,15 +4,15 @@
     <!-- <progress value="50" max="100"></progress> -->
     <form @submit.prevent="createMember">
       <label for="name-input">Navn</label>
-      <input type="text" autocomplete="on" name="name-input" placeholder="Dit fulde navn" required v-model="name" />
+      <input type="text"  name="name-input" placeholder="Dit fulde navn" required v-model="name" />
       <label for="username-input">Brugernavn (minimum 5 tegn)</label>
       <input type="text" minlength="5" name="username-input" placeholder="Vælg et bugernavn" required
         v-model="username" />
       <label for="email-input">Email-addresse</label>
-      <input type="email" autocomplete="on" name="email-input" placeholder="Din email-addresse" required
+      <input type="email"  name="email-input" placeholder="Din email-addresse" required
         v-model="email" />
       <label for="password-input">Adgangskode (minimum 10 tegn)</label>
-      <input type="password" autocomplete="no" minlength="10" name="password-input" placeholder="Din adgangskode"
+      <input type="password" minlength="10" name="password-input" placeholder="Din adgangskode"
         required v-model="password" />
       <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
       <label for="memberEducationInstitution">Uddannelsesinstution</label>
@@ -24,7 +24,7 @@
         <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
         <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
       </select>
-      <input type="submit" value="Opret" v-on:click="createMember()" />
+      <input type="button" value="Opret" @click="createMember()" />
     </form>
     <div class="cancel-createmember">
       <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer">Annuller</p>
@@ -48,6 +48,7 @@ const password = ref("");
 const username = ref("");
 
 async function createMember() {
+ 
   if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
 
   await useFetch("https://api.umbraco.io/member", {
@@ -59,31 +60,31 @@ async function createMember() {
       "Content-Type": "application/json",
     },
     body: {
-      comments: comments,
-      email: email,
+      comments: comments.value,
+      email: email.value,
       isApproved: true,
       isLockedOut: false,
-      memberEducationInstitution: memberEducationInstitution,
+      memberEducationInstitution: memberEducationInstitution.value,
       // memberPicture: memberPicture,
       memberTypeAlias: "Member",
-      name: name,
-      password: password,
-      username: username,
+      name: name.value,
+      password: password.value,
+      username: username.value,
     },
     onResponse({ request, response, options }) {
       if (response._data.error) {
-        Object.keys(response._data.error.details.errors).forEach(key => {
-          alert(response._data.error.details.errors[key]);
-        });      
+        Object.keys(response._data.error.details.errors).forEach( key => {
+        alert( response._data.error.details.errors[key]);
+        }); 
+           
       } else {
-        alert("Brugeren er oprettet");
+        alert("Brugeren er oprettet"),
         navigateTo({ path: 'loginpage' })
       }
-    }
+    },
   });
-  // if (this.name && this.username && this.email && this.password && this.memberEducationInstitution != 0) {
-  //   await navigateTo({ path: 'loginpage' })
-  //   }
+
+ 
   }else{
     alert("Udfyld alle felter før du sender.")
   }
