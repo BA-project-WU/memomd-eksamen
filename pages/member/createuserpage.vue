@@ -116,7 +116,7 @@ select {
   width: 100%;
 }
 
-input[type=submit] {
+input[type=button] {
   width: 100%;
   background-color: var(--primary-color);
   padding: 14px 20px;
