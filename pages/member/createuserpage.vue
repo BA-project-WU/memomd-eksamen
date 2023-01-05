@@ -50,8 +50,6 @@ const username = ref("");
 async function createMember() {
   if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
 
-  await navigateTo({ path: 'loginpage' })
-
   await useFetch("https://api.umbraco.io/member", {
     method: "POST",
     headers: {
@@ -76,11 +74,10 @@ async function createMember() {
       if (response._data.error) {
         Object.keys(response._data.error.details.errors).forEach(key => {
           alert(response._data.error.details.errors[key]);
-        });
-
-       
+        });      
       } else {
         alert("Brugeren er oprettet");
+        navigateTo({ path: 'loginpage' })
       }
     }
   });
