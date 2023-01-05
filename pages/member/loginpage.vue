@@ -14,9 +14,11 @@
     </div>
     <div class="forgot-password">
       <p @click="forgotPassword()">Jeg har <span style="color:#4ED2CA">glemt</span> min adgangskode</p>
-      <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer; margin-top: 20px;">
-        <font-awesome-icon style="color:black" icon="fa fa-arrow-left" />
-      </p>
+      <!-- <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer; margin-top: 20px;"> -->
+      <NuxtLink to="/" style="cursor:pointer;">
+        <font-awesome-icon style="color:black; margin-top: 20px;" icon="fa fa-arrow-left" />
+      </NuxtLink>
+      <!-- </p> -->
     </div>
   </div>
 </template>

@@ -46,7 +46,12 @@ const memberEducationInstitution = ref("");
 const name = ref("");
 const password = ref("");
 const username = ref("");
+
 async function createMember() {
+  if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
+
+  await navigateTo({ path: 'loginpage' })
+
   await useFetch("https://api.umbraco.io/member", {
     method: "POST",
     headers: {
@@ -67,13 +72,24 @@ async function createMember() {
       password: password,
       username: username,
     },
+    onResponse({ request, response, options }) {
+      if (response._data.error) {
+        Object.keys(response._data.error.details.errors).forEach(key => {
+          alert(response._data.error.details.errors[key]);
+        });
+
+       
+      } else {
+        alert("Brugeren er oprettet");
+      }
+    }
   });
-  await navigateTo({ path: 'loginpage' })
   // if (this.name && this.username && this.email && this.password && this.memberEducationInstitution != 0) {
   //   await navigateTo({ path: 'loginpage' })
-  //   // navigateTo("loginpage");
-  // }
-  // await signIn(undefined, { callbackUrl: '/settingspage' })
+  //   }
+  }else{
+    alert("Udfyld alle felter før du sender.")
+  }
 }
 </script>
 

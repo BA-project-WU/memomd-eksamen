@@ -143,7 +143,7 @@ a {
 .logout {
   position: relative;
   text-align: center;
-  top: 53px;
+  top: 67px;
 }
 
 .btn-logout {

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TheHeader heading="Reporter et problem"></TheHeader>
+    <TheHeader heading="Rapporter et problem"></TheHeader>
     <div class="settings-box-report">
-      <form @submit.prevent="sendReport">
+      <form>
         <input type="text" name="title" placeholder="Titel" v-model="reportTitle" />
         <select name="reportOptions" v-model="reportOptions">
           <option disabled hidden value="">Hvad drejer dit problem sig om?</option>
@@ -15,12 +15,11 @@
           <option value="Andet">Andet</option>
         </select>
         <textarea name="reportMessage" rows="8" placeholder="Uddyb problemet" v-model="reportMessage"></textarea>
-        <div class="save-btn" @click="showModal = true" @close-modal="showModal = false">
-          <button class="btn-send-report" type="submit" v-on:click="sendReport()">
+        <div class="save-btn">
+          <button class="btn-send-report" type="submit" @click="sendReport()">
             Send rapportering
           </button>
         </div>
-        <ModalPopup v-show="showModal" @close-modal="showModal = false" />
       </form>
       <div class="arrow-left">
         <NuxtLink to="/settingspage">
@@ -31,7 +30,7 @@
     <footer>
       <div class="start-the-game">
         <button>
-          <NuxtLink to="/">
+          <NuxtLink to="/flashcards/">
             <font-awesome-icon style="color: white" icon="fa-solid fa-home" />
           </NuxtLink>
         </button>
@@ -49,30 +48,36 @@
 </template>
 
 <script setup>
-var showModal = ref(false);
 const reportTitle = ref("");
 const reportOptions = ref("");
 const reportMessage = ref("");
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 async function sendReport() {
-  await useFetch(
-    "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
-    {
-      method: "POST",
-      headers: {
-        "umb-project-alias": umbracoProjectAlias,
-        "api-key": umbracoApiKey,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: {
-        reportTitle: reportTitle,
-        reportOptions: reportOptions,
-        reportMessage: reportMessage,
-      },
-    }
-  );
+  if (reportTitle.value != "" && reportOptions.value != "" && reportMessage.value != "" ) {
+    alert("Din rapportering blevet sendt. Tak for din hjælp :)")
+    await useFetch(
+      "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
+      {
+        method: "POST",
+        headers: {
+          "umb-project-alias": umbracoProjectAlias,
+          "api-key": umbracoApiKey,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: {
+          reportTitle: reportTitle,
+          reportOptions: reportOptions,
+          reportMessage: reportMessage,
+        },
+      }
+    );
+    
+  }else{
+    alert("Udfyld alle felter før du sender.")
+  }
+
 }
 const token = useCookie("token").value;
 if (!token) { navigateTo("/member/loginpage"); }
@@ -126,14 +131,6 @@ button {
   margin-top: 20px;
   text-align: left;
 }
-
-/* textarea {
-  background: var(--secondary-color);
-  margin: 20px 0;
-  padding-left: 2px;
-  padding-top: 10px;
-  width: 100%;
-} */
 
 footer {
   background: rgb(168, 228, 192);
