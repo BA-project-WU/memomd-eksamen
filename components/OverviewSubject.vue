@@ -21,6 +21,7 @@
 </template>
 
 <script setup>
+// declaring and initializing constant variables
 const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { course } = defineProps(["course"]);
 const { data: subjects } = await useFetch(uriSubject, {

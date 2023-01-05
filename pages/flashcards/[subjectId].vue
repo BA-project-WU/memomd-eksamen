@@ -9,7 +9,7 @@
           </NuxtLink>
         </div>
         <div>
-          <button @click="reportProblem" class="report">Rapporter et problem</button>
+          <button @click="reportProblem()" class="report">Rapporter et problem</button>
         </div>
       </div>
       <div class="quiz-wrapper">
@@ -61,15 +61,19 @@
 <script setup>
 //import { allowedNodeEnvironmentFlags } from 'process';
 import TheConfettis from "~~/components/TheConfettis.vue";
+
 definePageMeta({ layout: "flashcards", });
+
+// declaring and initializing constant variables
 const { subjectId } = useRoute().params;
-//fetch the flascards memo game api from umbraco heartcore
 const uri = `https://cdn.umbraco.io/content/${subjectId}/children?`;
-let title = ref('')
 let questions = ref([])
+
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
 if (!token) { navigateTo('/member/loginpage') }
+
+//fetching resources from umbraco heartcore
 await useFetch(uri, {
   headers: {
     "Umb-Project-Alias": "nicole-ba-test",
@@ -77,6 +81,7 @@ await useFetch(uri, {
     Authorization: "Bearer " + token,
   },
   method: "get",
+  // It returns a Promise that resolves to a Response object, which contains the response from the server.
   onResponse({ request, response, options }) {
     response._data._embedded.content.forEach((element) => {
       const test = Math.floor(Math.random() * 4);
@@ -113,6 +118,7 @@ await useFetch(uri, {
 });
 const quizCompleted = ref(false);
 const currentQuestion = ref(0);
+
 const score = computed(() => {
   let value = 0;
   questions.value.map((q) => {
@@ -128,6 +134,7 @@ const getCurrentQuestion = computed(() => {
   question.index = currentQuestion.value;
   return question;
 });
+
 const SetAnswer = (evt) => {
   questions.value[currentQuestion.value].selected = evt.target.value;
   evt.target.value = null;
@@ -140,6 +147,7 @@ const GetNextQuestion = () => {
     quizCompleted.value = true;
   }
 };
+
 function reportProblem() {
   alert("Denne funktion virker ikke endnu");
 }

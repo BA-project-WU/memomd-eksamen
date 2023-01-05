@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   // this is global, it will be seen in all pages
   app: {
     head: {
-      title: "MemoMD App",
+      title: "MemoMD",
       meta: [
         {
           name: "description",
@@ -28,15 +28,9 @@ export default defineNuxtConfig({
     "~/assets/style/main.css",
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
-  // imports: {
-  //   //nuxt auto-import anything from this directory by default.
-  //   dirs: ['stores'],
-  // },
   modules: [
     // pwa
     "@kevinmarrec/nuxt-pwa",
-    // global state management
-    // "@pinia/nuxt",
   ],
   pwa: {
     workbox: {

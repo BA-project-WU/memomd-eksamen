@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <header>
+    <header> <!--dynamic props-->
       <h1 :data-text="text">{{ heading }}</h1>
     </header>
   </nav>

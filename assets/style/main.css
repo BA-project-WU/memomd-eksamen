@@ -49,15 +49,6 @@ button, .buton{
   text-align: center;
   width: 100%;
 }
-
-/* .section1 {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  max-width: 100%;
-  text-align: center;
-} */
 .section1 {
   background: rgb(168, 228, 192);
   background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
@@ -110,44 +101,16 @@ form, .account{
   padding: 15px;
 }
 
-.forgot-password{
-  color: var(--heading-color);
-  font-size: var(--font-text-size);
-  text-align: center;
-  text-decoration: none;
-}
-
-.reset-password{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  min-width: 100%;
-}
-
-/*Fotgot Passsword*/
-.section-forgot-password{
-  margin: 0 auto;
-  max-width: 100%;
-  text-align: center;
-}
-.forgot-password-form{
-  margin: 0 auto;
-  width: 300px;
-}
 /*settings style*/
 .settings-box {
   background: var(--secondary-color);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* margin: 0px 30px auto; */
   margin: 50px 30px auto 30px;
-  /* height: 330px; */
   min-height: 50vh;
   min-width: -webkit-fill-available;
   position: absolute;
-  /* top: 150px; */
 }
 /*reporter et problem style*/
 .settings-box-report {
@@ -155,20 +118,16 @@ form, .account{
   flex-direction: column;
   height: 330px;
   justify-content: space-evenly;
-  /* margin: 0px 30px auto; */
   margin: 50px 30px auto 30px;
   min-height: 50vh;
   min-width: -webkit-fill-available;
   position: absolute;
-  /* top: 160px; */
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .logo{
     background: rgb(168, 228, 192);
-    /* height: auto;
-    width: 30vw; */
   }
 }
 
@@ -176,8 +135,6 @@ form, .account{
 @media only screen and (min-width: 600px) {
   .logo{
     background: rgb(168, 228, 192);
-    /* height: auto;
-    width: 10%; */
   }
 
   .heading-overview {
@@ -193,8 +150,6 @@ form, .account{
 @media only screen and (min-width: 768px) {
   .logo{
     background: rgb(168, 228, 192);
-    /* height: auto;
-    width: 20%; */
   }
 
   .heading-overview {
@@ -214,8 +169,6 @@ form, .account{
 @media only screen and (min-width: 1024px) {
   .logo{
     background: rgb(168, 228, 192);
-    /* height: auto;
-    width: 10%; */
   }
 
   .heading-overview {

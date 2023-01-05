@@ -53,6 +53,7 @@ const reportOptions = ref("");
 const reportMessage = ref("");
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
+
 async function sendReport() {
   if (reportTitle.value != "" && reportOptions.value != "" && reportMessage.value != "" ) {
     alert("Din rapportering blevet sendt. Tak for din hjælp :)")

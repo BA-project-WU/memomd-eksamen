@@ -24,6 +24,7 @@
         <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
         <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
       </select>
+      <!--function til at oprette member-->
       <input type="button" value="Opret" @click="createMember()" />
     </form>
     <div class="cancel-createmember">
@@ -33,22 +34,18 @@
 </template>
 
 <script setup>
-// const { status, data, signIn } = useSession()
-// definePageMeta({ auth: false });
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 const comments = ref("");
 const email = ref("");
-// const memberEducationInstitution = [""];
-// const memberEducationInstitution = ["Syddansk Universitet, Odense"];
 const memberEducationInstitution = ref("");
-// const memberPicture = ref("");
 const name = ref("");
 const password = ref("");
 const username = ref("");
 
+// function til createMember for at kunne oprette member til umbraco
 async function createMember() {
- 
+  // hvis name, username, email password, instituion value er ikke lig med en tom streng så udføre det stykke kode
   if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
 
   await useFetch("https://api.umbraco.io/member", {
@@ -71,21 +68,25 @@ async function createMember() {
       password: password.value,
       username: username.value,
     },
+    // It returns a Promise that resolves to a Response from the server.
+    // den håndtere fejl
     onResponse({ request, response, options }) {
+      // hvis der er nogle fejl
       if (response._data.error) {
         Object.keys(response._data.error.details.errors).forEach( key => {
+        // skriver hvad er fejlen 
         alert( response._data.error.details.errors[key]);
-        }); 
-           
+        });          
       } else {
+        // ellers brugeren bliver oprettet
         alert("Brugeren er oprettet"),
+        // efter oprettelse kom direkte til loginpage
         navigateTo({ path: 'loginpage' })
       }
     },
   });
-
- 
   }else{
+    // brugeren skal udfyld felterne 
     alert("Udfyld alle felter før du sender.")
   }
 }

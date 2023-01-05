@@ -16,7 +16,7 @@
         <div class="modal-overlay">
           <div class="modal-email">
             <div class="x-icon">
-              <font-awesome-icon style="color: black" icon="fa-solid fa-times" @click="showEmail = false" />
+              <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showEmail = false" />
             </div>
             <input type="text" v-model="email" placeholder="email" />
             <button class="btn-save" @click="showEmail = false; updateEmail();">Gem</button>
@@ -28,7 +28,7 @@
         <div class="modal-overlay">
           <div class="modal-password">
             <div class="x-icon">
-              <font-awesome-icon style="color: black" icon="fa-solid fa-times" @click="showPassword = false" />
+              <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showPassword = false" />
             </div>
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
             <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
@@ -58,10 +58,14 @@
 
 <script setup>
 definePageMeta({ layout: "false" });
+
 const { flashcardHeading } = defineProps(["flashcardHeading"]);
+
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
 if (!token) { navigateTo('/member/loginpage') }
+
+// declaring and initialising constant variables
 let username = useCookie("username").value
 let showEmail = ref(false);
 let showPassword = ref(false);
@@ -73,6 +77,8 @@ let name = "";
 let memberEducationInstitution = "";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
+
+// fetching data from umbraco api using username
 await useFetch("https://api.umbraco.io/member/" + username, {
   method: "get",
   headers: {
@@ -88,7 +94,7 @@ await useFetch("https://api.umbraco.io/member/" + username, {
     memberEducationInstitution = response._data.memberEducationInstitution;
   },
 });
-// dette er workaround for at man kunne se dataen
+// dette er workaround for at man kunne se dataen ellers redigering af email og password virket ikke
 setTimeout(delay, 500);
 async function delay() {
   await useFetch("https://api.umbraco.io/member/" + username, {

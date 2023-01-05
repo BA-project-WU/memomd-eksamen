@@ -20,7 +20,6 @@
       </div>
       <div class="logout">
         <button class="btn-logout" @click="logout()">Log af</button>
-        <!-- <button @click="signOut({ callbackUrl: '/signout' })">Log ud</button> -->
       </div>
     </div>
     <footer>
@@ -41,14 +40,15 @@
       </ul>
     </footer>
   </div>
-  <!-- https://caleb-smith.dev/blog/adding-font-awesome-to-nuxt-3 -->
 </template>
 
 <script setup>
 definePageMeta({ layout: "false", });
+
 // dette er tilgængelige til brugeren der er logge på
 const token = useCookie("token").value;
 if (!token) { navigateTo("/member/loginpage"); }
+
 // function til log ud og tilbage til login side
 function logout() {
   useCookie("token").value = "";
