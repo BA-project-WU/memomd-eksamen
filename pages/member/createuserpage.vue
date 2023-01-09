@@ -14,7 +14,11 @@
       <label for="password-input">Adgangskode (minimum 10 tegn)</label>
       <input type="password" minlength="10" name="password-input" placeholder="Din adgangskode"
         required v-model="password" />
-      <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
+      <label for="password-input1">Gentag adgangskode</label>
+      <input type="password" minlength="10" name="password-input1" placeholder="Gentag adgangskode"
+        required v-model="password1" />
+      <!-- <input type="file" name="membe
+      rPicture" v-on:change="memberPicture" /> -->
       <label for="memberEducationInstitution">Uddannelsesinstution</label>
       <select name="memberEducationInstitution" required v-model="memberEducationInstitution">
         <option disabled hidden value="">Din uddannelsesinstution</option>
@@ -41,50 +45,58 @@ const email = ref("");
 const memberEducationInstitution = ref("");
 const name = ref("");
 const password = ref("");
+const password1 = ref("");
 const username = ref("");
 
 // function til createMember for at kunne oprette member til umbraco
 async function createMember() {
   // hvis name, username, email password, instituion value er ikke lig med en tom streng så udføre det stykke kode
   if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
-
-  await useFetch("https://api.umbraco.io/member", {
-    method: "POST",
-    headers: {
-      "umb-project-alias": umbracoProjectAlias,
-      "api-key": umbracoApiKey,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: {
-      comments: comments.value,
-      email: email.value,
-      isApproved: true,
-      isLockedOut: false,
-      memberEducationInstitution: memberEducationInstitution.value,
-      // memberPicture: memberPicture,
-      memberTypeAlias: "Member",
-      name: name.value,
-      password: password.value,
-      username: username.value,
-    },
-    // It returns a Promise that resolves to a Response from the server.
-    // den håndtere fejl
-    onResponse({ request, response, options }) {
-      // hvis der er nogle fejl
-      if (response._data.error) {
-        Object.keys(response._data.error.details.errors).forEach( key => {
-        // skriver hvad er fejlen 
-        alert( response._data.error.details.errors[key]);
-        });          
-      } else {
-        // ellers brugeren bliver oprettet
-        alert("Brugeren er oprettet"),
-        // efter oprettelse kom direkte til loginpage
-        navigateTo({ path: 'loginpage' })
+    if(username.value.length  > 4){
+      if(password.value == password1.value){
+        await useFetch("https://api.umbraco.io/member", {
+          method: "POST",
+          headers: {
+            "umb-project-alias": umbracoProjectAlias,
+            "api-key": umbracoApiKey,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: {
+            comments: comments.value,
+            email: email.value,
+            isApproved: true,
+            isLockedOut: false,
+            memberEducationInstitution: memberEducationInstitution.value,
+            // memberPicture: memberPicture,
+            memberTypeAlias: "Member",
+            name: name.value,
+            password: password.value,
+            username: username.value,
+          },
+          // It returns a Promise that resolves to a Response from the server.
+          // den håndtere fejl
+          onResponse({ request, response, options }) {
+            // hvis der er nogle fejl
+            if (response._data.error) {
+              Object.keys(response._data.error.details.errors).forEach( key => {
+              // skriver hvad er fejlen 
+              alert( response._data.error.details.errors[key]);
+              });          
+            } else {
+              // ellers brugeren bliver oprettet
+              alert("Brugeren er oprettet"),
+              // efter oprettelse kom direkte til loginpage
+              navigateTo({ path: 'loginpage' })
+            }
+          },
+        });
+      }else{
+        alert("Adgngskoden skal være ens i de to felter")
       }
-    },
-  });
+    }else{
+      alert("Brugernavn skal være mindst 5 tegn")
+    }
   }else{
     // brugeren skal udfyld felterne 
     alert("Udfyld alle felter før du sender.")

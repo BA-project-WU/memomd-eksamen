@@ -16,7 +16,7 @@
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
             <span class="question">{{ getCurrentQuestion.question }}</span>
-            <span class="score"> Score {{ score }} / {{ questions.length }}</span>
+            <span class="score">Question: {{ getCurrentQuestion.index + 1 }} / {{ questions.length }} - Score: {{ score }} </span>
           </div>
           <div class="options">
             <label v-for="(option, index) in getCurrentQuestion.options" :key="index" :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index

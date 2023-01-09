@@ -32,7 +32,7 @@
             </div>
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
             <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-            <button class="btn-save" type="submit" @click="showPassword = false; updatePassword();">Gem</button>
+            <button class="btn-save" type="submit" @click="updatePassword();">Gem</button>
           </div>
         </div>
       </div>
@@ -135,7 +135,8 @@ async function updateEmail() {
 }
 // function til at opdatere adgangskode
 async function updatePassword() {
-  await useFetch(`https://api.umbraco.io/member/${username}/password`, {
+  if(currentPassword != "" && newPassword != ""){
+    await useFetch(`https://api.umbraco.io/member/${username}/password`, {
     method: "POST",
     headers: {
       "umb-project-alias": umbracoProjectAlias,
@@ -149,11 +150,15 @@ async function updatePassword() {
     onResponse({ request, response, options }) {
       if (response._data.error) {
         alert(response._data.error.details.errors[0]);
-      } else {
+      } else {     
         alert("Password opdateret");
       }
     },
-  });
+    });
+  }else{
+    alert("Husk at udfylde begge felter før du gemmer")
+  }
+
 }
 // function til at slet member
 async function deleteMember() {

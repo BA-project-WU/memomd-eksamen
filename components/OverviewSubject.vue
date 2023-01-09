@@ -85,10 +85,7 @@ li.card {
   transition: all 0.2s;
 }
 
-.card:hover {
-  background: var(--red);
-  color: var(--white);
-}
+
 
 .card:not(:last-child) {
   margin-right: 10px;
