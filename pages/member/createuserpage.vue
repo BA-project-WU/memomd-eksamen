@@ -4,21 +4,19 @@
     <!-- <progress value="50" max="100"></progress> -->
     <form @submit.prevent="createMember">
       <label for="name-input">Navn</label>
-      <input type="text"  name="name-input" placeholder="Dit fulde navn" required v-model="name" />
+      <input type="text" name="name-input" placeholder="Dit fulde navn" required v-model="name" />
       <label for="username-input">Brugernavn (minimum 5 tegn)</label>
       <input type="text" minlength="5" name="username-input" placeholder="Vælg et bugernavn" required
         v-model="username" />
       <label for="email-input">Email-addresse</label>
-      <input type="email"  name="email-input" placeholder="Din email-addresse" required
-        v-model="email" />
+      <input type="email" name="email-input" placeholder="Din email-addresse" required v-model="email" />
       <label for="password-input">Adgangskode (minimum 10 tegn)</label>
-      <input type="password" minlength="10" name="password-input" placeholder="Din adgangskode"
-        required v-model="password" />
+      <input type="password" minlength="10" name="password-input" placeholder="Din adgangskode" required
+        v-model="password" />
       <label for="password-input1">Gentag adgangskode</label>
-      <input type="password" minlength="10" name="password-input1" placeholder="Gentag adgangskode"
-        required v-model="password1" />
-      <!-- <input type="file" name="membe
-      rPicture" v-on:change="memberPicture" /> -->
+      <input type="password" minlength="10" name="password-input1" placeholder="Gentag adgangskode" required
+        v-model="password1" />
+      <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
       <label for="memberEducationInstitution">Uddannelsesinstution</label>
       <select name="memberEducationInstitution" required v-model="memberEducationInstitution">
         <option disabled hidden value="">Din uddannelsesinstution</option>
@@ -29,11 +27,11 @@
         <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
       </select>
       <!--function til at oprette member-->
-      <input type="button" value="Opret" @click="createMember()" />
+      <input type="button" class="button" value="Opret" @click="createMember()" />
     </form>
-    <div class="cancel-createmember">
-      <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer">Annuller</p>
-    </div>
+    <NuxtLink to="/" class="goback-arrow">
+      <font-awesome-icon icon="fa fa-arrow-left" />
+    </NuxtLink>
   </div>
 </template>
 
@@ -51,9 +49,9 @@ const username = ref("");
 // function til createMember for at kunne oprette member til umbraco
 async function createMember() {
   // hvis name, username, email password, instituion value er ikke lig med en tom streng så udføre det stykke kode
-  if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "" ) {
-    if(username.value.length  > 4){
-      if(password.value == password1.value){
+  if (name.value != "" && username.value != "" && email.value != "" && password.value != "" && memberEducationInstitution.value != "") {
+    if (username.value.length > 4) {
+      if (password.value == password1.value) {
         await useFetch("https://api.umbraco.io/member", {
           method: "POST",
           headers: {
@@ -79,25 +77,25 @@ async function createMember() {
           onResponse({ request, response, options }) {
             // hvis der er nogle fejl
             if (response._data.error) {
-              Object.keys(response._data.error.details.errors).forEach( key => {
-              // skriver hvad er fejlen 
-              alert( response._data.error.details.errors[key]);
-              });          
+              Object.keys(response._data.error.details.errors).forEach(key => {
+                // skriver hvad er fejlen 
+                alert(response._data.error.details.errors[key]);
+              });
             } else {
               // ellers brugeren bliver oprettet
               alert("Brugeren er oprettet"),
-              // efter oprettelse kom direkte til loginpage
-              navigateTo({ path: 'loginpage' })
+                // efter oprettelse kom direkte til loginpage
+                navigateTo({ path: 'loginpage' })
             }
           },
         });
-      }else{
+      } else {
         alert("Adgngskoden skal være ens i de to felter")
       }
-    }else{
+    } else {
       alert("Brugernavn skal være mindst 5 tegn")
     }
-  }else{
+  } else {
     // brugeren skal udfyld felterne 
     alert("Udfyld alle felter før du sender.")
   }
@@ -106,47 +104,7 @@ async function createMember() {
 
 <style scoped>
 .createuser-page {
-  width: 100%;
   height: 100%;
-}
-
-form {
-  display: table-cell;
-  width: 100%;
-  padding: 20px;
-}
-
-input,
-select {
-  background: var(--secondary-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 12px;
-  width: 100%;
-}
-
-input[type=button] {
-  width: 100%;
-  background-color: var(--primary-color);
-  padding: 14px 20px;
-  margin: 25px 0 0 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: var(--darker-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.cancel-createmember {
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px;
+  max-width: 100vw;
 }
 </style>

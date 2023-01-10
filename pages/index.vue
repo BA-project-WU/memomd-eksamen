@@ -1,67 +1,53 @@
 <template>
-  <main class="startpage">
-    <section class="startsection">
-      <section class="section1">
-        <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo"
-          style="height:inherit;width:auto;" />
-      </section>
-      <section class="section2">
-        <button>
-          <NuxtLink to="member/loginpage">Log ind</NuxtLink>
-        </button>
-        <button>
-          <NuxtLink to="member/createuserpage">Opret bruger</NuxtLink>
-        </button>
-      </section>
+  <main class="start-page">
+    <header class="header">
+      <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo"
+        style="height: inherit; width: auto" />
+    </header>
+    <section class="start-options">
+      <button>
+        <NuxtLink to="member/loginpage">Log ind</NuxtLink>
+      </button>
+      <button>
+        <NuxtLink to="member/createuserpage">Opret bruger</NuxtLink>
+      </button>
     </section>
   </main>
 </template>
 
 <script setup>
-
-definePageMeta({ layout: "false", });
-
-
+definePageMeta({ layout: "false" });
 </script>
 
 <style scoped>
-.startsection {
+.start-page {
+  min-height: 100vh;
+}
+
+.header {
+  background: rgb(168, 228, 192);
+  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 150px;
+  max-width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.start-options {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  min-width: 280px;
-}
-
-.section2 {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-button {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-size: var(--font-text-size);
-  margin: 30px 0px 0px 12px;
-  padding: 20px;
-  width: 200px;
-}
-
-a {
-  color: var(--text-color);
-  font-weight: var(--bold-text);
-  text-decoration: none;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50vh;
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .logo-start {
     height: auto;
     width: 100vw;
   }
-}
+} */
 </style>

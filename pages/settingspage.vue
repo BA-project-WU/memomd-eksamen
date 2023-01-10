@@ -24,10 +24,8 @@
     </div>
     <footer>
       <div class="start-the-game">
-        <button>
-          <NuxtLink to="/flashcards/">
-            <font-awesome-icon style="color: white" icon="fa-solid fa-home" />
-          </NuxtLink>
+        <button class="btn-start-spil">
+          <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-home" /></NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
@@ -43,11 +41,13 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: "false", });
+definePageMeta({ layout: "false" });
 
 // dette er tilgængelige til brugeren der er logge på
 const token = useCookie("token").value;
-if (!token) { navigateTo("/member/loginpage"); }
+if (!token) {
+  navigateTo("/member/loginpage");
+}
 
 // function til log ud og tilbage til login side
 function logout() {
@@ -63,7 +63,6 @@ body {
   display: flex;
   height: 100vh;
   justify-content: flex-start;
-
 }
 
 .settings-box {
@@ -154,7 +153,9 @@ a {
 
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(circle,
+      rgba(168, 228, 192, 1) 35%,
+      rgba(78, 210, 202, 1) 100%);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   bottom: 0;

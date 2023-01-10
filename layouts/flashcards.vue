@@ -8,7 +8,7 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/"> Oversigt </NuxtLink>
+          <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-home" /></NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
@@ -59,11 +59,6 @@ li {
 a {
   color: var(--text-color);
   text-decoration: none;
-}
-
-.fa-home {
-  background-color: var(--cta-bg-color);
-  color: #fff;
 }
 
 .heading-overview {

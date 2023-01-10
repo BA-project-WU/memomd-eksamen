@@ -3,23 +3,20 @@
     <TheHeader class="heading" heading="Log ind"></TheHeader>
     <form @submit.prevent="memberLogin">
       <label for="username">Brugernavn</label>
-      <input autocomplete="on" type="text" v-model="username" placeholder="Dit brugernavn.." />
+      <input autocomplete="on" type="text" v-model="username" placeholder="Dit brugernavn..." />
       <label autocomplete="on" id="password" for="password">Adgangskode</label>
-      <input type="password" v-model="password" placeholder="Dit adgangskode.." />
-      <input type="submit" value="Log ind" @click="login()" />
+      <input type="password" v-model="password" placeholder="Din adgangskode..." />
+      <input type="submit" class="button" value="Log ind" @click="login()" />
     </form>
     <div class="remember-me">
-      <input type="checkbox" v-model="remember" value="1">
       <label for="check">Husk mig</label>
+      <input type="checkbox" v-model="remember" value="1">
     </div>
-    <div class="forgot-password">
-      <p @click="forgotPassword()">Jeg har <span style="color:#4ED2CA">glemt</span> min adgangskode</p>
-      <!-- <p onclick="history.back()" style="color:#4ED2CA;cursor:pointer; margin-top: 20px;"> -->
-      <NuxtLink to="/" style="cursor:pointer;">
-        <font-awesome-icon style="color:black; margin-top: 20px;" icon="fa fa-arrow-left" />
-      </NuxtLink>
-      <!-- </p> -->
-    </div>
+    <p class="forgot-password" @click="forgotPassword()">Jeg har <span style="color:var(--primary-color);">glemt</span>
+      min adgangskode</p>
+    <NuxtLink to="/" class="goback-arrow">
+      <font-awesome-icon icon="fa fa-arrow-left" />
+    </NuxtLink>
   </div>
 </template>
 
@@ -64,58 +61,17 @@ async function forgotPassword() {
 </script>
 
 <style scoped>
-.login-page {
-  height: 100%;
-  width: 100%;
-}
-
-form {
-  display: table-cell;
-  padding: 20px;
-  width: 100%;
-}
-
-input[type="text"],
-input[type="password"] {
-  background: var(--secondary-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-top: 10px;
-  padding: 12px 12px;
-  width: 100%;
-}
-
-input[type="text"] {
-  margin-bottom: 10px;
-}
-
-input[type="password"] {
-  margin-top: 10px;
-}
-
-input[type=submit] {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 25px 0 0 0;
-  padding: 14px 20px;
-  width: 100%;
-}
-
-input[type=submit]:hover {
-  background-color: var(--darker-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .remember-me {
-  padding-left: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  /* width: 50vw; */
 }
 
 input[type="checkbox"] {
-  margin-right: 10px;
+  margin: 0 0 0 20px;
+  width: auto;
 }
 
 .forgot-password {

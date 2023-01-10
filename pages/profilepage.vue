@@ -41,7 +41,7 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/">Start</NuxtLink>
+          <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-home" /></NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
@@ -135,27 +135,27 @@ async function updateEmail() {
 }
 // function til at opdatere adgangskode
 async function updatePassword() {
-  if(currentPassword != "" && newPassword != ""){
+  if (currentPassword != "" && newPassword != "") {
     await useFetch(`https://api.umbraco.io/member/${username}/password`, {
-    method: "POST",
-    headers: {
-      "umb-project-alias": umbracoProjectAlias,
-      "api-key": umbracoApiKey,
-      "Content-Type": "application/json",
-    },
-    body: {
-      currentPassword: currentPassword,
-      newPassword: newPassword,
-    },
-    onResponse({ request, response, options }) {
-      if (response._data.error) {
-        alert(response._data.error.details.errors[0]);
-      } else {     
-        alert("Password opdateret");
-      }
-    },
+      method: "POST",
+      headers: {
+        "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey,
+        "Content-Type": "application/json",
+      },
+      body: {
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      },
+      onResponse({ request, response, options }) {
+        if (response._data.error) {
+          alert(response._data.error.details.errors[0]);
+        } else {
+          alert("Password opdateret");
+        }
+      },
     });
-  }else{
+  } else {
     alert("Husk at udfylde begge felter før du gemmer")
   }
 

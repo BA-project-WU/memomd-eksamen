@@ -1,9 +1,7 @@
 <template>
-  <nav>
-    <header> <!--dynamic props-->
-      <h1 :data-text="text">{{ heading }}</h1>
-    </header>
-  </nav>
+  <header> <!--dynamic props-->
+    <h1 :data-text="text">{{ heading }}</h1>
+  </header>
 </template>
 
 <script setup>
@@ -24,14 +22,6 @@ header {
   height: 100px;
   justify-content: center;
   margin-bottom: 10px;
-  text-align: center;
-}
-
-h1 {
-  color: var(--text-color);
-  font-family: var(--fonts);
-  font-size: var(--font-heading-size);
-  font-weight: var(--bold-text);
   text-align: center;
 }
 </style>
