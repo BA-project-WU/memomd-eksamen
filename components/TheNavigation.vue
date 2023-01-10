@@ -3,7 +3,7 @@
     <footer>
       <div class="start-the-game">
         <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/"> Start Spil </NuxtLink>
+          <NuxtLink to="/flashcards/">Start Spil</NuxtLink>
         </button>
       </div>
       <ul class="footer-list">
