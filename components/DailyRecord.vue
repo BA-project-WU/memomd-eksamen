@@ -1,7 +1,7 @@
 <template>
   <div class="record">
     <div class="day-strike">
-      <h3>Dage i stribe</h3>
+      <h3>Dage i streg</h3>
     </div>
     <div class="boxes">
       <div class="box-left">

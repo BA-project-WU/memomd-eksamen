@@ -13,8 +13,7 @@ const props = defineProps({
 
 <style scoped>
 header {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  background: radial-gradient(75.32% 93.55% at 86.67% 96.31%, #A8E4C0 0%, #47BDB5 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   display: flex;

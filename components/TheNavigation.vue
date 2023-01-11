@@ -23,7 +23,8 @@
 <style scoped>
 footer {
   background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  /* background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%); */
+  background: radial-gradient(61.03% 208.76% at 9.36% 100%, #A8E4C0 0%, #47BDB5 100%);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   bottom: 0;

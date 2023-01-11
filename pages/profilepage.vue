@@ -5,8 +5,10 @@
       <div class="circle-img">
         <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
       </div>
-      <h3>{{ name }}</h3>
+      <h3>{{ username }}</h3>
+      <p>{{ name }}</p>
       <p>{{ email }}</p>
+      <p>{{ memberEducationInstitution }}</p>
     </div>
     <DailyRecord />
     <div class="user-info">
@@ -38,21 +40,7 @@
       </div>
       <button class="btn-delete-user" @click="deleteMember()">Slet profilen</button>
     </div>
-    <footer>
-      <div class="start-the-game">
-        <button class="btn-start-spil">
-          <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-home" /></NuxtLink>
-        </button>
-      </div>
-      <ul class="footer-list">
-        <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
-        </li>
-      </ul>
-    </footer>
+    <TheFooter />
   </div>
 </template>
 
@@ -327,59 +315,6 @@ input[type="submit"],
   height: 100vh;
 }
 
-footer {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle,
-      rgba(168, 228, 192, 1) 35%,
-      rgba(78, 210, 202, 1) 100%);
-  bottom: 0;
-  /* Height of the footer */
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  min-width: 280px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-}
-
-.start-the-game {
-  text-align: center;
-  position: relative;
-  top: -18px;
-}
-
-.btn-start-spil {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.footer-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-decoration: none;
-  list-style-type: none;
-  position: relative;
-  top: -20px;
-}
-
-li {
-  margin-top: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
 .check {
   width: 200px;
   height: auto;
@@ -390,10 +325,5 @@ a {
   position: relative;
   left: 87px;
   top: -20px;
-}
-
-.fa-home {
-  background-color: var(--cta-bg-color);
-  color: #fff;
 }
 </style>

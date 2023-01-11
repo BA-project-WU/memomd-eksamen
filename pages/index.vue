@@ -1,8 +1,7 @@
 <template>
   <main class="start-page">
     <header class="header">
-      <img class="logo-start" src="~/assets/images/logo.png" alt="this is the memomd logo"
-        style="height: inherit; width: auto" />
+      <img class="logo-start" src="~/assets/images/logo.png" alt="MemoMD logo" style="height: inherit; width: auto" />
     </header>
     <section class="start-options">
       <button>
@@ -25,8 +24,8 @@ definePageMeta({ layout: "false" });
 }
 
 .header {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
+  /* background: rgb(168, 228, 192); */
+  background: radial-gradient(75.32% 93.55% at 86.67% 96.31%, #A8E4C0 0%, #47BDB5 100%);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   height: 150px;

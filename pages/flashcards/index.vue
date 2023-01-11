@@ -40,7 +40,7 @@ await useFetch(uri, {
 });
 
 useHead({
-  title: "MemoMD App | Flashcards",
+  title: "MemoMD",
   meta: [
     {
       name: "description",

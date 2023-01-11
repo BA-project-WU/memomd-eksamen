@@ -27,23 +27,7 @@
         </NuxtLink>
       </div>
     </div>
-    <footer>
-      <div class="start-the-game">
-        <button>
-          <NuxtLink to="/flashcards/">
-            <font-awesome-icon style="color: white" icon="fa-solid fa-home" />
-          </NuxtLink>
-        </button>
-      </div>
-      <ul class="footer-list">
-        <li>
-          <NuxtLink to="/settingspage"><font-awesome-icon icon="fa-solid fa-cog" /></NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/profilepage"><font-awesome-icon icon="fa-solid fa-user" /></NuxtLink>
-        </li>
-      </ul>
-    </footer>
+    <TheFooter />
   </div>
 </template>
 
@@ -55,7 +39,7 @@ const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
 async function sendReport() {
-  if (reportTitle.value != "" && reportOptions.value != "" && reportMessage.value != "" ) {
+  if (reportTitle.value != "" && reportOptions.value != "" && reportMessage.value != "") {
     alert("Din rapportering blevet sendt. Tak for din hjælp :)")
     await useFetch(
       "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
@@ -74,8 +58,8 @@ async function sendReport() {
         },
       }
     );
-    
-  }else{
+
+  } else {
     alert("Udfyld alle felter før du sender.")
   }
 
@@ -131,46 +115,5 @@ button {
 .arrow-left {
   margin-top: 20px;
   text-align: left;
-}
-
-footer {
-  background: rgb(168, 228, 192);
-  background: radial-gradient(circle, rgba(168, 228, 192, 1) 35%, rgba(78, 210, 202, 1) 100%);
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  min-width: 280px;
-  position: absolute;
-  width: 100%;
-}
-
-.start-the-game {
-  position: relative;
-  text-align: center;
-  top: -18px;
-}
-
-.footer-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  list-style-type: none;
-  position: relative;
-  text-decoration: none;
-  top: -20px;
-}
-
-li {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 10px;
-}
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
 }
 </style>
