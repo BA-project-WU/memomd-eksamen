@@ -4,14 +4,11 @@
       <li v-for="item in subjects._embedded.content" class="card">
         <div class="card-content">
           <h4 class="card-title">{{ item.name }}</h4>
-          <p>Emnets beskrivelse</p>
         </div>
         <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
-        <div class="start-the-game">
-          <button class="btn-start-spil">
-            <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
-          </button>
-        </div>
+        <button>
+          <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
+        </button>
       </li>
     </ul>
     <div v-else>
@@ -85,8 +82,6 @@ li.card {
   transition: all 0.2s;
 }
 
-
-
 .card:not(:last-child) {
   margin-right: 10px;
 }
@@ -109,21 +104,8 @@ h2 {
   margin-bottom: 1em;
 }
 
-.start-the-game {
-  position: relative;
-  text-align: center;
-  top: 100px;
-}
-
-.btn-start-spil {
-  background-color: var(--primary-color);
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px 20px;
-}
-
 .soon {
-  color: var(--failed-color);
+  color: var(--secondary-color);
   font-weight: bold;
   margin-top: 20px;
   text-align: center;

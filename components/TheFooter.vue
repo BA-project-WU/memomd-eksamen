@@ -57,13 +57,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  background-color: var(--primary-color);
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px 10px;
-}
-
 .fa-home {
   background-color: var(--cta-bg-color);
   color: #fff;

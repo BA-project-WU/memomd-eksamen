@@ -36,61 +36,61 @@
 
 .confetti:nth-child(1) {
   animation-delay: 0;
-  background-color: #fc0120;
+  background-color: var(--green-color);
   left: 10%;
 }
 
 .confetti:nth-child(2) {
   animation-delay: -5s;
-  background-color: #8257e6;
+  background-color: var(--grey-color);
   left: 20%;
 }
 
 .confetti:nth-child(3) {
   animation-delay: -3s;
-  background-color: #ffbf4d;
+  background-color: var(--red-color);
   left: 30%;
 }
 
 .confetti:nth-child(4) {
   animation-delay: -2.5s;
-  background-color: #fe5d7a;
+  background-color: var(--turquoise-color);
   left: 40%;
 }
 
 .confetti:nth-child(5) {
   animation-delay: -4s;
-  background-color: #45ec9c;
+  background-color: var(--turquoise-light-color);
   left: 50%;
 }
 
 .confetti:nth-child(6) {
   animation-delay: -6s;
-  background-color: #f6e327;
+  background-color: var(--green-color);
   left: 60%;
 }
 
 .confetti:nth-child(7) {
   animation-delay: -1.5s;
-  background-color: #96eb69;
+  background-color: var(--grey-color);
   left: 70%;
 }
 
 .confetti:nth-child(8) {
   animation-delay: -2s;
-  background-color: #007de7;
+  background-color: var(--red-color);
   left: 80%;
 }
 
 .confetti:nth-child(9) {
   animation-delay: -3.5s;
-  background-color: #2deae3;
+  background-color: var(--turquoise-color);
   left: 90%;
 }
 
 .confetti:nth-child(10) {
   animation-delay: -2.5s;
-  background-color: #da32ab;
+  background-color: var(--turquoise-light-color);
   left: 100%;
 }
 

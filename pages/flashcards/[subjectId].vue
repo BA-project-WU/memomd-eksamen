@@ -15,8 +15,9 @@
       <div class="quiz-wrapper">
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
+            <span class="score">Question: {{ getCurrentQuestion.index + 1 }} / {{ questions.length }} </span>
+            <span class="score">Score: {{ score }} </span>
             <span class="question">{{ getCurrentQuestion.question }}</span>
-            <span class="score">Question: {{ getCurrentQuestion.index + 1 }} / {{ questions.length }} - Score: {{ score }} </span>
           </div>
           <div class="options">
             <label v-for="(option, index) in getCurrentQuestion.options" :key="index" :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
@@ -169,7 +170,7 @@ button {
 }
 
 .quit {
-  background-color: var(--success-color);
+  background-color: var(--primary-color);
 }
 
 .quit:hover {
@@ -177,7 +178,7 @@ button {
 }
 
 .report {
-  background: var(--failed-color);
+  background: var(--primary-color);
 }
 
 .quiz-wrapper {
@@ -189,9 +190,9 @@ button {
 }
 
 .quiz {
-  background: var(--game-bg-color);
+  background: var(--secondary-color);
   border-radius: 10px;
-  height: 450px;
+  /* height: 450px; */
   padding: 40px 20px;
   width: 90%;
 }
@@ -208,7 +209,7 @@ button {
 }
 
 .score {
-  color: var(--success-color);
+  color: var(--primary-color);
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -219,9 +220,14 @@ button {
   justify-content: center;
 }
 
+input {
+  margin: 0;
+  padding: 0;
+}
+
 label {
-  background: white;
-  border: 1px solid white;
+  background: var(--white-color);
+  border: 1px solid var(--white-color);
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(77, 232, 225, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
@@ -231,15 +237,15 @@ label {
 }
 
 .label:hover input~.option {
-  background-color: var(--success-color);
+  background-color: var(--primary-color);
 }
 
 .correct {
-  background-color: var(--success-color);
+  background-color: var(--green-color);
 }
 
 .wrong {
-  background-color: var(--failed-color);
+  background-color: var(--red-color);
 }
 
 .btn-next {
@@ -254,7 +260,7 @@ label {
 }
 
 .finish-game {
-  background: white;
+  background: var(--white-color);
   border: 20px solid var(--primary-color);
   border-radius: 10px;
   display: flex;
@@ -268,7 +274,7 @@ label {
 }
 
 .user-score {
-  color: var(--success-color);
+  color: var(--primary-color);
   margin-top: 20px;
 }
 
@@ -314,60 +320,10 @@ h1 {
 
 .user-score {
   margin-top: 20px;
-  color: var(--success-color);
+  color: var(--primary-color);
 }
 
 input[type="radio"] {
   visibility: hidden;
 }
-
-/* @-webkit-keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-@keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-#anim-border {
-  border: 20px solid var(--primary-color);
-  border-radius: 10px;
-  height: 300px;
-  overflow: hidden;
-  padding: 2rem;
-  position: relative;
-  z-index: 0;
-}
-#anim-border::before {
-  animation: rotate 4s linear infinite;
-  background-color: var(--primary-color);
-  background-image: linear-gradient(#2cb093, #ef5392);
-  background-repeat: no-repeat;
-  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-  background-size: 50% 50%, 50% 50%;
-  content: "";
-  height: 200%;
-  left: -50%;
-  position: absolute;
-  top: -50%;
-  width: 200%;
-  z-index: -2;
-  -webkit-animation: rotate 4s linear infinite;
-}
-#anim-border::after {
-  background: white;
-  border-radius: 5px;
-  content: "";
-  height: calc(100% - 12px);
-  left: 6px;
-  position: absolute;
-  top: 6px;
-  width: calc(100% - 12px);
-  z-index: -1;
-} 
-#anim-border img {
-    width: 100%;
-}  */
 </style>

@@ -24,9 +24,9 @@ body {
 }
 
 .start-the-game {
-  position: relative;
+  /* position: relative; */
   text-align: center;
-  top: -50%;
+  /* top: -50%; */
 }
 
 li {

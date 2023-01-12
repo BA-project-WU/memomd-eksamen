@@ -13,21 +13,6 @@
   --fonts: 'Rubik', sans-serif;
   --font-heading-size: 25px;
   --font-text-size: 15px;
-
-  /* --primary-color: #8dd9de;
-  --secondary-color: #d9d9d9; */
-  /* --bg-color: #d9d9d9;
-  --bg2-color: #e8cbcb; */
-  --bold-text: 700;
-  --cta-bg-color: #8dd9de;
-  --darker-color: #4ED2CA;
-  --failed-color: #ea8c8c;
-  /* --font-heading-size: 25px;
-  --font-text-size: 18px; */
-  /* --fonts: 'Rubik', sans-serif; */
-  --game-bg-color: #eee;
-  --heading-color: #373737;
-  --router-active-color: #ea8c8c;
 }
 
 * {
@@ -53,10 +38,12 @@ button,
   border: none;
   border-radius: 25px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.20);
+  box-sizing: content-box;
   cursor: pointer;
   font-size: var(--font-text-size);
+  height: 25px;
   margin: 30px 0 0 0;
-  padding: 20px;
+  padding: 10px 0;
   width: 200px;
 }
 
