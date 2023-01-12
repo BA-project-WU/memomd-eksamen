@@ -26,26 +26,24 @@ footer {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  min-width: 280px;
-  position: absolute;
+  height: 80px;
+  position: fixed;
   width: 100%;
 }
 
 .start-the-game {
   position: relative;
   text-align: center;
-  top: -18px;
+  top: -50%;
 }
 
 .footer-list {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   position: relative;
   text-decoration: none;
-  top: -20px;
+  top: -50%;
 }
 
 li {

@@ -11,10 +11,14 @@
         <input type="checkbox" id="switch2" /><label for="switch2"></label>
       </div>
       <div class="policy">
-        <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
+        <h4>
+          <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
+        </h4>
       </div>
       <div class="report">
-        <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
+        <h4>
+          <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
+        </h4>
       </div>
       <div class="logout">
         <button @click="logout()">Log af</button>
@@ -50,17 +54,22 @@ body {
 }
 
 .settings-box {
+  align-items: center;
+  display: flex;
   min-height: 50vh;
+  padding: 0 25px;
 }
 
 .lyd,
 .notification {
+  align-items: center;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 input {
   height: 0;
+  margin: 0;
   visibility: hidden;
   width: 0;
 }
@@ -116,8 +125,13 @@ a {
 }
 
 .logout {
-  position: relative;
+  /* bottom: 50%; */
+  /* position: absolute; */
   text-align: center;
-  top: 67px;
+  /* top: 90%; */
+}
+
+.logout button {
+  margin: 0;
 }
 </style>
