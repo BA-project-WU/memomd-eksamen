@@ -1,8 +1,11 @@
 <template>
   <div class="login-page">
     <TheHeader class="heading" heading="Log ind"></TheHeader>
+    
     <form @submit.prevent="memberLogin">
+      <p style="color:red">{{ errorMessage }}</p><br />
       <label for="username">Brugernavn</label>
+      
       <input autocomplete="on" type="text" v-model="username" placeholder="Dit brugernavn.." />
       <label autocomplete="on" id="password" for="password">Adgangskode</label>
       <input type="password" v-model="password" placeholder="Dit adgangskode.." />
@@ -27,6 +30,7 @@
 let username;
 let password;
 let remember;
+const errorMessage = ref("");
 const { umbracoProjectAlias } = useRuntimeConfig();
 async function login() {
   await useFetch(`https://cdn.umbraco.io/member/oauth/token`, {
@@ -39,7 +43,7 @@ async function login() {
     ,
     onResponse({ request, response, options }) {
       if (response._data.error) {
-        alert(response._data.error);
+        errorMessage.value = response._data.error
       } else {
 
         if (remember) { //if checkbox remember is true

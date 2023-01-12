@@ -3,10 +3,11 @@
     <TheHeader class="heading" heading="Opret bruger"></TheHeader>
     <!-- <progress value="50" max="100"></progress> -->
     <form @submit.prevent="createMember">
+      <p style="color:red">{{ errorMessage }}</p><br />
       <label for="name-input">Navn</label>
       <input type="text"  name="name-input" placeholder="Dit fulde navn" required v-model="name" />
       <label for="username-input">Brugernavn (minimum 5 tegn)</label>
-      <input type="text" minlength="5" name="username-input" placeholder="Vælg et bugernavn" required
+      <input type="text" minlength="5" name="username-input" placeholder="Vælg et brugernavn" required
         v-model="username" />
       <label for="email-input">Email-addresse</label>
       <input type="email"  name="email-input" placeholder="Din email-addresse" required
@@ -47,6 +48,7 @@ const name = ref("");
 const password = ref("");
 const password1 = ref("");
 const username = ref("");
+const errorMessage = ref("");
 
 // function til createMember for at kunne oprette member til umbraco
 async function createMember() {
@@ -81,7 +83,7 @@ async function createMember() {
             if (response._data.error) {
               Object.keys(response._data.error.details.errors).forEach( key => {
               // skriver hvad er fejlen 
-              alert( response._data.error.details.errors[key]);
+              errorMessage.value = response._data.error.details.errors[key]
               });          
             } else {
               // ellers brugeren bliver oprettet
@@ -92,14 +94,14 @@ async function createMember() {
           },
         });
       }else{
-        alert("Adgngskoden skal være ens i de to felter")
+        errorMessage.value = "Adgangskoden skal være ens i de to felter."
       }
     }else{
-      alert("Brugernavn skal være mindst 5 tegn")
+      errorMessage.value = "Brugernavn skal være mindst 5 tegn."
     }
   }else{
     // brugeren skal udfyld felterne 
-    alert("Udfyld alle felter før du sender.")
+    errorMessage.value = "Udfyld alle felter før du opretter."
   }
 }
 </script>
