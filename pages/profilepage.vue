@@ -12,7 +12,7 @@
     </div>
     <DailyRecord />
     <div class="user-info">
-      <h3>Adminintrere din konto</h3>
+      <h3>Administrere din konto</h3>
       <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
       <div v-if="showEmail" class="modal">
         <div class="modal-overlay">
@@ -20,6 +20,7 @@
             <div class="x-icon">
               <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showEmail = false" />
             </div>
+            <p style="color:red">{{ errorMessage }}</p><br />
             <input type="text" v-model="email" placeholder="email" />
             <button class="btn-save" @click="showEmail = false; updateEmail();">Gem</button>
           </div>
@@ -32,6 +33,7 @@
             <div class="x-icon">
               <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showPassword = false" />
             </div>
+            <p style="color:red">{{ errorMessage }}</p><br />
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
             <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
             <button class="btn-save" type="submit" @click="updatePassword();">Gem</button>
@@ -46,8 +48,6 @@
 
 <script setup>
 definePageMeta({ layout: "false" });
-
-const { flashcardHeading } = defineProps(["flashcardHeading"]);
 
 // de to linier hereunder skal være pa alle sider der ønskes password beskyttet.
 const token = useCookie("token").value
@@ -65,10 +65,11 @@ let name = "";
 let memberEducationInstitution = "";
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
+const errorMessage = ref("");
 
 // fetching data from umbraco api using username
 await useFetch("https://api.umbraco.io/member/" + username, {
-  method: "get",
+  method: "GET",
   headers: {
     "umb-project-alias": umbracoProjectAlias,
     "api-key": umbracoApiKey,
@@ -82,7 +83,7 @@ await useFetch("https://api.umbraco.io/member/" + username, {
     memberEducationInstitution = response._data.memberEducationInstitution;
   },
 });
-// dette er workaround for at man kunne se dataen ellers redigering af email og password virket ikke
+// dette er workaround for at man kunne se dataen i input feltet
 setTimeout(delay, 500);
 async function delay() {
   await useFetch("https://api.umbraco.io/member/" + username, {
@@ -137,22 +138,21 @@ async function updatePassword() {
       },
       onResponse({ request, response, options }) {
         if (response._data.error) {
-          alert(response._data.error.details.errors[0]);
+          // alert(response._data.error.details.errors[0]);
+          errorMessage.value = response._data.error.details.errors[0]
         } else {
           alert("Password opdateret");
         }
       },
     });
   } else {
-    alert("Husk at udfylde begge felter før du gemmer")
+    errorMessage.value = "Husk at udfylde begge felter før du gemmer."
   }
-
 }
 // function til at slet member
 async function deleteMember() {
   let text = "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
   if (confirm(text) == true) {
-    alert("Brugeren er slettet");
     //if the block below is uncomment, then the user will actually be deleted.
     await useFetch("https://api.umbraco.io/member/" + username, {
       method: "DELETE",
@@ -161,6 +161,7 @@ async function deleteMember() {
         "api-key": umbracoApiKey,
       },
     });
+    navigateTo('/member/loginpage')
   } else {
   }
 }
