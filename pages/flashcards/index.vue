@@ -6,7 +6,7 @@
           <h2>{{ item.name }}</h2>
           <details class="show-detail">
             <summary class="text1">Semester {{ item.semester[0] }}</summary>
-            <h4>Om Uddannelse:</h4>
+            <h4>Om semesteret:</h4>
             {{ item.description }}
           </details>
           <h4 class="slide">Slide fra højre - vælg et emne</h4>

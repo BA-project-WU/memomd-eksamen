@@ -5,7 +5,7 @@
 </template>
 <script>
 </script>
-<style>
+<style src="~/assets/style/main.css">
 #app {
   width: 100%;
 }

@@ -6,9 +6,11 @@
           <h4 class="card-title">{{ item.name }}</h4>
         </div>
         <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
-        <button>
-          <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
-        </button>
+        <div class="start-the-game">
+          <button class="btn-start-spil">
+            <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
+          </button>
+        </div>
       </li>
     </ul>
     <div v-else>
@@ -66,7 +68,7 @@ li.card {
   background-image: url(~/assets/images/aminosyrer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
+  height: 100%;
   width: 100%;
 }
 
@@ -102,6 +104,12 @@ li.card {
 h2 {
   font-size: 32px;
   margin-bottom: 1em;
+}
+
+.start-the-game {
+  position: relative;
+  text-align: center;
+  top: 50%;
 }
 
 .soon {
