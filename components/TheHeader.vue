@@ -22,5 +22,6 @@ header {
   justify-content: center;
   margin-bottom: 10px;
   text-align: center;
+  width: 100vw;
 }
 </style>

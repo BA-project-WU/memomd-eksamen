@@ -12,8 +12,8 @@
     </div>
     <DailyRecord />
     <div class="user-info">
-      <h3>Administrere din konto</h3>
-      <button class="btn-change-email" @click="showEmail = true">Ændre email</button>
+      <h3>Administrer din konto</h3>
+      <button class="btn-change-email" @click="showEmail = true">Ændr din email</button>
       <div v-if="showEmail" class="modal">
         <div class="modal-overlay">
           <div class="modal-email">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <button class="btn-change-password" @click="showPassword = true">Ændre adgangskode</button>
+      <button class="btn-change-password" @click="showPassword = true">Ændr din adgangskode</button>
       <div v-if="showPassword">
         <div class="modal-overlay">
           <div class="modal-password">
@@ -168,10 +168,6 @@ async function deleteMember() {
 </script>
 
 <style scoped>
-body {
-  overflow-x: hidden;
-}
-
 .profile-info {
   width: 100%;
   display: flex;
@@ -181,11 +177,12 @@ body {
 }
 
 .circle-img {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  overflow: hidden;
   border-radius: 50%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+
 }
 
 .profile-img {
@@ -193,31 +190,13 @@ body {
   width: 100%;
 }
 
-h3,
-p {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
 .user-info {
-  width: 100%;
-  height: 400px;
-  padding: 20px;
-}
-
-.btn-change-email,
-.btn-change-password,
-.btn-delete-user {
-  border: none;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 15px;
-  outline: 0;
-  text-align: center;
-  background: var(--primary-color);
-  width: 100%;
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0 100px 0;
+  padding: 0 0 40px 0;
 }
 
 .modal-overlay {
@@ -226,22 +205,24 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #000000da;
+  /* background-color: var(--primary-color); */
 }
 
-.modal-email {
-  background: var(--circle-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.modal-email,
+.modal-password {
+  align-items: center;
+  background: var(--grey-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  height: 200px;
   justify-content: center;
+  left: 50%;
   padding: 20px;
   position: fixed;
-  top: 20%;
-  width: 94%;
-  width: 100%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
   z-index: 999;
 }
 
@@ -263,10 +244,6 @@ input[type="newpassword"] {
   background: var(--secondary-color);
 }
 
-.btn-save {
-  margin-top: 20px;
-}
-
 h3 {
   padding-top: 10px;
 }
@@ -280,35 +257,6 @@ input[type="password"] {
   box-sizing: border-box;
   background: var(--secondary-color);
   margin-bottom: 10px;
-}
-
-.modal-password {
-  background: var(--circle-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  height: 250px;
-  justify-content: center;
-  margin-bottom: 10px;
-  padding: 20px;
-  position: fixed;
-  top: 20%;
-  width: 94%;
-  width: 100%;
-  z-index: 999;
-}
-
-input[type="submit"],
-.btn-save,
-.btn-submit {
-  background: var(--primary-color);
-  padding: 14px 20px;
-  margin: 8px 30;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
 }
 
 .content-container {

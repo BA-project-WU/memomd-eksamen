@@ -13,6 +13,8 @@
   --fonts: 'Rubik', sans-serif;
   --font-heading-size: 25px;
   --font-text-size: 15px;
+  /* text */
+  --bold-text: bold;
 }
 
 * {
@@ -25,12 +27,22 @@
   padding: 0;
 }
 
-/* tags */
+/* a, h1-6, p */
 
 a {
   cursor: pointer;
   text-decoration: none;
 }
+
+h1 {
+  color: var(--text-color);
+  font-family: var(--fonts);
+  font-size: var(--font-heading-size);
+  font-weight: var(--bold-text);
+  text-align: center;
+}
+
+/* elements */
 
 button,
 .button {
@@ -55,16 +67,8 @@ button:hover,
 
 form {
   display: table-cell;
-  width: 100%;
   padding: 20px;
-}
-
-h1 {
-  color: var(--text-color);
-  font-family: var(--fonts);
-  font-size: var(--font-heading-size);
-  font-weight: var(--bold-text);
-  text-align: center;
+  width: 100%;
 }
 
 input,
@@ -88,15 +92,21 @@ input[type="submit"] {
   margin: 20px auto;
 }
 
+/* specific */
+
 .goback-arrow {
   cursor: pointer;
+  left: 50%;
+  position: relative;
   text-align: center;
-  margin: 20px auto;
+  transform: translateX(-50%);
 }
 
-/* header */
+.goback-arrow svg {
+  margin-bottom: 20px;
+}
 
-/*Member style*/
+/* Member style */
 .login-page,
 .flashcards-page {
   display: flex;
@@ -131,18 +141,12 @@ form,
   text-align: center;
 }
 
-.btn-login {
-  background-color: var(--cta-bg-color);
-  border: none;
-  font-weight: var(--bold-text);
-  margin-bottom: 15px;
-  margin-top: 15px;
-  min-width: 300px;
-  padding: 15px;
+.error-message {
+  color: var(--red-color);
+  text-align: center;
 }
 
-/*settings style*/
-.settings-box {
+/* .settings-box {
   background: var(--secondary-color);
   display: flex;
   flex-direction: column;
@@ -153,7 +157,6 @@ form,
   position: absolute;
 }
 
-/*reporter et problem style*/
 .settings-box-report {
   display: flex;
   flex-direction: column;
@@ -163,7 +166,7 @@ form,
   min-height: 50vh;
   min-width: -webkit-fill-available;
   position: absolute;
-}
+} */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

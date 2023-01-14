@@ -19,7 +19,7 @@ body {
 }
 
 .content-container {
-  height: 100vh;
+  min-height: 100vh;
   margin: 5% 3%;
 }
 

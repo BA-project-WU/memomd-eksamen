@@ -35,15 +35,15 @@ const { data: subjects } = await useFetch(uriSubject, {
 .wrapper {
   margin: 0 auto;
   max-width: 1400px;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 .cards {
   display: flex;
-  height: 280px;
+  /* height: 280px; */
   list-style: none;
   overflow-x: scroll;
-  padding: 25px 0px;
+  padding: 20px 0px;
   scroll-snap-type: x mandatory;
 }
 
@@ -75,7 +75,7 @@ li.card {
 .card {
   background: var(--white);
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 20%);
   display: flex;
   flex: 0 0 100%;
   flex-direction: column;
@@ -107,6 +107,12 @@ h2 {
 }
 
 .start-the-game {
+  position: relative;
+  text-align: center;
+  top: 50%;
+}
+
+.btn-start-spil {
   position: relative;
   text-align: center;
   top: 50%;
@@ -145,7 +151,7 @@ h2 {
   }
 
   .card:not(:last-child) {
-    margin-right: 40px;
+    margin: 0 20px;
   }
 }
 </style>

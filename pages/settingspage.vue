@@ -2,20 +2,20 @@
   <div>
     <TheHeader heading="Indstillinger"></TheHeader>
     <div class="settings-box">
-      <div class="lyd">
+      <div class="setting lyd">
         <h4>Lydeffekter</h4>
         <input type="checkbox" id="switch1" /><label for="switch1"></label>
       </div>
-      <div class="notification">
+      <div class="setting notification">
         <h4>Notifikationer</h4>
         <input type="checkbox" id="switch2" /><label for="switch2"></label>
       </div>
-      <div class="policy">
+      <div class="setting policy">
         <h4>
           <NuxtLink class="policy" to="/policypage">Privatlivspolitik</NuxtLink>
         </h4>
       </div>
-      <div class="report">
+      <div class="setting report">
         <h4>
           <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
         </h4>
@@ -46,25 +46,31 @@ function logout() {
 </script>
 
 <style scoped>
-body {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: flex-start;
-}
-
 .settings-box {
   align-items: center;
+  background: var(--grey-color);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
   min-height: 50vh;
-  padding: 0 25px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 75%;
+}
+
+.setting {
+  line-height: 50px;
+  max-width: 300px;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .lyd,
 .notification {
   align-items: center;
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: space-between;
 }
 
 input {
@@ -75,7 +81,7 @@ input {
 }
 
 label {
-  background: grey;
+  background: var(--turquoise-light-color);
   border-radius: 20px;
   cursor: pointer;
   display: block;
@@ -116,22 +122,10 @@ label:after {
   font-family: var(--fonts);
   font-size: var(--text-size);
   font-weight: var(--bold-text);
-  /* justify-content: space-around; */
-}
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
 }
 
 .logout {
-  /* bottom: 50%; */
-  /* position: absolute; */
-  text-align: center;
-  /* top: 90%; */
-}
-
-.logout button {
-  margin: 0;
+  bottom: -20px;
+  position: absolute;
 }
 </style>

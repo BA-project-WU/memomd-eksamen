@@ -3,7 +3,7 @@
     <TheHeader class="heading" heading="Opret bruger"></TheHeader>
     <!-- <progress value="50" max="100"></progress> -->
     <form @submit.prevent="createMember">
-      <p style="color:red">{{ errorMessage }}</p><br />
+      <!-- <p style="color:red">{{ errorMessage }}</p><br /> -->
       <label for="name-input">Navn</label>
       <input type="text" name="name-input" placeholder="Dit fulde navn" required v-model="name" />
       <label for="username-input">Brugernavn (minimum 5 tegn)</label>
@@ -27,6 +27,7 @@
         <option value="Syddansk Universitet, Esbjerg">Syddansk Universitet, Esbjerg</option>
         <option value="Syddansk Universitet, Odense">Syddansk Universitet, Odense</option>
       </select>
+      <p class="error-message">{{ errorMessage }}</p>
       <!--function til at oprette member-->
       <input type="button" class="button" value="Opret" @click="createMember()" />
     </form>
@@ -92,21 +93,21 @@ async function createMember() {
           },
         });
       } else {
-        errorMessage.value = "Adgangskoden skal være ens i de to felter."
+        errorMessage.value = "Adgangskoderne skal være ens."
       }
     } else {
-      errorMessage.value = "Brugernavn skal være mindst 5 tegn."
+      errorMessage.value = "Brugernavn skal være minimum 5 tegn."
     }
   } else {
     // brugeren skal udfyld felterne 
-    errorMessage.value = "Udfyld alle felter før du opretter."
+    errorMessage.value = "Udfyld alle felter."
   }
 }
 </script>
 
 <style scoped>
 .createuser-page {
-  height: 100%;
+  min-height: 100%;
   max-width: 100vw;
 }
 </style>

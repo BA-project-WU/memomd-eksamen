@@ -20,17 +20,15 @@
 .record {
   display: flex;
   flex-direction: column;
+  margin: 40px 0 20px 0;
+  text-align: center;
   width: 100%;
-}
-
-h3 {
-  padding-left: 20px;
 }
 
 .boxes {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: center;
 }
 
@@ -38,13 +36,10 @@ h3 {
 .box-right {
   background-color: var(--secondary-color);
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.20);
   height: 200px;
   margin: 20px;
+  padding: 20px 0;
   width: 50%;
-}
-
-h4 {
-  padding: 10px 0px 0px 10px;
 }
 </style>

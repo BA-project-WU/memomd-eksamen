@@ -5,21 +5,21 @@
       <div class="quit-and-report">
         <div>
           <NuxtLink to="/flashcards/">
-            <button class="quit">Afslut spil</button>
+            <button>Afslut spil</button>
           </NuxtLink>
         </div>
         <div>
-          <button @click="reportProblem()" class="report">Rapporter et problem</button>
+          <button @click="reportProblem()">Rapporter et problem</button>
         </div>
       </div>
       <div class="quiz-wrapper">
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
-            <span class="score">Question: {{ getCurrentQuestion.index + 1 }} / {{ questions.length }} </span>
-            <span class="score">Score: {{ score }} </span>
-            <span class="question">{{ getCurrentQuestion.question }}</span>
+            <span class="score">{{ getCurrentQuestion.index + 1 }} / {{ questions.length }} </span>
+            <span class="score">{{ score }} </span>
           </div>
           <div class="options">
+            <span class="question">{{ getCurrentQuestion.question }}</span>
             <label v-for="(option, index) in getCurrentQuestion.options" :key="index" :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
             ? index == getCurrentQuestion.answer
               ? 'correct'
@@ -155,6 +155,10 @@ function reportProblem() {
 </script>
 
 <style scoped>
+/* .content-container {
+  padding: 0 0 100px 0;
+} */
+
 .quit-and-report {
   align-items: center;
   display: flex;
@@ -164,29 +168,13 @@ function reportProblem() {
   padding-bottom: 10px;
 }
 
-button {
-  border-radius: 4px;
-  padding: 10px;
-}
-
-.quit {
-  background-color: var(--primary-color);
-}
-
-.quit:hover {
-  background-color: var(--primary-color);
-}
-
-.report {
-  background: var(--primary-color);
-}
-
 .quiz-wrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 20px;
+  margin: 20px 0;
+  padding: 0 0 100px 0;
 }
 
 .quiz {
@@ -199,13 +187,14 @@ button {
 
 .quiz-info {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
 }
 
 .question {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .score {
@@ -231,6 +220,9 @@ label {
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(77, 232, 225, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 10px 0;
   padding: 10px;
   text-align: center;
@@ -249,13 +241,6 @@ label {
 }
 
 .btn-next {
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: flex;
-  color: black;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 20px;
   width: 100%;
 }
 
@@ -289,11 +274,6 @@ label {
   text-align: left;
 }
 
-h1 {
-  padding-bottom: 20px;
-  text-align: center;
-}
-
 .flashcard-title {
   align-content: space-between;
   background-color: var(--secondary-color);
@@ -308,7 +288,7 @@ h1 {
 }
 
 .my-bar {
-  background-color: rgb(252, 250, 250);
+  background-color: var(--white-color);
   height: 10px;
   width: 15%;
 }

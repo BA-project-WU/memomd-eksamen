@@ -1,13 +1,13 @@
 <template>
   <div class="login-page">
     <TheHeader class="heading" heading="Log ind"></TheHeader>
-
     <form @submit.prevent="memberLogin">
-      <p style="color:red">{{ errorMessage }}</p><br />
+      <!-- <p style="color:red">{{ errorMessage }}</p><br /> -->
       <label for="username">Brugernavn</label>
       <input autocomplete="on" type="text" v-model="username" placeholder="Dit brugernavn..." />
       <label autocomplete="on" id="password" for="password">Adgangskode</label>
       <input type="password" v-model="password" placeholder="Din adgangskode..." />
+      <p class="error-message">{{ errorMessage }}</p>
       <input type="submit" class="button" value="Log ind" @click="login()" />
     </form>
     <div class="remember-me">
@@ -64,6 +64,11 @@ async function forgotPassword() {
 </script>
 
 <style scoped>
+.login-page {
+  min-height: 100%;
+  max-width: 100vw;
+}
+
 .remember-me {
   align-items: center;
   display: flex;

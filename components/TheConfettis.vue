@@ -21,7 +21,8 @@
   height: 100%;
   overflow: hidden;
   position: absolute;
-  width: 100%;
+  /* width: 100%; */
+  width: -webkit-fill-available;
   z-index: -1;
 }
 
