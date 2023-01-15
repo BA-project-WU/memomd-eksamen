@@ -294,12 +294,6 @@
 </script>
 
 <style scoped>
-h1,
-h2 {
-  line-height: 1.3;
-  margin: 20px 0px;
-}
-
 .privacy-policy {
   align-items: center;
   background: var(--secondary-color);
@@ -308,39 +302,22 @@ h2 {
   flex-direction: column;
   font-family: 'Courier New', Courier, monospace;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   width: 90%;
 }
 
-p {
+h1,
+h2 {
   line-height: 1.3;
+  margin: 20px 0px;
 }
 
 a {
-  color: blue;
-  font-family: 'Courier New', Courier, monospace;
-  margin-top: 30px;
-  text-align: left;
+  color: var(--green-color);
 }
-
-/* .wpembed-index{
-margin: 20px 0px;
-} */
 
 li {
   list-style-type: square;
-}
-
-button {
-  color: black;
-  font-size: 20px;
-  margin: 10px 10px;
-  padding: 10px;
-}
-
-label {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-bottom: 5px;
 }
 </style>

@@ -14,8 +14,10 @@
       <label for="check">Husk mig</label>
       <input type="checkbox" v-model="remember" value="1">
     </div>
-    <p class="forgot-password" @click="forgotPassword()">Jeg har <span style="color:var(--primary-color);">glemt</span>
-      min adgangskode</p>
+    <p class="forgot-password" @click="forgotPassword()">Jeg har
+      <span style="color:var(--primary-color);">glemt</span>
+      min adgangskode
+    </p>
     <NuxtLink to="/" class="goback-arrow">
       <font-awesome-icon icon="fa fa-arrow-left" />
     </NuxtLink>

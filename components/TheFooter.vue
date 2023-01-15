@@ -1,9 +1,11 @@
 <template>
   <footer>
     <div class="start-the-game">
-      <button class="btn-start-spil">
-        <NuxtLink to="/flashcards/"><font-awesome-icon icon="fa-solid fa-home" /></NuxtLink>
-      </button>
+      <NuxtLink to="/flashcards/">
+        <button class="btn-start-spil">
+          <font-awesome-icon icon="fa-solid fa-home" />
+        </button>
+      </NuxtLink>
     </div>
     <ul class="footer-list">
       <li>
@@ -35,6 +37,7 @@ footer {
   position: relative;
   text-align: center;
   top: -50%;
+  /* transform: translateY(-50%); */
 }
 
 .footer-list {

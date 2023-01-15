@@ -1,7 +1,7 @@
 <template>
   <div class="overall-wrapper-game">
     <NuxtLayout>
-      <div class="courses">
+      <section class="courses">
         <div v-for="item in courses">
           <h2>{{ item.name }}</h2>
           <details class="show-detail">
@@ -12,7 +12,7 @@
           <h4 class="slide">Slide fra højre - vælg et emne</h4>
           <OverviewSubject :course="item" />
         </div>
-      </div>
+      </section>
     </NuxtLayout>
   </div>
 </template>

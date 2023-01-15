@@ -1,7 +1,7 @@
 <template>
   <div class="profile-page">
     <TheHeader heading="Min profil"></TheHeader>
-    <div class="profile-info">
+    <section class="profile-info">
       <div class="circle-img">
         <img class="profile-img" src="~/assets/images/member.webp" alt="member" />
       </div>
@@ -9,9 +9,9 @@
       <p>{{ name }}</p>
       <p>{{ email }}</p>
       <p>{{ memberEducationInstitution }}</p>
-    </div>
+    </section>
     <DailyRecord />
-    <div class="user-info">
+    <section class="user-info">
       <h3>Administrer din konto</h3>
       <button class="btn-change-email" @click="showEmail = true">Ændre din email</button>
       <div v-if="showEmail" class="modal">
@@ -42,7 +42,7 @@
         </div>
       </div>
       <!-- <button class="btn-delete-user" @click="deleteMember()">Slet profilen</button> -->
-    </div>
+    </section>
     <TheFooter />
   </div>
 </template>

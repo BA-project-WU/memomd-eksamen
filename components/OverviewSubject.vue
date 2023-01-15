@@ -7,9 +7,12 @@
         </div>
         <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
         <div class="start-the-game">
-          <button class="btn-start-spil">
+          <!-- <button class="btn-start-spil">
             <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
-          </button>
+          </button> -->
+          <NuxtLink :to="`/flashcards/${item._id}`">
+            <button class="btn-start-spil">Start spil</button>
+          </NuxtLink>
         </div>
       </li>
     </ul>

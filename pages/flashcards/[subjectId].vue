@@ -2,16 +2,18 @@
   <NuxtLayout>
     <div>
       <TheConfettis></TheConfettis>
-      <div class="quit-and-report">
+      <section class="quit-and-report">
         <div>
           <NuxtLink to="/flashcards/">
             <button>Afslut spil</button>
           </NuxtLink>
         </div>
         <div>
-          <button @click="reportProblem()">Rapporter et problem</button>
+          <NuxtLink to="/reportpage/">
+            <button class="report-issue">Raportér et problem</button>
+          </NuxtLink>
         </div>
-      </div>
+      </section>
       <div class="quiz-wrapper">
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
@@ -239,7 +241,8 @@ label {
   background-color: var(--green-color);
 }
 
-.wrong {
+.wrong,
+.report-issue {
   background-color: var(--red-color);
 }
 
@@ -269,36 +272,6 @@ label {
 .back-to-game {
   background: var(--primary-color);
   margin-top: 20px;
-}
-
-.arrow-left {
-  margin-left: 20px;
-  margin-top: 20px;
-  text-align: left;
-}
-
-.flashcard-title {
-  align-content: space-between;
-  background-color: var(--secondary-color);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-top: -18px;
-  padding: 50px 50px;
-  text-align: center;
-}
-
-.my-bar {
-  background-color: var(--white-color);
-  height: 10px;
-  width: 15%;
-}
-
-.my-progress {
-  background-color: var(--primary-color);
-  width: 100%;
 }
 
 .user-score {

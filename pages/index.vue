@@ -4,12 +4,12 @@
       <img class="logo-start" src="~/assets/images/logo.png" alt="MemoMD logo" style="height: inherit; width: auto" />
     </header>
     <section class="start-options">
-      <button>
-        <NuxtLink to="member/loginpage">Log ind</NuxtLink>
-      </button>
-      <button>
-        <NuxtLink to="member/createuserpage">Opret bruger</NuxtLink>
-      </button>
+      <NuxtLink to="member/loginpage">
+        <button>Log ind</button>
+      </NuxtLink>
+      <NuxtLink to="member/createuserpage">
+        <button>Opret bruger</button>
+      </NuxtLink>
     </section>
   </main>
 </template>

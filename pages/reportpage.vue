@@ -21,11 +21,9 @@
           </button>
         </div>
       </form>
-      <div class="arrow-left">
-        <NuxtLink to="/settingspage">
-          <font-awesome-icon style="color: black" icon="fa fa-arrow-left" />
-        </NuxtLink>
-      </div>
+      <NuxtLink to="/settingspage" class="goback-arrow">
+        <font-awesome-icon icon="fa fa-arrow-left" />
+      </NuxtLink>
     </div>
     <TheFooter />
   </div>
@@ -69,51 +67,23 @@ if (!token) { navigateTo("/member/loginpage"); }
 </script>
 
 <style scoped>
-body {
+.settings-box-report {
   align-items: center;
   display: flex;
-  height: 100vh;
-  justify-content: flex-start;
+  flex-direction: column;
+  left: 50%;
+  min-height: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 75%;
 }
 
-form {
-  display: table-cell;
-  margin-top: 30px;
-  width: 100%;
+.save-btn {
+  text-align: center;
 }
 
-input,
-select,
-textarea {
-  background: var(--secondary-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 12px 12px;
-  width: 100%;
-}
-
-button {
-  background-color: var(--primary-color);
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px 10px;
-}
-
-.btn-send-report {
-  background: var(--primary-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 8px 30;
-  padding: 14px 20px;
-  width: 100%;
-}
-
-.arrow-left {
-  margin-top: 20px;
-  text-align: left;
+.goback-arrow {
+  left: 0;
+  transform: translateX(0);
 }
 </style>
