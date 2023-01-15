@@ -40,7 +40,7 @@ const { umbracoApiKey } = useRuntimeConfig();
 
 async function sendReport() {
   if (reportTitle.value != "" && reportOptions.value != "" && reportMessage.value != "") {
-    alert("Din rapportering blevet sendt. Tak for din hjælp :)")
+    alert("Din rapportering er blevet afsendt. Tak!")
     await useFetch(
       "https://api.umbraco.io/forms/e644a504-a515-4974-ac9a-b8a9be734edc/entries",
       {
@@ -60,7 +60,7 @@ async function sendReport() {
     );
 
   } else {
-    alert("Udfyld alle felter før du sender.")
+    alert("Udfyld alle felter.")
   }
 
 }

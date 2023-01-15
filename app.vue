@@ -6,8 +6,8 @@
 <script>
 </script>
 <style>
-@import '~/assets/style/main.css';
-@import '@fortawesome/fontawesome-svg-core/styles.css';
+/* @import '~/assets/style/main.css';
+@import '@fortawesome/fontawesome-svg-core/styles.css'; */
 
 #app {
   width: 100%;

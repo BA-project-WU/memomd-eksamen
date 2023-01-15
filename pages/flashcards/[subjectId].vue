@@ -74,11 +74,14 @@ let questions = ref([])
 const token = useCookie("token").value
 if (!token) { navigateTo('/member/loginpage') }
 
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
+
 //fetching resources from umbraco heartcore
 await useFetch(uri, {
   headers: {
-    "Umb-Project-Alias": "nicole-ba-test",
-    "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+    "umb-project-alias": umbracoProjectAlias,
+    "api-key": umbracoApiKey,
     Authorization: "Bearer " + token,
   },
   method: "get",

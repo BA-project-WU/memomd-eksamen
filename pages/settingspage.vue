@@ -17,8 +17,11 @@
       </div>
       <div class="setting report">
         <h4>
-          <NuxtLink class="report" to="/reportpage">Rapporter et problem</NuxtLink>
+          <NuxtLink class="report" to="/reportpage">Rapportér et problem</NuxtLink>
         </h4>
+      </div>
+      <div class="setting delete">
+        <h4 @click="deleteMember()">Slet profilen</h4>
       </div>
       <div class="logout">
         <button @click="logout()">Log af</button>
@@ -37,6 +40,27 @@ if (!token) {
   navigateTo("/member/loginpage");
 }
 
+//
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
+
+async function deleteMember() {
+  let text = "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
+  if (confirm(text) == true) {
+    //if the block below is uncomment, then the user will actually be deleted.
+    await useFetch("https://api.umbraco.io/member/" + username, {
+      method: "DELETE",
+      headers: {
+        "umb-project-alias": umbracoProjectAlias,
+        "api-key": umbracoApiKey,
+      },
+    });
+    navigateTo('/member/loginpage')
+  } else {
+  }
+}
+// 
+
 // function til log ud og tilbage til login side
 function logout() {
   useCookie("token").value = "";
@@ -53,7 +77,8 @@ function logout() {
   flex-direction: column;
   justify-content: center;
   left: 50%;
-  min-height: 50vh;
+  min-height: auto;
+  padding: 20px 0;
   position: absolute;
   transform: translateX(-50%);
   width: 75%;

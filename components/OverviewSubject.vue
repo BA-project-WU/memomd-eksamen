@@ -23,10 +23,12 @@
 // declaring and initializing constant variables
 const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { course } = defineProps(["course"]);
+const { umbracoProjectAlias } = useRuntimeConfig();
+const { umbracoApiKey } = useRuntimeConfig();
 const { data: subjects } = await useFetch(uriSubject, {
   headers: {
-    "Umb-Project-Alias": "nicole-ba-test",
-    "Api-Key": "BC2nwQgvNxNvZuoL4c6K",
+    "umb-project-alias": umbracoProjectAlias,
+    "api-key": umbracoApiKey,
   },
 });
 </script>

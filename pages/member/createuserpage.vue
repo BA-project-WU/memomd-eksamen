@@ -9,8 +9,8 @@
       <label for="username-input">Brugernavn (minimum 5 tegn)</label>
       <input type="text" minlength="5" name="username-input" placeholder="Vælg et brugernavn" required
         v-model="username" />
-      <label for="email-input">Email-addresse</label>
-      <input type="email" name="email-input" placeholder="Din email-addresse" required v-model="email" />
+      <label for="email-input">E-mail-adresse</label>
+      <input type="email" name="email-input" placeholder="Din e-mail-adresse" required v-model="email" />
       <label for="password-input">Adgangskode (minimum 10 tegn)</label>
       <input type="password" minlength="10" name="password-input" placeholder="Din adgangskode" required
         v-model="password" />
@@ -18,9 +18,9 @@
       <input type="password" minlength="10" name="password-input1" placeholder="Gentag adgangskode" required
         v-model="password1" />
       <!-- <input type="file" name="memberPicture" v-on:change="memberPicture" /> -->
-      <label for="memberEducationInstitution">Uddannelsesinstution</label>
+      <label for="memberEducationInstitution">Uddannelsesinstitution</label>
       <select name="memberEducationInstitution" required v-model="memberEducationInstitution">
-        <option disabled hidden value="">Din uddannelsesinstution</option>
+        <option disabled hidden value="">Din uddannelsesinstitution</option>
         <option value="Aalborg Universitet (AAU)">Aalborg Universitet (AAU)</option>
         <option value="Aarhus Universitet (AU)">Aarhus Universitet (AU)</option>
         <option value="Københavns Universitet, Nørre Campus">Københavns Universitet, Nørre Campus</option>

@@ -13,34 +13,35 @@
     <DailyRecord />
     <div class="user-info">
       <h3>Administrer din konto</h3>
-      <button class="btn-change-email" @click="showEmail = true">Ændr din email</button>
+      <button class="btn-change-email" @click="showEmail = true">Ændre din email</button>
       <div v-if="showEmail" class="modal">
         <div class="modal-overlay">
           <div class="modal-email">
             <div class="x-icon">
               <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showEmail = false" />
             </div>
-            <p style="color:red">{{ errorMessage }}</p><br />
-            <input type="text" v-model="email" placeholder="email" />
+            <p class="error-message">{{ errorMessage }}</p><br />
+            <input type="email" v-model="email" placeholder="email" />
             <button class="btn-save" @click="showEmail = false; updateEmail();">Gem</button>
           </div>
         </div>
       </div>
-      <button class="btn-change-password" @click="showPassword = true">Ændr din adgangskode</button>
+      <button class="btn-change-password" @click="showPassword = true">Ændre din adgangskode</button>
       <div v-if="showPassword">
         <div class="modal-overlay">
           <div class="modal-password">
             <div class="x-icon">
               <font-awesome-icon style="color: white" icon="fa-solid fa-times" @click="showPassword = false" />
             </div>
-            <p style="color:red">{{ errorMessage }}</p><br />
+            <p class="error-message">{{ errorMessage }}</p><br />
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
             <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
+            <label for="newpassword">Adgangskode (minimum 10 tegn)</label>
             <button class="btn-save" type="submit" @click="updatePassword();">Gem</button>
           </div>
         </div>
       </div>
-      <button class="btn-delete-user" @click="deleteMember()">Slet profilen</button>
+      <!-- <button class="btn-delete-user" @click="deleteMember()">Slet profilen</button> -->
     </div>
     <TheFooter />
   </div>
@@ -141,30 +142,30 @@ async function updatePassword() {
           // alert(response._data.error.details.errors[0]);
           errorMessage.value = response._data.error.details.errors[0]
         } else {
-          alert("Password opdateret");
+          alert("Adgangskoden er blevet opdateret");
         }
       },
     });
   } else {
-    errorMessage.value = "Husk at udfylde begge felter før du gemmer."
+    errorMessage.value = "Udfylde begge felter."
   }
 }
 // function til at slet member
-async function deleteMember() {
-  let text = "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
-  if (confirm(text) == true) {
-    //if the block below is uncomment, then the user will actually be deleted.
-    await useFetch("https://api.umbraco.io/member/" + username, {
-      method: "DELETE",
-      headers: {
-        "umb-project-alias": umbracoProjectAlias,
-        "api-key": umbracoApiKey,
-      },
-    });
-    navigateTo('/member/loginpage')
-  } else {
-  }
-}
+// async function deleteMember() {
+//   let text = "Er du sikker på at du vil slette denne bruger?\nTryk OK for at bekræfte eller Annuller hvis du har fortrudt.";
+//   if (confirm(text) == true) {
+//     //if the block below is uncomment, then the user will actually be deleted.
+//     await useFetch("https://api.umbraco.io/member/" + username, {
+//       method: "DELETE",
+//       headers: {
+//         "umb-project-alias": umbracoProjectAlias,
+//         "api-key": umbracoApiKey,
+//       },
+//     });
+//     navigateTo('/member/loginpage')
+//   } else {
+//   }
+// }
 </script>
 
 <style scoped>
@@ -182,7 +183,6 @@ async function deleteMember() {
   overflow: hidden;
   position: relative;
   width: 200px;
-
 }
 
 .profile-img {
@@ -200,11 +200,12 @@ async function deleteMember() {
 }
 
 .modal-overlay {
-  position: fixed;
-  top: 0;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.20);
   bottom: 0;
   left: 0;
+  position: fixed;
   right: 0;
+  top: 0;
   /* background-color: var(--primary-color); */
 }
 
@@ -214,6 +215,7 @@ async function deleteMember() {
   background: var(--grey-color);
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.20);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -233,7 +235,7 @@ async function deleteMember() {
   padding: 10px;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="newpassword"] {
   padding: 12px 12px;
   width: 100%;
