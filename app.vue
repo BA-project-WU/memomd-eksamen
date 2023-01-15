@@ -5,7 +5,10 @@
 </template>
 <script>
 </script>
-<style src="~/assets/style/main.css">
+<style>
+@import '~/assets/style/main.css';
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
 #app {
   width: 100%;
 }
