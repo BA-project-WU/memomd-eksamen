@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <div>
-      <TheConfettis></TheConfettis>
+      <!-- <TheConfettis></TheConfettis> -->
       <section class="quit-and-report">
         <div>
           <NuxtLink to="/flashcards/">
@@ -48,6 +48,7 @@
           </button>
         </section>
         <section class="finish-game" v-else>
+          <TheConfettis></TheConfettis>
           <h2>Du har gennemført spillet</h2>
           <h3 class="user-score">Du fik {{ score }} / {{ questions.length }} rigtige</h3>
           <div>
@@ -167,8 +168,7 @@ function reportProblem() {
 .quit-and-report {
   align-items: center;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   margin-top: 20px;
   padding-bottom: 10px;
 }
