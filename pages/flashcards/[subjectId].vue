@@ -17,8 +17,8 @@
       <div class="quiz-wrapper">
         <section v-if="!quizCompleted" class="quiz">
           <div class="quiz-info">
-            <span class="score">{{ getCurrentQuestion.index + 1 }} / {{ questions.length }} </span>
-            <span class="score">{{ score }} </span>
+            <span class="score">Spørgesmål {{ getCurrentQuestion.index + 1 }} / {{ questions.length }} </span>
+            <span class="score">Point {{ score }} </span>
           </div>
           <div class="options">
             <span class="question">{{ getCurrentQuestion.question }}</span>
