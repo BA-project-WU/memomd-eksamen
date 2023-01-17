@@ -80,8 +80,12 @@ async function forgotPassword() {
 }
 
 input[type="checkbox"] {
-  margin: 0 0 0 20px;
-  width: auto;
+  height: 20px;
+  margin: 0 0 0 10px;
+  width: 20px;
+  -moz-appearance: checkbox;
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
 }
 
 .forgot-password {
