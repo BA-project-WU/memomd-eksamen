@@ -2,15 +2,17 @@
   <div class="overall-wrapper-game">
     <NuxtLayout>
       <section class="courses">
-        <div v-for="item in courses">
-          <h2>{{ item.name }}</h2>
+        <div v-for="course in coursesGraph.subjectCourses.children.items" :key="course.id">
+          
+          <h2>{{ course.name }}</h2>
           <details class="show-detail">
-            <summary class="text1">Semester {{ item.semester[0] }}</summary>
+            <summary class="text1">Semester {{ course.semester[0] }}</summary>
             <h4>Om semesteret:</h4>
-            {{ item.description }}
+            <p>{{ course.description }}</p>
           </details>
           <h4 class="slide">Slide fra højre - vælg et emne</h4>
-          <OverviewSubject :course="item" />
+          <OverviewSubject :course="course" />
+          
         </div>
       </section>
     </NuxtLayout>
@@ -24,23 +26,26 @@ const token = useCookie("token").value;
 if (!token) {
   navigateTo("/member/loginpage");
 }
-let courses = {};
 
-const { umbracoProjectAlias } = useRuntimeConfig();
-const { umbracoApiKey } = useRuntimeConfig();
-//fetch the flascards memo game api from umbraco heartcore
-const uri = `https://cdn.umbraco.io/content/a157b211-b293-4192-b36b-2655e3b8d7d1/children`;
-await useFetch(uri, {
-  headers: {
-    "umb-project-alias": umbracoProjectAlias,
-    "api-key": umbracoApiKey,
-    Authorization: "Bearer " + token,
-  },
-  method: "get",
-  onResponse({ request, response, options }) {
-    courses = response._data._embedded.content;
-  },
-});
+
+const query = gql`
+  query {subjectCourses(url: "/home/overview-page/subject-courses") 
+  {
+    children {
+      items{
+        name
+        id
+        ... on SubjectCourse {
+            description
+            semester
+        }
+      }
+    }
+  }
+}
+`
+
+const { data: coursesGraph } = await useAsyncQuery(query)
 
 useHead({
   title: "MemoMD",

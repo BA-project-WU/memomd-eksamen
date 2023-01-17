@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.13.0",
+    "@nuxtjs/apollo": "^5.0.0-alpha.5",
     "nuxt": "3.0.0"
   },
   "dependencies": {

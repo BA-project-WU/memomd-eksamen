@@ -1,16 +1,12 @@
 <template>
   <div class="wrapper">
-    <ul v-if="subjects._totalItems > 0" class="cards">
-      <li v-for="item in subjects._embedded.content" class="card">
+    <ul v-if="subjectsGraph.subjectCourse.children.items.length > 0" class="cards">
+      <li v-for="subjectgql in subjectsGraph.subjectCourse.children.items" :key="subjectgql.id" class="card">
         <div class="card-content">
-          <h4 class="card-title">{{ item.name }}</h4>
+          <h4 class="card-title">{{ subjectgql.name }}</h4>
         </div>
-        <!-- <NuxtLink :to="`/flashcards/${item._id}`">Spil</NuxtLink> -->
         <div class="start-the-game">
-          <!-- <button class="btn-start-spil">
-            <NuxtLink :to="`/flashcards/${item._id}`">Start spil</NuxtLink>
-          </button> -->
-          <NuxtLink :to="`/flashcards/${item._id}`">
+          <NuxtLink :to="`/flashcards/${subjectgql.id}`">
             <button class="btn-start-spil">Start spil</button>
           </NuxtLink>
         </div>
@@ -24,16 +20,22 @@
 
 <script setup>
 // declaring and initializing constant variables
-const uriSubject = `https://cdn.umbraco.io/content/${course._id}/children?`;
 const { course } = defineProps(["course"]);
-const { umbracoProjectAlias } = useRuntimeConfig();
-const { umbracoApiKey } = useRuntimeConfig();
-const { data: subjects } = await useFetch(uriSubject, {
-  headers: {
-    "umb-project-alias": umbracoProjectAlias,
-    "api-key": umbracoApiKey,
-  },
-});
+
+
+const query = gql`
+  query getAllSubjects($courseid: ID!){
+    subjectCourse(id:$courseid) {
+      children {
+      items{
+        name
+        id
+    }}
+    }
+  }
+`
+const variables = {courseid:course.id}
+const { data: subjectsGraph} = await useAsyncQuery(query, variables)
 </script>
 
 <style scoped>
