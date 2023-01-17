@@ -55,7 +55,7 @@ async function deleteMember() {
         "api-key": umbracoApiKey,
       },
     });
-    navigateTo('/member/loginpage')
+    navigateTo('/')
   } else {
   }
 }
@@ -154,5 +154,4 @@ label:after {
   bottom: -20px;
   position: absolute;
 }
-
 </style>
