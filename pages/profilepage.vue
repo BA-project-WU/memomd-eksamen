@@ -35,8 +35,8 @@
             </div>
             <p class="error-message">{{ errorMessage }}</p><br />
             <input type="password" v-model="currentPassword" placeholder="Indtast nuværende adgangskode" />
-            <input type="newpassword" v-model="newPassword" placeholder="Indtast ny adgangskode" />
-            <label for="newpassword">Adgangskode (minimum 10 tegn)</label>
+            <input type="password" v-model="newPassword" placeholder="Indtast ny adgangskode" />
+            <label for="newPassword">Adgangskode (minimum 10 tegn)</label>
             <button class="btn-save" type="submit" @click="updatePassword();">Gem</button>
           </div>
         </div>
@@ -229,52 +229,40 @@ async function updatePassword() {
 }
 
 .x-icon {
-  text-align: right;
-  position: relative;
-  top: -20px;
   padding: 10px;
+  position: relative;
+  text-align: right;
+  top: -20px;
 }
 
-input[type="email"],
-input[type="newpassword"] {
-  padding: 12px 12px;
-  width: 100%;
-  display: inline-block;
+input {
+  background: var(--secondary-color);
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  background: var(--secondary-color);
+  display: inline-block;
+  padding: 12px;
+  width: 100%;
 }
 
 h3 {
   padding-top: 10px;
 }
 
-input[type="password"] {
-  padding: 12px 12px;
-  width: 100%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: var(--secondary-color);
-  margin-bottom: 10px;
-}
-
 .content-container {
-  margin: 5% 3%;
   height: 100vh;
+  margin: 5% 3%;
 }
 
 .check {
-  width: 200px;
   height: auto;
   margin-top: 100px;
+  width: 200px;
 }
 
 .edit-icon {
-  position: relative;
   left: 87px;
+  position: relative;
   top: -20px;
 }
 </style>
