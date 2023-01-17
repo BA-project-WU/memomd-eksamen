@@ -40,7 +40,7 @@ if (!token) {
   navigateTo("/member/loginpage");
 }
 
-//
+let username = useCookie("username").value
 const { umbracoProjectAlias } = useRuntimeConfig();
 const { umbracoApiKey } = useRuntimeConfig();
 
@@ -155,5 +155,4 @@ label:after {
   position: absolute;
 }
 
-.logout button {}
 </style>
