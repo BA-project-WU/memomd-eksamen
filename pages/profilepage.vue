@@ -98,7 +98,7 @@ async function delay() {
       memberTypeAlias = response._data.memberTypeAlias;
       username = response._data.username;
       name = response._data.name;
-      memberEducationInstitution = response._data.name;
+      memberEducationInstitution = response._data.memberEducationInstitution;
     },
   });
 }
