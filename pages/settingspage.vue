@@ -55,6 +55,7 @@ async function deleteMember() {
         "api-key": umbracoApiKey,
       },
     });
+    alert('Du er blevet slettet!')
     navigateTo('/')
   } else {
   }
